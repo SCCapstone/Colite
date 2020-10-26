@@ -8,7 +8,7 @@ Red flags to show batteries' deep discharge, and other abnormalities
 Develop a database and web application that will let users view visualizations of the data the system receives from Colites systems
 We will be able to handle data from poles generating more than 20 data points from a PV panel, wind turbine, and batteries at a 2 second interval with mock data input.
 
-The main technologies being used will be Amazon Web Services, MYSQL, HTML/VueJS, as well as Python for testing features. 
+The main technologies being used will be Amazon Web Services, MYSQL, HTML/VueJS, as well as Python for testing features. We will be communicating with Colite Technologies throughout the project to make sure we are able to meet their requirements. 
 
 # Vue JS Requirements
 # EXTERNAL REQUIREMENTS:
