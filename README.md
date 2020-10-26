@@ -21,7 +21,8 @@ The main technologies being used will be Amazon Web Services, MYSQL, HTML/VueJS,
 # EXTERNAL REQUIREMENTS:
 1. The user will need to have MySQL installed.
 2. The user will need to have MySQL workbench installed.
-3. The user will need tohave security credentials to access the database.
+3. The user will need to have security credentials to access the database.
+4. The user will need to have the IP for the database.
 
 # RUNNING
 To run the app the user will want to enter the following on the command line:
