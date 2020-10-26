@@ -30,7 +30,7 @@ To run the app the user will want to enter the following on the command line:
 - go to the url: localhost/8080 to be able to view the application after it is built and running
  
  # DEPLOYMENT
-
+The application will be hosted on an AWS server
 
 # TESTING
 - the unit tests will be located in tests/units
