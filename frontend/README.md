@@ -1,8 +1,19 @@
 # frontend
 
 ## Project setup
+
 ```
-npm install
+npm install (or from Nodejs.org)
+```
+
+### Install Vue.JS
+```
+npm install -g@vue/cli
+```
+
+### Optional
+```
+Install Vue DevTools through the google chrome store
 ```
 
 ### Compiles and hot-reloads for development
