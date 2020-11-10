@@ -10,6 +10,10 @@ npm install (or from Nodejs.org)
 ```
 npm install -g@vue/cli
 ```
+### Install Bootstrap
+```
+npm install bootstrap
+```
 
 ### Optional
 ```
