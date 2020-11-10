@@ -1,7 +1,6 @@
 # frontend
 
 ## Project setup
-
 ```
 npm install (or from Nodejs.org)
 ```
@@ -10,27 +9,32 @@ npm install (or from Nodejs.org)
 ```
 npm install -g@vue/cli
 ```
-### Install Bootstrap
-```
-npm install bootstrap
-```
 
 ### Optional
 ```
 Install Vue DevTools through the google chrome store
 ```
+
 ### Change Directory
 ```
 cd frontend
 ```
+
+### Install Bootstrap
+```
+npm install bootstrap
+```
+
 ### Compiles and hot-reloads for development
 ```
 npm run serve
 ```
+
 ### To view application go to
 ```
 localhost:8080
 ```
+
 ### Compiles and minifies for production
 ```
 npm run build
