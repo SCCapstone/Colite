@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Navbar> </Navbar>
-    <div id="nav">
+    <div id="nav" class="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/dataViz">Data Visualization</router-link> |
@@ -23,13 +23,17 @@
 
 #nav {
   padding: 30px;
+  //background-color: #2c3e50;
+  background-image: linear-gradient(to right, #2c3e50, #42b983);
 
   a {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 25px;
     font-weight: bold;
-    color: #2c3e50;
+    color: #e4e4e4;
 
     &.router-link-exact-active {
-      color: #42b983;
+      color: #999999;
     }
   }
 }
