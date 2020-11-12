@@ -26,7 +26,7 @@ The main technologies being used will be Amazon Web Services, MYSQL, HTML/VueJS,
 
 # RUNNING
 To run the app the user will want to enter the following on the command line:
-- cd into the required directory
+- cd into the "frontend" directory
 - run the command: npm run serve
 - go to the url: localhost/8080 to be able to view the application after it is built and running
  
