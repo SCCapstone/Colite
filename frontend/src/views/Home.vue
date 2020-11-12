@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-      <Navbar></Navbar>
+    <!--<Navbar></Navbar>-->
     <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to the Colite Technologies Data Visualization Application"/>
   </div>

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Navbar> </Navbar>
+    <!--<Navbar> </Navbar>-->
     <div id="nav" class="nav">
     <img alt="ColiteLogo" src="@/assets/coliteNavBar.png">
       <router-link to="/">Home</router-link> |
@@ -35,7 +35,7 @@
     color: #e4e4e4;
 
     &.router-link-exact-active {
-      color: #999999;
+      color: #2c3e50;
     }
   }
 }
