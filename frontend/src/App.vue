@@ -19,14 +19,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #42b983;
+  color: #95c23b;
   background-color: #2c3e50;
   
 }
 
 #nav {
   padding: 30px;
-  background-image: linear-gradient(to right, #2c3e50, #42b983);
+  background-image: linear-gradient(to right, #2c3e50, #95c23b);
 
   a {
     font-family: "Times New Roman", Times, serif;
