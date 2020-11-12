@@ -2,7 +2,6 @@
   <div id="app">
     <Navbar> </Navbar>
     <div id="nav" class="nav">
-      <img alt="ColiteLogo" src="/assets/colite2.png">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/dataViz">Data Visualization</router-link> |
