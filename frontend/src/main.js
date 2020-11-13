@@ -7,6 +7,9 @@ import './registerServiceWorker';
 import router from './router';
 import store from './store';
 import Navbar from './components/Navbar.vue';
+import axios from 'axios';
+
+Vue.prototype.$http = axios;
 
 // line below is not working
 Vue.component('Navbar', require('./components/Navbar.vue').default);
