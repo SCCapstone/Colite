@@ -13,7 +13,7 @@
               <h5 class="card-title">Learn about Colite Technologies</h5>
               
               <router-link to="/about">
-                <b-button size="lg" variant="primary">Our About Page</b-button>
+                <b-button size="lg" variant="primary">Our About Us Page</b-button>
               </router-link>
             </div>
           </div>
@@ -61,6 +61,9 @@ ul {
   list-style-type: none;
   padding: 0;
 }
+// h5 {
+//   margin: 40px 0 0;
+// }
 li {
   display: inline-block;
   margin: 0 10px;
