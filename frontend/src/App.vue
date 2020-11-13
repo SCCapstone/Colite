@@ -28,7 +28,7 @@
   background-image: linear-gradient(to right, #2c3e50, #95c23b);
 
   a {
-    font-family: "Times New Roman", Times, serif;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
     font-size: 25px;
     font-weight: bold;
     color: #e4e4e4;
