@@ -1,4 +1,5 @@
 <script src="vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 <template>
   <div class="listOfParts">
@@ -329,4 +330,3 @@
         }
       });
 </script>
-

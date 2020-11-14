@@ -9,9 +9,9 @@ npm install (or from Nodejs.org)
 ```
 npm install -g@vue/cli
 ```
-### Install Ajax
+### Install Axios/Ajax
 ```
-npm install ajax
+npm install axios
 ```
 
 ### Optional
