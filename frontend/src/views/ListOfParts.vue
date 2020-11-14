@@ -315,7 +315,7 @@
           })
         },
         deleteRecord: function(index,id_number){
-          axios.post('ajax.php',{
+          axios.post('ajaxfile.php',{
             request: 4,
             id_number: id_number
           })
