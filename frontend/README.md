@@ -14,6 +14,11 @@ npm install -g@vue/cli
 npm install axios
 ```
 
+### Install Postscribe
+```
+npm i postscribe --save
+```
+
 ### Optional
 ```
 Install Vue DevTools through the google chrome store
