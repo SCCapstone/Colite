@@ -9,13 +9,79 @@ Develop a database and web application that will let users view visualizations o
 We will be able to handle data from poles generating more than 20 data points from a PV panel, wind turbine, and batteries at a 2 second interval with mock data input.
 
 The main technologies being used will be Amazon Web Services, MYSQL, HTML/VueJS, as well as Python for testing features. We will be communicating with Colite Technologies throughout the project to make sure we are able to meet their requirements. 
+# Frontend
 
-# Vue JS Requirements
-# EXTERNAL REQUIREMENTS:
-1. The user will need to have NPM installed from nodejs.org
-2. The user will need to have Vue.JS installed.
-   2a. This can be done through the command line via the command: npm install -g @vue/cli
-3. (Optional) The user can also install vue devtools to be able to format and view changes easier. This can be installed through the google chrome store. 
+## Project setup 
+## The user will need to have NPM installed from nodejs.org
+```
+npm install (or from Nodejs.org)
+```
+
+### Install Vue.JS
+## The user will need to have Vue.JS installed - can be done through command line
+```
+npm install -g@vue/cli
+```
+
+### (Optional) The user can also install vue devtools to be able to format and view changes easier. 
+```
+This can be installed through the google chrome store. 
+```
+
+### Install Axios/Ajax
+```
+npm install axios
+```
+
+### Install Postscribe
+```
+npm i postscribe --save
+```
+
+### Optional
+```
+Install Vue DevTools through the google chrome store
+```
+
+### Change Directory
+```
+cd frontend
+```
+
+### Install Bootstrap
+```
+npm install bootstrap
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### To view application go to
+```
+localhost:8080
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Run your unit tests
+```
+npm run test:unit
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
 
 # SQL Requirements
 # EXTERNAL REQUIREMENTS:
