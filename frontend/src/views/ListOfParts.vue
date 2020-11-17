@@ -3,7 +3,7 @@
 
 <template>
   <div id="listOfParts" class="listOfParts">
-    <h1>This is the parts list page</h1>
+    <h1>Welcome to the list of all active parts page!</h1>
     <body>
     <div id='myapp'>
     <table border='1' width='100%' style='border-collapse: collapse;'>
@@ -15,6 +15,7 @@
         <th>Wind Acceleration</th>
         <th>Wind Acceleration 2</th>
         <th>Wind Acceleration 3</th>
+        <!-- Need to figure out a horizontal gap and put the next group of headers on a new page here -->
         <th>Wind Watts</th>
         <th>PV Velocity</th>
         <th>PV Acceleration</th>
@@ -206,3 +207,12 @@
       }
     }
 </script>
+
+<style>
+.listOfParts {
+  background-color: #2c3e50;
+  /* min-height: 100%; */
+  /* height: 100%; */
+  height: 100vh;
+}
+</style>
