@@ -25,8 +25,8 @@
 }
 
 #nav {
-  padding: 30px;
-  background-image: linear-gradient(to right, #2c3e50, #95c23b);
+  padding: 10px;
+  background-image: linear-gradient(to right, #2c3e52);
 
   a {
     font-family: Avenir, Helvetica, Arial, sans-serif;
