@@ -37,14 +37,14 @@ npm install axios
 npm i postscribe --save
 ```
 
-#### Install Bootstrap
-```
-npm install bootstrap
-```
-
 #### cd into frontend directory
 ```
 cd Colite/frontend
+```
+
+#### Install Bootstrap
+```
+npm install vue bootstrap-vue bootstrap
 ```
 
 ### Production Use
