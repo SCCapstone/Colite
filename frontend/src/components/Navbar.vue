@@ -1,6 +1,6 @@
 <template>
 <div>
-  <b-navbar toggleable="lg" type="dark" variant="info">
+  <b-navbar toggleable="lg" type="dark" variant="dark">
     <b-navbar-brand href="#" to="/">Colite Technology</b-navbar-brand>
     <!-- <b-navbar-brand><router-link to="/"><img alt="ColiteLogo" src="@/assets/coliteNavBar.png"></router-link> </b-navbar-brand> -->
 
@@ -59,5 +59,8 @@ export default {
 .b-navbar {
   color: white;
   /* background-color: blue; */
+}
+.b-navbar {
+  background-color: white ;
 }
 </style>

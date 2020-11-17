@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div>
+    <!-- <div>
       <b-jumbotron>
      <hr class="my-4" />       
       </b-jumbotron>
-    </div>
+    </div> -->
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-6">
@@ -13,7 +13,7 @@
               <h5 class="card-title">Learn about Colite Technologies</h5>
               
               <router-link to="/about">
-                <b-button size="lg" variant="primary">Our About Us Page</b-button>
+                <b-button size="lg" variant="success">Our About Us Page</b-button>
               </router-link>
             </div>
           </div>
@@ -23,7 +23,7 @@
             <div class="card-body">
               <h5 class="card-title">Need help with how to use the application?</h5>
               <router-link to="/contact">
-                <b-button size="lg" variant="primary">
+                <b-button size="lg" variant="success">
                   Contact Us 
                 </b-button>
               </router-link>
