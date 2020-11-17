@@ -78,37 +78,39 @@ npm run test:unit
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### SQL Requirements
+### External Requirements:
+The user will need to have MySQL installed.
+The user will need to have MySQL workbench installed.
+The user will need to have security credentials to access the database.
+The user will need to have the IP for the database.
 
 
+### Running
+To run the app the user will want to enter the following on the command line
+```
+cd frontend
+npm run serve
+```
+Go to the url: localhost/8080 to be able to view the application after it is built and running
 
-# SQL Requirements
-# EXTERNAL REQUIREMENTS:
-1. The user will need to have MySQL installed.
-2. The user will need to have MySQL workbench installed.
-3. The user will need to have security credentials to access the database.
-4. The user will need to have the IP for the database.
+### Deployment
 
-# RUNNING
-To run the app the user will want to enter the following on the command line:
-- cd into the "frontend" directory
-- run the command: npm run serve
-- go to the url: localhost/8080 to be able to view the application after it is built and running
- 
- # DEPLOYMENT
-1. The application will be hosted on an AWS server
-2. The MySQL Database will be hosted on AWS
+The application will be hosted on an AWS server
+The MySQL Database will be hosted on AWS
 
 
-# TESTING
-- the unit tests will be located in tests/units
-- the behavioral tests will be located in test/behavioral
+### Testing
+
+The unit tests will be located in tests/units
+The behavioral tests will be located in test/behavioral
 
 
-
-# AUTHORS
+### Authors
 Matthew Hayward mhayward@email.sc.edu
 Andrew Denman adenman@email.sc.edu
 Simon Benzer sbenzer@email.sc.edu
 Kundana Narla knarla@email.sc.edu
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
