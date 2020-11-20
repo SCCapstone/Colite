@@ -21,6 +21,15 @@ npm install
 ```
 npm install -g@vue/cli
 ```
+#### Install Express
+```
+npm install -g@vue/cli
+```
+
+#### Install Equalize
+```
+npm install -g@vue/cli
+```
 
 #### (Optional) The user can also install vue devtools to be able to format and view changes easier. 
 ```
