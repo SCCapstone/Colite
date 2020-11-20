@@ -23,12 +23,12 @@ npm install -g@vue/cli
 ```
 #### Install Express
 ```
-npm install -g@vue/cli
+npm install express
 ```
 
-#### Install Equalize
+#### Install Sequalize
 ```
-npm install -g@vue/cli
+npm install sequelize
 ```
 
 #### (Optional) The user can also install vue devtools to be able to format and view changes easier. 
@@ -39,11 +39,6 @@ This can be installed through the google chrome store.
 #### Install Axios/Ajax
 ```
 npm install axios
-```
-
-#### Install Postscribe
-```
-npm i postscribe --save
 ```
 
 #### cd into frontend directory
