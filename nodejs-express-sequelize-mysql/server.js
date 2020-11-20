@@ -5,7 +5,9 @@ const cors = require("cors");
 const app = express();
 
 const db = require("./app/models");
-db.sequelize.sync();
+db.sequelize.sync({ force: true }).then(() => {
+    console.log("Drop and re-sync db.");
+});
 
 var corsOptions = {
     origin: "http://localhost:8081"
@@ -21,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // simple route
 app.get("/", (req, res) => {
-    res.json({ message: "Welcome to shbenzer's application." });
+    res.json({ message: "Welcome to shbenzer's REST API with CRUD functionality" });
 });
 
 // include routes
@@ -30,9 +32,4 @@ require("./app/routes/pole.routes")(app);
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
-});
-
-// force: true
-db.sequelize.sync({ force: true }).then(() => {
-    console.log("Drop and re-sync db.");
 });
