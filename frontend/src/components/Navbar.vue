@@ -1,7 +1,7 @@
 <template>
 <div>
   <b-navbar toggleable="lg" type="dark" variant="dark">
-    <b-navbar-brand href="#" to="/">Colite Technology</b-navbar-brand>
+    <b-navbar-brand href="#" to="/"><img alt="ColiteLogo" src="@/assets/coliteNavBar.png"></b-navbar-brand>
     <!-- <b-navbar-brand><router-link to="/"><img alt="ColiteLogo" src="@/assets/coliteNavBar.png"></router-link> </b-navbar-brand> -->
 
 
