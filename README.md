@@ -21,6 +21,7 @@ npm install
 ```
 npm install -g@vue/cli
 ```
+
 #### Install Express
 ```
 npm install express
@@ -61,6 +62,7 @@ npm run build
 ```
 localhost:8080
 ```
+
 ### Development Use
 
 #### Compiles and hot-reloads for development

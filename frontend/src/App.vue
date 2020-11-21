@@ -27,7 +27,7 @@
   
 }
 
-#nav {
+/*#nav {
   padding: 10px;
   background-image: linear-gradient(to right, #2c3e52);
 
@@ -41,5 +41,5 @@
       color: #2c3e50;
     }
   }
-}
+}*/
 </style>
