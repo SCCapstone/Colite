@@ -26,6 +26,7 @@
         </li>
       </ul>
 
+
     </div>
     <div class="col-md-6">
       <div v-if="currentPole">
