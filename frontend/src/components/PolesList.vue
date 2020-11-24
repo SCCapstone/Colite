@@ -26,9 +26,6 @@
         </li>
       </ul>
 
-      <button class="m-3 btn btn-sm btn-danger" @click="removeAllPoles">
-        Remove All
-      </button>
     </div>
     <div class="col-md-6">
       <div v-if="currentPole">
