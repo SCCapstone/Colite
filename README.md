@@ -68,11 +68,6 @@ localhost:8080
 npm run serve
 ```
 
-#### To view application go to
-```
-localhost:8080
-```
-
 #### Run your unit tests
 ```
 npm run test:unit
@@ -90,15 +85,20 @@ npm run lint
 - The user will need to have security credentials to access the database.
 - The user will need to have the IP for the database.
 
+###
+- To install express and node.js for the backend run the following:
+```
+npm install express sequelize mysql2 body-parser cors --save
+```
 
-#### Requirements to Run
+### Requirements to Run
 - npm
 - vue.js
 - axios
 - postscribe
 - bootstrap
 
-#### Deployment
+### Deployment
 
 - The application will be hosted on an AWS server
 - The MySQL Database will be hosted on AWS
