@@ -15,6 +15,14 @@ Vue.config.productionTip = false
 import { LayoutPlugin } from 'bootstrap-vue'
 Vue.use(LayoutPlugin)
 
+import * as VueGoogleMaps from "vue2-google-maps";
+
+    Vue.use(VueGoogleMaps, {
+        load: {
+            key: "AIzaSyD3lI3tWTw58b9iKKYgoX-qZpwZndHwsDc",
+        },
+    });
+
 // This imports <b-modal> as well as the v-b-modal directive as a plugin:
 import { ModalPlugin } from 'bootstrap-vue'
 Vue.use(ModalPlugin)
