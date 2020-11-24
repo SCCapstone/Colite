@@ -53,6 +53,33 @@ const routes = [{
         // which is lazy-loaded when the route is visited.
         component: () =>
             import ( /* webpackChunkName: "ContactUs" */ '../views/ContactUs.vue')
+    },
+    {
+        path: '/addPole',
+        name: 'AddPole',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () =>
+            import ( /* webpackChunkName: "AddPole" */ '../components/AddPole.vue')
+    },
+    {
+        path: '/pole',
+        name: 'Pole',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () =>
+            import ( /* webpackChunkName: "pole" */ '../components/Pole.vue')
+    },
+    {
+        path: '/polesList',
+        name: 'PolesList',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () =>
+            import ( /* webpackChunkName: "PolesList" */ '../components/PolesList.vue')
     }
 
 ]

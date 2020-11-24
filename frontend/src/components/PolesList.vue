@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import PoleDataService from "../services/PolesDataService";
+import PoleDataService from "../services/PoleDataService";
 
 export default {
   name: "poles-list",

@@ -22,11 +22,11 @@ class PoleDataService {
     }
 
     deleteAll() {
-        return http.delete(`/poless`);
+        return http.delete(`/poles`);
     }
 
     findByTitle(title) {
-        return http.get(`/poless?title=${title}`);
+        return http.get(`/poles?title=${title}`);
     }
 }
 
