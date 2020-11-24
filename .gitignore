@@ -28,6 +28,7 @@ Thumbs.db
 # Folders to ignore
 dist/*
 node_modules
+<<<<<<< HEAD
 
 .DS_Store
 node_modules
@@ -53,3 +54,5 @@ pnpm-debug.log*
 *.sln
 *.sw?
 
+=======
+>>>>>>> parent of 8857d28... Delete .gitignore
