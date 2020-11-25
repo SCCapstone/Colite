@@ -22,13 +22,21 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #95c23b;
-  background-color: #2c3e50;
-  
+  // background-color: #2c3e50;
+  // padding: 2.50rem;
+  // margin-block-end: 10px;  
 }
-
+.card-body {
+  background-color: #2c3e50;
+}
+/* Modify the backgorund color */ 
+.navbar-custom { 
+    background-color: lightgreen; 
+} 
 #nav {
   padding: 10px;
   background-image: linear-gradient(to right, #2c3e52);
+  background-color: #2c3e50;
 
   a {
     font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -40,5 +48,8 @@
       color: #2c3e50;
     }
   }
+}
+#navbar {
+  background-color: #2c3e50;
 }
 </style>

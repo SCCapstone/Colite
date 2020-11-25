@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <h1 class="card-title">Welcome to the Colite Technology Data Visualization Page!</h1>
-    <div class="card-body">
+    <div class="body">
     <h3 class="card-body">
       From here you have the ability to visualize any inputted data 
       points being given from the poles, panels and other sources. 
@@ -34,6 +34,7 @@ export default {
         id: 'Colite Poll Data Viz'
       },
       xaxis: {
+        colors: '#FFFFFF',
         type: 'category',
         categories: [
          "Poll 1",
@@ -49,6 +50,7 @@ export default {
         ],
         style: {
           fontSize: '20px',
+          color: '#FFFFFF',
         },
       },
       title: {
@@ -57,15 +59,16 @@ export default {
         color: '#FFFFFF',
         style: {
           fontSize: '20px',
+          color: 'FFFFFF',
         },
       },
-      // colors: ['#FFFFFF']
+      colors: ['#00897b']
     },
     series: [{
       name: 'Poll Voltage',
       data: [55, 62, 89, 66, 98, 72, 101, 75, 94, 120, 117, 139],
       style: {
-        fontSize: '20px'
+        fontSize: '20px',
       }
     }]
   })
@@ -82,9 +85,6 @@ export default {
 div.chart-wrapper {
   display: flex;
   align-items:center;
-  justify-content: center
-}
-.card-body {
-  background-color: white;
+  justify-content: center;
 }
 </style>

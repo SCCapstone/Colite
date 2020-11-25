@@ -39,5 +39,9 @@
     #contacts {
         margin-left: auto;
         margin-right: auto;
+        background-color:  #2c3e50;
+    }
+    .contactUs {
+         background-color: #2c3e50;
     }
 </style>
