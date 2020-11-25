@@ -8,8 +8,13 @@ import router from './router';
 import store from './store';
 import Navbar from './components/Navbar.vue';
 import axios from 'axios';
+// import VueApexCharts from 'vue-apexcharts'
+//@ is global
+import '@/components/apexcharts.js';
 
 
+// Vue.use(VueApexCharts)
+// Vue.component('apexchart', VueApexCharts)
 Vue.config.productionTip = false
 
 // This imports all the layout components such as <b-container>, <b-row>, <b-col>:
@@ -18,11 +23,11 @@ Vue.use(LayoutPlugin)
 
 import * as VueGoogleMaps from "vue2-google-maps";
 
-    Vue.use(VueGoogleMaps, {
-        load: {
-            key: "AIzaSyD3lI3tWTw58b9iKKYgoX-qZpwZndHwsDc",
-        },
-    });
+Vue.use(VueGoogleMaps, {
+    load: {
+        key: "AIzaSyD3lI3tWTw58b9iKKYgoX-qZpwZndHwsDc",
+    },
+});
 
 // This imports <b-modal> as well as the v-b-modal directive as a plugin:
 import { ModalPlugin } from 'bootstrap-vue'
