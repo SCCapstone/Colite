@@ -31,21 +31,25 @@ export default {
   data: () => ({
     options: {
       chart: {
-        id: 'vuechart-example'
+        id: 'Colite Poll Data Viz'
       },
       xaxis: {
+        type: 'category',
         categories: [
-         "1",
-         "2",
-         "3",
-         "4",
-         "5",
-         "6",
-         "7",
-         "8",
-         "9",
-         "10"
-        ]
+         "Poll 1",
+         "Poll 2",
+         "Poll 3",
+         "Poll 4",
+         "Poll 5",
+         "Poll 6",
+         "Poll 7",
+         "Poll 8",
+         "Poll 9",
+         "Poll 10"
+        ],
+        style: {
+          fontSize: '20px',
+        },
       },
       title: {
         text: 'Colite Poll Data Visualization',
@@ -59,13 +63,16 @@ export default {
     },
     series: [{
       name: 'Poll Voltage',
-      data: [55, 62, 89, 66, 98, 72, 101, 75, 94, 120, 117, 139]
+      data: [55, 62, 89, 66, 98, 72, 101, 75, 94, 120, 117, 139],
+      style: {
+        fontSize: '20px'
+      }
     }]
   })
 }
 </script>
 
-<style>
+<style scoped>
 .dataViz {
   background-color: #2c3e50;
   /* min-height: 100%; */
@@ -76,5 +83,8 @@ div.chart-wrapper {
   display: flex;
   align-items:center;
   justify-content: center
+}
+.card-body {
+  background-color: white;
 }
 </style>
