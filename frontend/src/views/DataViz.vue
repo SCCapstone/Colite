@@ -35,23 +35,21 @@ export default {
       },
       xaxis: {
         categories: [
-         "Jan",
-         "Feb",
-         "Mar",
-         "Apr",
-         "May",
-         "Jun",
-         "Jul",
-         "Aug",
-         "Sep",
-         "Oct",
-         "Nov",
-         "Dec"
+         "Poll 1",
+         "Poll 2",
+         "Poll 3",
+         "Poll 4",
+         "Poll 5",
+         "Poll 6",
+         "Poll 7",
+         "Poll 8",
+         "Poll 9",
+         "Poll 10"
         ]
       }
     },
     series: [{
-      name: 'series-1',
+      name: 'Poll Voltage',
       data: [55, 62, 89, 66, 98, 72, 101, 75, 94, 120, 117, 139]
     }]
   })
@@ -64,5 +62,10 @@ export default {
   /* min-height: 100%; */
   /* height: 100%; */
   height: 100vh;
+}
+div.chart-wrapper {
+  display: flex;
+  align-items:center;
+  justify-content: center
 }
 </style>
