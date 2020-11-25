@@ -12,8 +12,9 @@
         <b-nav-item href="#" to="/dataViz">Data Visualization</b-nav-item>
         <b-nav-item href="#" to="/polesList">List of Parts</b-nav-item>
         <b-nav-item href="#" to="/map">Map</b-nav-item>
-        <b-nav-item href="#" to="/about">About</b-nav-item>
-        <b-nav-item href="#" to="/contactUs">Contact Us</b-nav-item>
+        <b-nav-item href="#" to="/"> Home </b-nav-item>
+        <!-- <b-nav-item href="#" to="/about">About</b-nav-item>
+        <b-nav-item href="#" to="/contactUs">Contact Us</b-nav-item> -->
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->

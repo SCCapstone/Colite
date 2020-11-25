@@ -188,10 +188,14 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .list {
   text-align: left;
   max-width: 750px;
   margin: auto;
 }
+.row {
+  background-color:  #2c3e50; 
+}
+
 </style>
