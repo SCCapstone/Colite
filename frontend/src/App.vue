@@ -31,7 +31,7 @@
 }
 /* Modify the backgorund color */ 
 .navbar-custom { 
-    background-color: lightgreen; 
+    background-color: #95c23b; 
 } 
 #nav {
   padding: 10px;

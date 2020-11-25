@@ -23,7 +23,7 @@
           :class="{ active: index == currentIndex }"
           v-for="(pole, index) in poles"
           :key="index"
-          @click="setActivePole(pole, index)"
+          @click="setActivePole(pole, index); redFlag(pole);"
         >
           <td>{{ pole.id_number }}</td>
         </tr>
@@ -34,7 +34,7 @@
     <div class="col-md-6">
       <div v-if="currentPole">
         <h4>Pole</h4>
-        <div>
+        <div id="idnumber">
           <label><strong>ID Number:</strong></label> {{ currentPole.id_number }}
         </div>
         <div>
@@ -100,7 +100,7 @@
         <div>
           <label><strong>Temperature (C)</strong></label> {{ currentPole.temp_c }}
         </div>
-        <div>
+        <div id="exinv">
           <label><strong>Ex in V</strong></label> {{ currentPole.ex_in_v }}
         </div>
         <div>
@@ -180,10 +180,22 @@ export default {
         .catch(e => {
           console.log(e);
         });
+    },
+
+    redFlag(pole) {
+      if (pole.ex_in_v == 3.4) {
+        document.getElementById("exinv").style.color = "red";
+        document.getElementById("idnumber").style.color = "red";
+      }
+      else{
+        document.getElementById("exinv").style.color = "#95c23b";
+        document.getElementById("idnumber").style.color = "#95c23b";
+      }
     }
   },
   mounted() {
     this.retrievePoles();
+    //this.redFlag(pole);
   }
 };
 </script>
