@@ -10,11 +10,34 @@ Our project is centered around working with Colite Technologies, a company helpi
 
 The main technologies being used will be Amazon Web Services, MYSQL, and HTML/Vue.js, as well as Python for testing features. We will be communicating with Colite Technologies, and the USC electrical engineering capstone team throughout the project to ensure successful coordination and completion.
 
-## Running the Application
+## Running the Application (Open 2 Terminal Windows)
+
+### 1st Window
 
 #### Install NPM from nodejs.org
 ```
 npm install
+```
+
+#### cd into nodejs-express-sequelize-mysql folder
+```
+cd Colite/nodejs-express-sequelize-mysql
+```
+#### Install dependent libraries
+```
+npm install
+```
+
+#### Run API
+```
+node server.js
+```
+
+### 2nd Window
+
+#### cd into frontend directory
+```
+cd Colite/frontend
 ```
 
 #### Install Vue.JS
@@ -39,11 +62,6 @@ This can be installed through the google chrome store.
 #### Install Axios/Ajax
 ```
 npm install axios
-```
-
-#### cd into frontend directory
-```
-cd Colite/frontend
 ```
 
 #### Install Bootstrap
