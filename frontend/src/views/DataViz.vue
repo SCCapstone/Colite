@@ -35,18 +35,27 @@ export default {
       },
       xaxis: {
         categories: [
-         "Poll 1",
-         "Poll 2",
-         "Poll 3",
-         "Poll 4",
-         "Poll 5",
-         "Poll 6",
-         "Poll 7",
-         "Poll 8",
-         "Poll 9",
-         "Poll 10"
+         "1",
+         "2",
+         "3",
+         "4",
+         "5",
+         "6",
+         "7",
+         "8",
+         "9",
+         "10"
         ]
-      }
+      },
+      title: {
+        text: 'Colite Poll Data Visualization',
+        align: 'center',
+        color: '#FFFFFF',
+        style: {
+          fontSize: '20px',
+        },
+      },
+      // colors: ['#FFFFFF']
     },
     series: [{
       name: 'Poll Voltage',
