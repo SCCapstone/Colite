@@ -15,22 +15,19 @@
     </div>
     <div class="col-md-6">
       <h4>Poles List</h4>
-      <ul class="list-group">
-        <li class="list-group-item"
+      <table class="list-group">
+        <tr>
+          <th>ID Number</th>
+        </tr>
+        <tr class="list-group-item"
           :class="{ active: index == currentIndex }"
           v-for="(pole, index) in poles"
           :key="index"
           @click="setActivePole(pole, index)"
         >
-          {{ pole.id_number }}
-          {{ pole.rpm }}
-          {{ pole.wind_v }}
-          {{ pole.wind_a }}
-          {{ pole.temp_c }}
-          {{ pole.ex_in_v }}
-
-        </li>
-      </ul>
+          <td>{{ pole.id_number }}</td>
+        </tr>
+      </table>
 
 
     </div>
@@ -38,10 +35,79 @@
       <div v-if="currentPole">
         <h4>Pole</h4>
         <div>
-          <label><strong>ID_number:</strong></label> {{ currentPole.id_number }}
+          <label><strong>ID Number:</strong></label> {{ currentPole.id_number }}
         </div>
         <div>
-          <label><strong>Column_1:</strong></label> {{ currentPole.column_1 }}
+          <label><strong>Column 1:</strong></label> {{ currentPole.column_1 }}
+        </div>
+        <div>
+          <label><strong>RPMs:</strong></label> {{ currentPole.rpm }}
+        </div>
+        <div>
+          <label><strong>Wind Velocity:</strong></label> {{ currentPole.wind_v }}
+        </div>
+        <div>
+          <label><strong>Wind Acceleration:</strong></label> {{ currentPole.wind_a }}
+        </div>
+        <div>
+          <label><strong>Wind Acceleration 2:</strong></label> {{ currentPole.wind_a2 }}
+        </div>
+        <div>
+          <label><strong>Wind Acceleration 3:</strong></label> {{ currentPole.wind_a3 }}
+        </div>
+        <div>
+          <label><strong>Wind (Watts?):</strong></label> {{ currentPole.wind_w }}
+        </div>
+        <div>
+          <label><strong>PV (Velocity?):</strong></label> {{ currentPole.pv_v }}
+        </div>
+        <div>
+          <label><strong>PV (Acceleration?):</strong></label> {{ currentPole.pv_a }}
+        </div>
+        <div>
+          <label><strong>Untitled:</strong></label> {{ currentPole.untitled }}
+        </div>
+        <div>
+          <label><strong>Battery Volts</strong></label> {{ currentPole.bat_v }}
+        </div>
+        <div>
+          <label><strong>Battery Amps</strong></label> {{ currentPole.bat_a }}
+        </div>
+        <div>
+          <label><strong>Battery Watts</strong></label> {{ currentPole.bat_w }}
+        </div>
+        <div>
+          <label><strong>LED 1 Volts</strong></label> {{ currentPole.led_1v }}
+        </div>
+        <div>
+          <label><strong>LED 1 Amps</strong></label> {{ currentPole.led_1a }}
+        </div>
+        <div>
+          <label><strong>LED 1 Watts</strong></label> {{ currentPole.led_1w }}
+        </div>
+        <div>
+          <label><strong>LED 2 Volts</strong></label> {{ currentPole.led_2v }}
+        </div>
+        <div>
+          <label><strong>LED 2 Amps</strong></label> {{ currentPole.led_2a }}
+        </div>
+        <div>
+          <label><strong>LED 2 Watts</strong></label> {{ currentPole.led_2w }}
+        </div>
+        <div>
+          <label><strong>LED 1 Volts</strong></label> {{ currentPole.led_1v }}
+        </div>
+        <div>
+          <label><strong>Temperature (C)</strong></label> {{ currentPole.temp_c }}
+        </div>
+        <div>
+          <label><strong>Ex in V</strong></label> {{ currentPole.ex_in_v }}
+        </div>
+        <div>
+          <label><strong>Date (mdy)</strong></label> {{ currentPole.date_mdy }}
+        </div>
+        <div>
+          <label><strong>Time (hms)</strong></label> {{ currentPole.time_hms }}
         </div>
 
         <a class="badge badge-warning"
@@ -90,12 +156,12 @@ export default {
     },
 
     setActivePole(pole, index) {
-      this.currentPole = tutorial;
+      this.currentPole = pole;
       this.currentIndex = index;
     },
 
     removeAllPoles() {
-      TutorialDataService.deleteAll()
+      PoleDataService.deleteAll()
         .then(response => {
           console.log(response.data);
           this.refreshList();
