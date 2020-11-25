@@ -21,9 +21,37 @@
         Amazon Web Services cloud computing service. Feel free to visit our Contact Us
         Page and reach out to a developer if you have any questions about the features provided.
       </div>
-    <!-- <img alt="ColiteLogo" src="../assets/colite2.png"> -->
+      <div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card" style="margin = 20px">
+              <div class="card-body">
+                <h5 class="card-title">Learn about Colite Technologies</h5>
+                
+                <router-link to="/about">
+                  <b-button size="lg" variant="success">Our About Us Page</b-button>
+                </router-link>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Need help with how to use the application?</h5>
+                <router-link to="/contactUs">
+                  <b-button size="lg" variant="success">
+                    Contact Us 
+                  </b-button>
+                </router-link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img alt="ColiteLogo" src="../assets/colite2.png" height="300px">
     </b-jumbotron>
-    <HelloWorld msg="Welcome to the Colite Technologies Data Visualization Application"/>
   </div>
 </template>
 
@@ -46,9 +74,11 @@ font-size: 14pt;
 .jumbotron {
 background-color: #2c3e50;
 /* padding: 2.50rem; */
+border-color: white;
+margin: 1%;
 }
 .card-body {
 background-color: #2c3e50;
-padding: 2.50rem;
+/* padding: 2.50rem; */
 }
 </style>
