@@ -23,6 +23,12 @@
           @click="setActivePole(pole, index)"
         >
           {{ pole.id_number }}
+          {{ pole.rpm }}
+          {{ pole.wind_v }}
+          {{ pole.wind_a }}
+          {{ pole.temp_c }}
+          {{ pole.ex_in_v }}
+
         </li>
       </ul>
 
