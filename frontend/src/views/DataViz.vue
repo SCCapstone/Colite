@@ -1,8 +1,9 @@
 <template>
   <div class="container-fluid">
-    <h1 class="card-title">Welcome to the Colite Technology Data Visualization Page!</h1>
-    <div class="body">
+    <!-- <div class="body"> -->
     <h3 class="card-body">
+      <h1 class="card-title">Welcome to the Colite Technology Data Visualization Page!</h1>
+
       From here you have the ability to visualize any inputted data 
       points being given from the poles, panels and other sources. 
       Click the widget by the graph to be able to filter by data types, locations,
@@ -20,7 +21,7 @@
     <h3 class="card-body">
       If you have any questions feel free to visit the Contact Us Page!
     </h3>
-    </div>
+    <!-- </div> -->
     <!-- <img alt="ColiteLogo" src="../assets/colite2.png"> -->
   </div>
 
@@ -62,7 +63,7 @@ export default {
           color: 'FFFFFF',
         },
       },
-      colors: ['#00897b']
+      colors: ['#2c3e50']
     },
     series: [{
       name: 'Poll Voltage',
@@ -86,5 +87,8 @@ div.chart-wrapper {
   display: flex;
   align-items:center;
   justify-content: center;
+}
+.card-title {
+  background-color:  #2c3e50;
 }
 </style>
