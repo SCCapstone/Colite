@@ -21,7 +21,7 @@
     <div class="chart-wrapper2">
       <apexchart
         width="700" type="bar"
-        :options="options" :series="series1">
+        :options="options1" :series="series1">
       </apexchart>
     </div>  
     <hr>  
@@ -85,7 +85,42 @@ export default {
       style: {
         fontSize: '20px',
       }  
-    }]
+    }],
+    options1: {
+      chart: {
+        id: 'Colite Poll Data Viz',
+      },
+      xaxis: {
+        colors: ['#FFFFFF'],
+        type: 'category',
+        categories: [
+         "Poll 1",
+         "Poll 2",
+         "Poll 3",
+         "Poll 4",
+         "Poll 5",
+         "Poll 6",
+         "Poll 7",
+         "Poll 8",
+         "Poll 9",
+         "Poll 10"
+        ],
+        style: {
+          fontSize: '20px',
+          color: ['#FFFFFF'],
+        },
+      },
+      title: {
+        text: 'Poll Data Voltages',
+        align: 'center',
+        color: '#FFFFFF',
+        style: {
+          fontSize: '20px',
+          color: 'FFFFFF',
+        },
+      },
+      colors: ['#95c23b'],
+    },
   }),
   // name: 'Chart2',
   // data: () => ({
