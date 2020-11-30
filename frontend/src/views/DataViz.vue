@@ -14,14 +14,14 @@
     <div class="chart-wrapper">
       <apexchart
         width="700" type="scatter"
-        :options="options1" :series="series1">
+        :options="options" :series="series">
       </apexchart>
     </div> 
     <hr>
     <div class="chart-wrapper2">
-       <apexchart
+      <apexchart
         width="700" type="bar"
-        :options="options2" :series="series2">
+        :options="options" :series="series">
       </apexchart>
     </div>  
     <br>
@@ -37,7 +37,7 @@
 export default {
   name: 'Chart1',
   data: () => ({
-    options1: {
+    options: {
       chart: {
         id: 'Colite Poll Data Viz',
       },
@@ -64,51 +64,6 @@ export default {
       title: {
         text: 'Poll Data Voltages',
         align: 'center',
-        // color: '#FFFFFF',
-        style: {
-          fontSize: '20px',
-          // color: 'FFFFFF',
-        },
-      },
-      colors: ['#95c23b'],
-    },
-    series1: [{
-      name: 'Poll Voltage',
-      data: [55, 62, 89, 66, 98, 72, 101, 75, 94, 81],
-      style: {
-        fontSize: '20px',
-      }
-    }]
-  }),
-  name: 'Chart2',
-  data: () => ({
-    options2: {
-      chart: {
-        id: 'Colite Poll Data Viz2',
-      },
-      xaxis: {
-        colors: ['#FFFFFF'],
-        type: 'category',
-        categories: [
-         "Poll 1",
-         "Poll 2",
-         "Poll 3",
-         "Poll 4",
-         "Poll 5",
-         "Poll 6",
-         "Poll 7",
-         "Poll 8",
-         "Poll 9",
-         "Poll 10"
-        ],
-        style: {
-          fontSize: '20px',
-          color: ['#FFFFFF'],
-        },
-      },
-      title: {
-        text: 'Colite Poll Data Visualization',
-        align: 'center',
         color: '#FFFFFF',
         style: {
           fontSize: '20px',
@@ -117,14 +72,59 @@ export default {
       },
       colors: ['#95c23b'],
     },
-    series2: [{
-      name: 'Poll Temperatures',
-      data: [55, 62, 89, 66, 98, 72, 101, 75, 94, 80],
+    series: [{
+      name: 'Poll Voltage',
+      data: [55, 62, 89, 66, 98, 72, 101, 75, 94, 81],
       style: {
         fontSize: '20px',
       }
     }]
   }),
+  // name: 'Chart2',
+  // data: () => ({
+  //   options2: {
+  //     chart: {
+  //       id: 'Colite Poll Data Viz2',
+  //     },
+  //     xaxis: {
+  //       colors: ['#FFFFFF'],
+  //       type: 'category',
+  //       categories: [
+  //        "Poll 1",
+  //        "Poll 2",
+  //        "Poll 3",
+  //        "Poll 4",
+  //        "Poll 5",
+  //        "Poll 6",
+  //        "Poll 7",
+  //        "Poll 8",
+  //        "Poll 9",
+  //        "Poll 10"
+  //       ],
+  //       style: {
+  //         fontSize: '20px',
+  //         color: ['#FFFFFF'],
+  //       },
+  //     },
+  //     title: {
+  //       text: 'Colite Poll Data Visualization',
+  //       align: 'center',
+  //       color: '#FFFFFF',
+  //       style: {
+  //         fontSize: '20px',
+  //         color: 'FFFFFF',
+  //       },
+  //     },
+  //     colors: ['#95c23b'],
+  //   },
+  //   series2: [{
+  //     name: 'Poll Temperatures',
+  //     data: [55, 62, 89, 66, 98, 72, 101, 75, 94, 80],
+  //     style: {
+  //       fontSize: '20px',
+  //     }
+  //   }]
+  // }),
 }
 </script>
 
