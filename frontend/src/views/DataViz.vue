@@ -21,10 +21,10 @@
     <div class="chart-wrapper2">
       <apexchart
         width="700" type="bar"
-        :options="options" :series="series">
+        :options="options" :series="series1">
       </apexchart>
     </div>  
-    <br>
+    <hr>  
     <h3 class="card-body">
       If you have any questions feel free to visit the Contact Us Page!
     </h3>
@@ -78,6 +78,13 @@ export default {
       style: {
         fontSize: '20px',
       }
+    }],
+    series1: [{
+      name: 'Here',
+      data: [55,41,32,61],
+      style: {
+        fontSize: '20px',
+      }  
     }]
   }),
   // name: 'Chart2',
