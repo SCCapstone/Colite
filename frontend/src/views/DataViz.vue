@@ -13,7 +13,11 @@
     <br>
     <div class="chart-wrapper">
       <apexchart
-        width="800" type="scatter"
+        width="700" type="scatter"
+        :options="options" :series="series">
+      </apexchart>
+      <apexchart
+        width="700" type="bar"
         :options="options" :series="series">
       </apexchart>
      </div> 
