@@ -64,10 +64,10 @@ export default {
       title: {
         text: 'Poll Data Voltages',
         align: 'center',
-        color: '#FFFFFF',
+        colors: ['#95c23b'],
         style: {
           fontSize: '20px',
-          color: 'FFFFFF',
+          color: '#95c23b',
         },
       },
       colors: ['#95c23b'],
@@ -80,8 +80,8 @@ export default {
       }
     }],
     series1: [{
-      name: 'Here',
-      data: [55,41,32,61],
+      name: 'Temperature Averages',
+      data: [14.1,13.7,13.5,14.2,13.7,13.7,14.1,13.9,13.7,14.1],
       style: {
         fontSize: '20px',
       }  
@@ -111,12 +111,12 @@ export default {
         },
       },
       title: {
-        text: 'Poll Data Voltages',
+        text: 'Poll Data Temperatures',
         align: 'center',
         color: '#FFFFFF',
         style: {
           fontSize: '20px',
-          color: 'FFFFFF',
+          color: '#95c23b',
         },
       },
       colors: ['#95c23b'],
