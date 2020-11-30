@@ -32,7 +32,7 @@ export default {
   data: () => ({
     options: {
       chart: {
-        id: 'Colite Poll Data Viz'
+        id: 'Colite Poll Data Viz',
       },
       xaxis: {
         colors: '#FFFFFF',
@@ -72,7 +72,9 @@ export default {
         fontSize: '20px',
       }
     }]
-  })
+  }),
+  name: 'Chart2',
+
 }
 </script>
 
