@@ -40,7 +40,7 @@ import Navbar from "./Navbar.vue";
 // import router from "../router.js";
 
 export default {
-  name: 'HelloWorld',
+  name: 'Chart1',
   components: {
     Navbar
   },
@@ -48,7 +48,8 @@ export default {
     return {};
   },
   methods: {},
-  computed: {} 
+  computed: {},
+  name: 'Chart2' 
 };
 </script>
 

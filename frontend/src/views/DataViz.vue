@@ -13,11 +13,18 @@
     <br>
     <div class="chart-wrapper">
       <apexchart
-        width="800" type="scatter"
+        width="700" type="scatter"
         :options="options" :series="series">
       </apexchart>
-     </div> 
-    <br>
+    </div> 
+    <hr>
+    <div class="chart-wrapper2">
+      <apexchart
+        width="700" type="bar"
+        :options="options1" :series="series1">
+      </apexchart>
+    </div>  
+    <hr>  
     <h3 class="card-body">
       If you have any questions feel free to visit the Contact Us Page!
     </h3>
@@ -28,14 +35,14 @@
 </template>
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Chart1',
   data: () => ({
     options: {
       chart: {
-        id: 'Colite Poll Data Viz'
+        id: 'Colite Poll Data Viz',
       },
       xaxis: {
-        colors: '#FFFFFF',
+        colors: ['#FFFFFF'],
         type: 'category',
         categories: [
          "Poll 1",
@@ -51,28 +58,115 @@ export default {
         ],
         style: {
           fontSize: '20px',
-          color: '#FFFFFF',
+          color: ['#FFFFFF'],
         },
       },
       title: {
-        text: 'Colite Poll Data Visualization',
+        text: 'Poll Data Voltages',
+        align: 'center',
+        colors: ['#95c23b'],
+        style: {
+          fontSize: '20px',
+          color: '#95c23b',
+        },
+      },
+      colors: ['#95c23b'],
+    },
+    series: [{
+      name: 'Poll Voltage',
+      data: [55, 62, 89, 66, 98, 72, 101, 75, 94, 81],
+      style: {
+        fontSize: '20px',
+      }
+    }],
+    series1: [{
+      name: 'Temperature Averages',
+      data: [14.1,13.7,13.5,14.2,13.7,13.7,14.1,13.9,13.7,14.1],
+      style: {
+        fontSize: '20px',
+      }  
+    }],
+    options1: {
+      chart: {
+        id: 'Colite Poll Data Viz',
+      },
+      xaxis: {
+        colors: ['#FFFFFF'],
+        type: 'category',
+        categories: [
+         "Poll 1",
+         "Poll 2",
+         "Poll 3",
+         "Poll 4",
+         "Poll 5",
+         "Poll 6",
+         "Poll 7",
+         "Poll 8",
+         "Poll 9",
+         "Poll 10"
+        ],
+        style: {
+          fontSize: '20px',
+          color: ['#FFFFFF'],
+        },
+      },
+      title: {
+        text: 'Poll Data Temperatures',
         align: 'center',
         color: '#FFFFFF',
         style: {
           fontSize: '20px',
-          color: 'FFFFFF',
+          color: '#95c23b',
         },
       },
-      colors: ['#2c3e50']
+      colors: ['#95c23b'],
     },
-    series: [{
-      name: 'Poll Voltage',
-      data: [55, 62, 89, 66, 98, 72, 101, 75, 94, 120, 117, 139],
-      style: {
-        fontSize: '20px',
-      }
-    }]
-  })
+  }),
+  // name: 'Chart2',
+  // data: () => ({
+  //   options2: {
+  //     chart: {
+  //       id: 'Colite Poll Data Viz2',
+  //     },
+  //     xaxis: {
+  //       colors: ['#FFFFFF'],
+  //       type: 'category',
+  //       categories: [
+  //        "Poll 1",
+  //        "Poll 2",
+  //        "Poll 3",
+  //        "Poll 4",
+  //        "Poll 5",
+  //        "Poll 6",
+  //        "Poll 7",
+  //        "Poll 8",
+  //        "Poll 9",
+  //        "Poll 10"
+  //       ],
+  //       style: {
+  //         fontSize: '20px',
+  //         color: ['#FFFFFF'],
+  //       },
+  //     },
+  //     title: {
+  //       text: 'Colite Poll Data Visualization',
+  //       align: 'center',
+  //       color: '#FFFFFF',
+  //       style: {
+  //         fontSize: '20px',
+  //         color: 'FFFFFF',
+  //       },
+  //     },
+  //     colors: ['#95c23b'],
+  //   },
+  //   series2: [{
+  //     name: 'Poll Temperatures',
+  //     data: [55, 62, 89, 66, 98, 72, 101, 75, 94, 80],
+  //     style: {
+  //       fontSize: '20px',
+  //     }
+  //   }]
+  // }),
 }
 </script>
 
@@ -88,7 +182,15 @@ div.chart-wrapper {
   align-items:center;
   justify-content: center;
 }
+div.chart-wrapper2 {
+  display: flex;
+  align-items:center;
+  justify-content: center;
+}
 .card-title {
   background-color:  #2c3e50;
+}
+.h1 {
+  font-weight: bolder;
 }
 </style>
