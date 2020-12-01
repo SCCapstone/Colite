@@ -1,22 +1,25 @@
 <template>
   <div class="container-fluid">
     <!-- <div class="body"> -->
-    <h3 class="card-body">
+    <!-- <h1 class="card-body"> -->
       <h1 class="card-title">Welcome to the Colite Technology Data Visualization Page!</h1>
-
+    <!-- </h1> -->
+    <h5 class="card-body">
       From here you have the ability to visualize any inputted data 
       points being given from the poles, panels and other sources. 
       Click the widget by the graph to be able to filter by data types, locations,
       and other data types. In addition, you have the ability to export your data 
       visualization so that you can view it outside of the application. 
-    </h3>
+    </h5>
     <br>
+    <!-- <span class="border border-success"> -->
     <div class="chart-wrapper">
       <apexchart
         width="700" type="scatter"
         :options="options" :series="series">
       </apexchart>
-    </div> 
+    </div>
+    <!-- </span>  -->
     <hr>
     <div class="chart-wrapper2">
       <apexchart
@@ -24,7 +27,8 @@
         :options="options1" :series="series1">
       </apexchart>
     </div>  
-    <hr>  
+    <hr>
+    <!-- </span>   -->
     <h3 class="card-body">
       If you have any questions feel free to visit the Contact Us Page!
     </h3>
@@ -42,7 +46,7 @@ export default {
         id: 'Colite Poll Data Viz',
       },
       xaxis: {
-        colors: ['#FFFFFF'],
+        colors: '#FFFFFF',
         type: 'category',
         categories: [
          "Poll 1",
@@ -58,7 +62,7 @@ export default {
         ],
         style: {
           fontSize: '20px',
-          color: ['#FFFFFF'],
+          color: '#FFFFFF',
         },
       },
       title: {
@@ -71,6 +75,12 @@ export default {
         },
       },
       colors: ['#95c23b'],
+      labels: {
+        style: {
+          colors: ['#FFFFFF'],
+        }
+        // colors: ['#FFFFFF']
+      }
     },
     series: [{
       name: 'Poll Voltage',
@@ -107,7 +117,7 @@ export default {
         ],
         style: {
           fontSize: '20px',
-          color: ['#FFFFFF'],
+          // color: '#FFFFFF',
         },
       },
       title: {
@@ -181,11 +191,14 @@ div.chart-wrapper {
   display: flex;
   align-items:center;
   justify-content: center;
+  background-color: #FFFFFF;
+  border-color: #95c23b;
 }
 div.chart-wrapper2 {
   display: flex;
   align-items:center;
   justify-content: center;
+  background-color: #FFFFFF;
 }
 .card-title {
   background-color:  #2c3e50;
@@ -193,4 +206,10 @@ div.chart-wrapper2 {
 .h1 {
   font-weight: bolder;
 }
+.container-fluid {
+  border-block: red;
+}
+/* .h3 {
+  font-size: 1.2rem;
+} */
 </style>
