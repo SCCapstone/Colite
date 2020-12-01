@@ -1,17 +1,17 @@
 <template>
   <div class="list row">
     <div class="col-md-8">
-      <div class="input-group mb-3">
+      <!--<div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Search by id_number"
           v-model="id_number"/>
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button"
+          <<button class="btn btn-outline-secondary" type="button"
             @click="searchIdNumber"
           >
             Search
           </button>
         </div>
-      </div>
+      </div>-->
     </div>
     <div class="col-md-6">
       <h4>Poles List</h4>
