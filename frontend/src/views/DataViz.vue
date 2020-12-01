@@ -42,7 +42,7 @@ export default {
         id: 'Colite Poll Data Viz',
       },
       xaxis: {
-        colors: ['#FFFFFF'],
+        colors: '#FFFFFF',
         type: 'category',
         categories: [
          "Poll 1",
@@ -58,7 +58,7 @@ export default {
         ],
         style: {
           fontSize: '20px',
-          color: ['#FFFFFF'],
+          color: '#FFFFFF',
         },
       },
       title: {
@@ -67,10 +67,16 @@ export default {
         colors: ['#95c23b'],
         style: {
           fontSize: '20px',
-          color: '#95c23b',
+          // color: '#FFFFFF',
         },
       },
       colors: ['#95c23b'],
+      labels: {
+        style: {
+          colors: ['#FFFFFF'],
+        }
+        // colors: ['#FFFFFF']
+      }
     },
     series: [{
       name: 'Poll Voltage',
@@ -107,7 +113,7 @@ export default {
         ],
         style: {
           fontSize: '20px',
-          color: ['#FFFFFF'],
+          // color: '#FFFFFF',
         },
       },
       title: {
@@ -181,11 +187,13 @@ div.chart-wrapper {
   display: flex;
   align-items:center;
   justify-content: center;
+  background-color: #FFFFFF;
 }
 div.chart-wrapper2 {
   display: flex;
   align-items:center;
   justify-content: center;
+  background-color: #FFFFFF;
 }
 .card-title {
   background-color:  #2c3e50;
