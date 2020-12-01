@@ -11,12 +11,14 @@
       visualization so that you can view it outside of the application. 
     </h3>
     <br>
+    <!-- <span class="border border-success"> -->
     <div class="chart-wrapper">
       <apexchart
         width="700" type="scatter"
         :options="options" :series="series">
       </apexchart>
-    </div> 
+    </div>
+    <!-- </span>  -->
     <hr>
     <div class="chart-wrapper2">
       <apexchart
@@ -67,7 +69,7 @@ export default {
         colors: ['#95c23b'],
         style: {
           fontSize: '20px',
-          // color: '#FFFFFF',
+          color: '#95c23b',
         },
       },
       colors: ['#95c23b'],
@@ -188,6 +190,7 @@ div.chart-wrapper {
   align-items:center;
   justify-content: center;
   background-color: #FFFFFF;
+  border-color: #95c23b;
 }
 div.chart-wrapper2 {
   display: flex;
