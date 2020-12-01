@@ -110,11 +110,11 @@
           <label><strong>Time (hms)</strong></label> {{ currentPole.time_hms }}
         </div>
 
-        <a class="badge badge-warning"
+        <!--<a class="badge badge-warning"
           :href="'/poles/' + currentPole.id"
         >
           Edit
-        </a>
+        </a>-->
       </div>
       <div v-else>
         <br />
