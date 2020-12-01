@@ -3,7 +3,6 @@
 ## APP DESCRIPTION:
 Our project is centered around working with Colite Technologies, a company helping businesses switch to renewable energy sources that promote sustainable business and energy resilience. Some of the features we will implement will be:
 
-- Provide a button to turn on/off lights
 - Red flags to show batteries' deep discharge, and other abnormalities
 - Develop a database and web application that will let users view visualizations of the data the system receives from Colites systems
 - Handle data from poles that generate more than 20 data points each from PV panels, wind turbines, batteries, etc. at a 2 second interval (mock data will be used in the current execution)
