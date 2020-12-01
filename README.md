@@ -114,6 +114,8 @@ npm install express sequelize mysql2 body-parser cors --save
 - axios
 - postscribe
 - bootstrap
+- sequelize
+- express
 
 ### Deployment
 
