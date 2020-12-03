@@ -22,7 +22,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Need help with how to use the application?</h5>
-              <router-link to="/contact">
+              <router-link to="/contactUs">
                 <b-button size="lg" variant="success">
                   Contact Us 
                 </b-button>
@@ -40,7 +40,7 @@ import Navbar from "./Navbar.vue";
 // import router from "../router.js";
 
 export default {
-  name: 'HelloWorld',
+  name: 'Chart1',
   components: {
     Navbar
   },
@@ -48,7 +48,8 @@ export default {
     return {};
   },
   methods: {},
-  computed: {} 
+  computed: {},
+  name: 'Chart2' 
 };
 </script>
 

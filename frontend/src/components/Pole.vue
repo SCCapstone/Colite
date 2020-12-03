@@ -88,7 +88,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .edit-form {
   max-width: 300px;
   margin: auto;

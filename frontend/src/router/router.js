@@ -7,8 +7,8 @@ export default new Router({
     mode: "history",
     routes: [{
             path: "/",
-            alias: "/poles",
-            name: "poles",
+            alias: "/polesList",
+            name: "PolesList",
             component: () =>
                 import ("./components/PolesList")
         },
@@ -19,10 +19,10 @@ export default new Router({
                 import ("./components/Pole")
         },
         {
-            path: "/add",
-            name: "add",
+            path: "/addPole",
+            name: "AddPole",
             component: () =>
-                import ("./components/AddPoles")
+                import ("./components/AddPole")
         }
     ]
 });

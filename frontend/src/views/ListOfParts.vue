@@ -7,10 +7,10 @@
       <router-link to="/" class="navbar-brand"></router-link>
       <div class="navbar-nav mr-auto">
         <li class="nav-item">
-          <router-link to="/poles" class="nav-link">List of Poles</router-link>
+          <router-link to="/polesList" class="nav-link">List of Poles</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/add" class="nav-link">Add Poles</router-link>
+          <router-link to="/addPole" class="nav-link">Add Poles</router-link>
         </li>
       </div>
     </nav>

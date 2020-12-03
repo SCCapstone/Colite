@@ -3,18 +3,40 @@
 ## APP DESCRIPTION:
 Our project is centered around working with Colite Technologies, a company helping businesses switch to renewable energy sources that promote sustainable business and energy resilience. Some of the features we will implement will be:
 
-- Provide a button to turn on/off lights
 - Red flags to show batteries' deep discharge, and other abnormalities
 - Develop a database and web application that will let users view visualizations of the data the system receives from Colites systems
 - Handle data from poles that generate more than 20 data points each from PV panels, wind turbines, batteries, etc. at a 2 second interval (mock data will be used in the current execution)
 
 The main technologies being used will be Amazon Web Services, MYSQL, and HTML/Vue.js, as well as Python for testing features. We will be communicating with Colite Technologies, and the USC electrical engineering capstone team throughout the project to ensure successful coordination and completion.
 
-## Running the Application
+## Running the Application (Open 2 Terminal Windows)
+
+### 1st Window
 
 #### Install NPM from nodejs.org
 ```
 npm install
+```
+
+#### cd into nodejs-express-sequelize-mysql folder
+```
+cd Colite/nodejs-express-sequelize-mysql
+```
+#### Install dependent libraries
+```
+npm install
+```
+
+#### Run API
+```
+node server.js
+```
+
+### 2nd Window
+
+#### cd into frontend directory
+```
+cd Colite/frontend
 ```
 
 #### Install Vue.JS
@@ -41,11 +63,6 @@ This can be installed through the google chrome store.
 npm install axios
 ```
 
-#### cd into frontend directory
-```
-cd Colite/frontend
-```
-
 #### Install Bootstrap
 ```
 npm install vue bootstrap-vue bootstrap
@@ -68,11 +85,6 @@ localhost:8080
 npm run serve
 ```
 
-#### To view application go to
-```
-localhost:8080
-```
-
 #### Run your unit tests
 ```
 npm run test:unit
@@ -90,15 +102,22 @@ npm run lint
 - The user will need to have security credentials to access the database.
 - The user will need to have the IP for the database.
 
+###
+- To install express and node.js for the backend run the following:
+```
+npm install express sequelize mysql2 body-parser cors --save
+```
 
-#### Requirements to Run
+### Requirements to Run
 - npm
 - vue.js
 - axios
 - postscribe
 - bootstrap
+- sequelize
+- express
 
-#### Deployment
+### Deployment
 
 - The application will be hosted on an AWS server
 - The MySQL Database will be hosted on AWS
