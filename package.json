@@ -1,34 +1,34 @@
 {
-    "name": "using-the-google-maps-api-with-vue",
-    "version": "0.1.0",
-    "author": "Markus Oberlehner",
-    "homepage": "https://github.com/maoberlehner/using-the-google-maps-api-with-vue",
-    "license": "MIT",
-    "private": true,
-    "scripts": {
-        "serve": "vue-cli-service serve",
-        "build": "vue-cli-service build",
-        "lint": "vue-cli-service lint",
-        "deploy": "aws s3 sync ./dist s3://colite-tech-deployment-v2"
-    },
-    "dependencies": {
-        "@google/markerclusterer": "^1.0.3",
-        "@vue/cli-plugin-babel": "^3.2.0",
-        "@vue/cli-service": "^4.5.9",
-        "apexcharts": "^3.22.2",
-        "vue": "^2.5.21",
-        "vue-apexcharts": "^1.6.0",
-        "vue-template-compiler": "^2.5.21"
-    },
-    "devDependencies": {
-        "@avalanche/eslint-config": "^3.0.0",
-        "@vue/cli-plugin-eslint": "^3.2.1",
-        "eslint-plugin-import": "^2.14.0",
-        "eslint-plugin-vue": "^5.0.0"
-    },
-    "browserslist": [
-        ">0.25%",
-        "not ie 10",
-        "not op_mini all"
-    ]
+  "name": "secure-app-server",
+  "version": "0.1.0",
+  "author": "Markus Oberlehner",
+  "homepage": "https://github.com/maoberlehner/using-the-google-maps-api-with-vue",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "deploy": "aws s3 sync ./dist s3://colite-tech-deployment-v2"
+  },
+  "dependencies": {
+    "@google/markerclusterer": "^1.0.3",
+    "@vue/cli-plugin-babel": "^3.2.0",
+    "@vue/cli-service": "^4.5.9",
+    "apexcharts": "^3.22.2",
+    "vue": "^2.5.21",
+    "vue-apexcharts": "^1.6.0",
+    "vue-template-compiler": "^2.5.21"
+  },
+  "devDependencies": {
+    "@avalanche/eslint-config": "^3.0.0",
+    "@vue/cli-plugin-eslint": "^3.2.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-vue": "^5.0.0"
+  },
+  "browserslist": [
+    ">0.25%",
+    "not ie 10",
+    "not op_mini all"
+  ]
 }
