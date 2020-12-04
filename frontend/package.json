@@ -14,7 +14,7 @@
     "axios": "^0.21.0",
     "axioss": "^0.0.1-security",
     "bootstrap": "^4.5.3",
-    "bootstrap-vue": "^2.19.0",
+    "bootstrap-vue": "^2.20.1",
     "core-js": "^3.6.5",
     "express": "^4.17.1",
     "postscribe": "^2.0.8",
