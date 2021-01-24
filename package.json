@@ -1,5 +1,5 @@
 {
-  "name": "using-the-google-maps-api-with-vue",
+  "name": "secure-app-server",
   "version": "0.1.0",
   "author": "Markus Oberlehner",
   "homepage": "https://github.com/maoberlehner/using-the-google-maps-api-with-vue",
@@ -8,12 +8,13 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy": "aws s3 sync ./dist s3://colite-tech-deployment-v2"
   },
   "dependencies": {
     "@google/markerclusterer": "^1.0.3",
     "@vue/cli-plugin-babel": "^3.2.0",
-    "@vue/cli-service": "^3.2.0",
+    "@vue/cli-service": "^4.5.9",
     "apexcharts": "^3.22.2",
     "vue": "^2.5.21",
     "vue-apexcharts": "^1.6.0",
