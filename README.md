@@ -124,9 +124,11 @@ npm install express sequelize mysql2 body-parser cors --save
 - The behavioral tests will be located in frontend/tests/behavioral
 - BEHAIVORAL TESTING:
 The behaivoral tests will be run using the Selenium IDE which lets us automate web browing.
+
 *Prerequisites:
 > brew install node
 > npm install -g selenium-side-runner
+
 *Installing Browser Drivers:
 Chrome:
 > npm install -g chromedriver
@@ -135,6 +137,9 @@ Edge:
 Internet Explorer:
 > npm install -g iedriver
 
+*Launching the Runner:
+> selenium-side-runner /frontend/tests/behavioral/behavior-tests.side
+The above command should launch our behavioral tests 
 
 ## Authors
 
