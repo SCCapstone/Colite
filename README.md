@@ -139,7 +139,7 @@ Internet Explorer:
 
 *Launching the Runner:
 > selenium-side-runner /frontend/tests/behavioral/behavior-tests.side
-The above command should launch our behavioral tests 
+
 
 ## Authors
 
