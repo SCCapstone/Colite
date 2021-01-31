@@ -140,6 +140,14 @@ Internet Explorer:
 *Launching the Runner:
 > selenium-side-runner /frontend/tests/behavioral/behavior-tests.side
 
+*TO RUN THE BEHAVIORAL TEST
+- The command below worked for me on my terminal, I was in C:Users\haywa and then ran the commands:
+> npm install -g selenium-side-runner
+> npm install -g chromedriver
+OR Install 88.0.4324.27 from:
+http://chromedriver.storage.googleapis.com/index.html?path=88.0.4324.27/
+THEN run the command: (replace ronro with your username or adjust path as intended)
+>  selenium-side-runner C:\Users\ronro\Documents\GitHub\Colite\frontend\tests\behavior\behavior-test.side
 
 ## Authors
 
