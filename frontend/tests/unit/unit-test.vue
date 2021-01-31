@@ -10,7 +10,7 @@
             :class="{ active: index == currentIndex }"
             v-for="(pole, index) in poles"
             :key="index"
-            @click="setActivePole(pole, index); redFlag(pole); retrievePolesTest()"
+            @click="setActivePole(pole, index); retrievePolesTest(pole);"
             >
             <td>{{ pole.id_number }}</td>
             </tr>
@@ -22,8 +22,8 @@
                 <tr>
                     <th> RetrievePoles() Test:</th>
                 </tr>
-                <tr> {{ this.currentPole }} </tr>
-                <tr> {{ this.currentIndex }} </tr>
+                <tr id="idnumbertest"> {{ this.currentPole.id_number }} </tr>
+                <tr id="batvtest"> {{ this.currentPole.bat_v}} </tr>
                 <tr id="retrieve" class="retrieve"> {{ this.test_result }} </tr>
             </table>
         </div>
@@ -58,13 +58,13 @@ export default {
           console.log(e);
         });
     },
-    retrievePolesTest() {
-        if((this.currentPole.id_number -1) == this.currentIndex){
-            this.test_result = "Passed";
-        }
+    retrievePolesTest(pole) {
+        if (pole.bat_v >= 0) {
+        this.test_result = "Passed";
+      }
         else{
-          this.test_result = "Failed";
-        }
+        this.test_result = "Failed";
+      }
     },
     refreshList() {
       this.retrievePoles();
