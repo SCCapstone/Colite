@@ -10,24 +10,21 @@
             :class="{ active: index == currentIndex }"
             v-for="(pole, index) in poles"
             :key="index"
-            @click="setActivePole(pole, index); redFlag(pole);"
+            @click="setActivePole(pole, index); redFlag(pole); retrievePolesTest()"
             >
             <td>{{ pole.id_number }}</td>
             </tr>
         </table>
         </div>
 
-        <div>
+        <div v-if="currentPole">
             <table>
                 <tr>
                     <th> RetrievePoles() Test:</th>
                 </tr>
-                <tr id="retrieve" class="retrieve"> {{ this.test_result }} </tr>
-                <tr> {{ this.currentPole.id_number}} </tr>
+                <tr> {{ this.currentPole }} </tr>
                 <tr> {{ this.currentIndex }} </tr>
-                <tr>
-                    <button onclick="retrievePolesTest()">Test Current Pole</button>
-                </tr>
+                <tr id="retrieve" class="retrieve"> {{ this.test_result }} </tr>
             </table>
         </div>
 
@@ -47,7 +44,7 @@ export default {
       currentPole: null,
       currentIndex: -1,
       id_number: "",
-      test_result: "Failed"
+      test_result: "untested"
     };
   },
   methods: {
@@ -62,8 +59,11 @@ export default {
         });
     },
     retrievePolesTest() {
-        if(currentPole.id_number == currentIndex + 1) {
+        if((this.currentPole.id_number -1) == this.currentIndex){
             this.test_result = "Passed";
+        }
+        else{
+          this.test_result = "Failed";
         }
     },
     refreshList() {
@@ -126,5 +126,10 @@ export default {
 .row {
   background-color:  #2c3e50; 
 }
+#retrieve {
+  color: black;
+  background-color: white;
+}
+
 
 </style>
