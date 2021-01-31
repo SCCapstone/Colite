@@ -62,7 +62,7 @@ export default {
         });
     },
     retrievePolesTest() {
-        if(currentPole.id_number == currentIndex){
+        if(currentPole.id_number == currentIndex + 1) {
             this.test_result = "Passed";
         }
     },
