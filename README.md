@@ -149,7 +149,7 @@ http://chromedriver.storage.googleapis.com/index.html?path=88.0.4324.27/
 THEN run the command: (replace ronro with your username or adjust path as intended)
 >  selenium-side-runner C:\Users\ronro\Documents\GitHub\Colite\frontend\tests\behavior\behavior-test.side
 
-- BEHAIVORAL TESTING:
+- BEHAVIORAL TESTING:
 
 > Go to Tests page through the navbar
 > Click on a pole.
