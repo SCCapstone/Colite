@@ -14,10 +14,9 @@
           have a map of all of our existing polls that will highlight the various outputs from each poll that is being used in 
           the database. 
       </div>
+      <h4 class="card-title">This application was designed by Matthew Hayward, Simon Benzer, Andrew Denman, Kailen King and Kundana Narla </h4>
       <br>
-      <h1 class="card-title">This application was designed by Matthew Hayward, Simon Benzer, Andrew Denman and Kundana Narla </h1>
     <img alt="ColiteLogo" src="../assets/colite2.png" width="27%">
-
     </b-jumbotron>
   </div>
 </template>
