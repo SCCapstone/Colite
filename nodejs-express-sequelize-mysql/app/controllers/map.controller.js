@@ -5,9 +5,9 @@ const Sequelize = require("sequelize");
 const { QueryTypes } = require('sequelize');
 
 const sequelize = new Sequelize(
-  "DB_A6F8C3_EByteDB",
-  "DB_A6F8C3_EByteDB_admin",
-  "@002Super",
+  "proof-of-concept-2",
+  "admin123",
+  "@ColiteTech!",
   {
     host: "208.118.63.190",
     dialect: "mssql",
