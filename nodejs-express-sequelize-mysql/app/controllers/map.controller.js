@@ -9,7 +9,7 @@ const sequelize = new Sequelize(
   "admin123",
   "@ColiteTech!",
   {
-    host: "208.118.63.190",
+    host: "172.31.16.0",
     dialect: "mssql",
   }
 );
