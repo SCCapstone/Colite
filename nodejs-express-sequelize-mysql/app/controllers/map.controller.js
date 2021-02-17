@@ -6,7 +6,7 @@ const { QueryTypes } = require('sequelize');
 
 const sequelize = new Sequelize(
   "proof-of-concept-2",
-  "admin123",
+  "admin",
   "@ColiteTech!",
   {
     host: "172.31.16.0",
