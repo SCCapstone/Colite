@@ -8,6 +8,7 @@ import router from './router';
 import store from './store';
 import Navbar from './components/Navbar.vue';
 import axios from 'axios';
+import * as QuicksightEmbedding from 'amazon-quicksight-embedding-sdk';
 // import VueApexCharts from 'vue-apexcharts'
 //@ is global
 import '@/components/apexcharts.js';
