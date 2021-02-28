@@ -1,0 +1,11 @@
+AwsAccountId : 151340338600
+CloudFront Domain Name : d1dbghzuqwd5nk.cloudfront.net
+Cognito UserPool Id : us-east-1_ybQh6MSkm
+Cognito App Client Id : 7344es1llo5ut903s7hr0l8qqk
+QSER Role Arn : arn:aws:iam::151340338600:role/QSERV2
+API Gateway URL : https://7xz0eqo2s5.execute-api.us-east-1.amazonaws.com/test
+Bucket Name: qsev2151340338600
+App Client Name: QSCognitoAppClient
+
+Username: default-author-DemoUser1
+Pw: TestPass-1

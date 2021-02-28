@@ -1,0 +1,624 @@
+<html>
+
+<head>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/amazon-quicksight-embedding-sdk@1.0.2/dist/quicksight-embedding-js-sdk.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://d2dlyi5qn2h1ts.cloudfront.net/embed/author/regionlist.js"></script>
+
+    <style>
+        #LeftPanel,
+        #LeftPanelAuthorView,
+        #LeftPanelAuthorViewCard,
+        #LeftPanelEmbeddedView,
+        #LeftPanelReaderView,
+        #LeftPanelReaderViewCard,
+        #DisplayDivAuthorView,
+        #DisplayDivEmbeddedView,
+        #DisplayDivReaderView {
+            height: calc(100vh - 90px);
+        }
+        
+        #LeftPanelEmbeddedViewGroup {
+            height: calc(100vh - 90px - 31px);
+        }
+        
+        #DisplayDivCol {
+            width: calc(100vw - 160px);
+        }
+        
+        iframe {
+            border: 0;
+        }
+        
+        body {
+            margin: 0;
+        }
+    </style>
+    <script>
+        var awsData = {
+            identityRegion: 'us-east-1',
+            dashboardRegion: 'us-east-1',
+            cloudFrontUrl: 'https://d1dbghzuqwd5nk.cloudfront.net',
+            baseApiGatewayUrl: 'https://7xz0eqo2s5.execute-api.us-east-1.amazonaws.com/test/',
+            cognitoUrl: 'https://qsev2151340338600.auth.us-east-1.amazoncognito.com/login?client_id=7344es1llo5ut903s7hr0l8qqk&response_type=token&scope=openid+profile&redirect_uri=https://d1dbghzuqwd5nk.cloudfront.net/qsauthorembed.html',
+            cognitoLogOutUrl: 'https://qsev2151340338600.auth.us-east-1.amazoncognito.com/logout?client_id=7344es1llo5ut903s7hr0l8qqk&logout_uri=https://d1dbghzuqwd5nk.cloudfront.net/qsauthorembed.html',
+            fileName: '',
+            authorSessionLoaded: false,
+            cognitoUserName: '',
+            userType: '',
+            focusDashboardId: '',
+            debugMode: false
+
+        }
+
+        $(document).ready(function() {
+            //Code to be run on each page load
+            WriteDebugInfo('In Document ready function');
+            $('#navbarLogo').attr("src", awsData.cloudFrontUrl + "/logo.png");
+            $('#RegionSelectDropDown').html(regionList.replace('"' + awsData.dashboardRegion + '"', '"' + awsData.dashboardRegion + '" selected'));
+
+            //Get OpenIdToken
+            var tokenPromise = GetOpenIdToken();
+
+            tokenPromise.then(function(idToken) {
+                    //In this sample, the cognito user name is constructed in the following format
+                    //<namespace>-<author/reader>-<actual user name>
+                    //Namespace and role needn't be part of the user name.
+                    //Just need to be part of the user profile that you can reference from your application code.
+                    //Cognito custom attributes are not accessible via standard UI and will require custom front end.
+                    //Hence, including these as part of user name for simplicity.
+                    awsData.cognitoUserName = ParseJwt(idToken)['cognito:username'];
+                    awsData.userType = awsData.cognitoUserName.split('-')[1];
+
+                    //If user is an author, enable all views; For Reader, show only embedded and reader views.
+                    if (awsData.userType == 'author') {
+                        $('#NavAuthorLink').show();
+                        $('#NavEmbeddedLink').show();
+                        $('#NavReaderLink').show();
+                        $('#NavRegion').show();
+                        LoadAuthorSession();
+                        LoadReaderSession();
+                        LoadDashboardList();
+                        UpdateInfo('DisplayDivAuthorView', 'Loading. Please wait..');
+                        DiplayTab('DisplayDivAuthorView');
+                    } else {
+                        $('#NavEmbeddedLink').show();
+                        $('#NavReaderLink').show();
+                        $('#NavRegion').show();
+                        LoadReaderSession();
+                        LoadDashboardList();
+                        DiplayTab('DisplayDivEmbeddedView');
+                    }
+
+                },
+                function(err) {
+                    $('#ErrorDisplayModal').modal('show');
+                    console.log(err);
+                });
+        });
+
+        function WriteDebugInfo(debugInfo) {
+            if (awsData.debugMode) {
+                console.log(debugInfo);
+            }
+        }
+
+        //Redirect to Cognito if user is not Signed in.
+        //Cognito will redirect back to this page and then the promise will be resolved.
+        function GetOpenIdToken() {
+            return new Promise(function(resolve, reject) {
+                WriteDebugInfo('In GetOpenIdToken Function');
+                var idToken = GetParameterValues('id_token', '#', '&');
+                if (idToken) {
+                    WriteDebugInfo('Token found');
+                } else {
+                    WriteDebugInfo('Token not found, Redirecting to Cognito');
+                    window.location.href = awsData.cognitoUrl;
+                }
+                resolve(idToken);
+            });
+        }
+
+        function UpdateInfo(containerName, messageText) {
+            WriteDebugInfo('In UpdateInfo Function');
+            $('#' + containerName).html('<div class="jumbotron jumbotron-fluid text-center" >\
+                          <div class="container" >\
+                            <h4 class="text-secondary">' + messageText + '</h4>\
+                          </div>\
+                        </div>');
+        }
+
+        function GetParameterValues(param, slicer, delimiter) {
+            WriteDebugInfo('In GetParameterValues Function');
+            var urlParms = window.location.href.slice(window.location.href.indexOf(slicer) + slicer.length).split(delimiter);
+            for (var i = 0; i < urlParms.length; i++) {
+                var urlparm = urlParms[i].split('=');
+                if (urlparm[0].toLowerCase() === param) {
+                    SetCookie(param, decodeURIComponent(urlparm[1]));
+                    return decodeURIComponent(urlparm[1]);
+                }
+            }
+            return GetCookie(param);
+        }
+
+        function SetCookie(name, value) {
+            WriteDebugInfo('In SetCookie Function');
+            document.cookie = name + "=" + value + "; Max-Age=3600";
+        }
+
+        function GetCookie(name) {
+            WriteDebugInfo('In GetCookie Function');
+            var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+            return v ? v[2] : null;
+        }
+
+        function FetchToken() {
+            WriteDebugInfo('In FetchToken Function');
+            openIdToken = GetCookie('id_token');
+            if (openIdToken) {
+                return openIdToken;
+            } else {
+                SignOut();
+            }
+        }
+
+        //Embed the generated url into the div identified to hold the dashboard.
+        function EmbedDashboard(containerName, embedUrl) {
+            WriteDebugInfo('In EmbedDashboard Function');
+            var containerDiv = document.getElementById(containerName);
+            containerDiv.innerHTML = '';
+            var params = {
+                url: embedUrl,
+                container: containerDiv,
+                width: "100%",
+                height: "100%"
+            };
+            var dashboard = QuickSightEmbedding.embedDashboard(params);
+        }
+
+        function ParseJwt(token) {
+            WriteDebugInfo('In ParseJwt function');
+            var base64Url = token.split('.')[1];
+            var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+            return JSON.parse(jsonPayload);
+        }
+
+        //Make APIGateway call to generate Author session embed url.
+        function LoadAuthorSession() {
+            WriteDebugInfo('In LoadAuthorSession Function');
+            const parameters = {
+                identityRegion: awsData.identityRegion,
+                dashboardRegion: awsData.dashboardRegion,
+                openIdToken: FetchToken(),
+                entryPoint: '/start/analyses'
+            }
+
+            var apiGatewayUrl = awsData.baseApiGatewayUrl + 'GetSessionEmbedUrl?';
+            const myQueryString = $.param(parameters);
+            apiGatewayUrl = apiGatewayUrl + myQueryString;
+
+            const headers = {
+                'Content-Type': 'application/json'
+            }
+
+            axios.get(apiGatewayUrl, {
+                    headers: headers
+                })
+                .then((response) => {
+                    EmbedDashboard('DisplayDivAuthorView', response.data.EmbedUrl);;
+                })
+                .catch(function(error) {
+                    $('#ErrorDisplayModal').modal('show');
+                    console.log(error);
+                });
+        }
+
+        //Make APIGateway call to generate Reader session embed url.
+        function LoadReaderSession() {
+            WriteDebugInfo('In LoadReaderSession Function');
+            const parameters = {
+                identityRegion: awsData.identityRegion,
+                dashboardRegion: awsData.dashboardRegion,
+                openIdToken: FetchToken(),
+                entryPoint: '/start/dashboards'
+            }
+
+            var apiGatewayUrl = awsData.baseApiGatewayUrl + 'GetSessionEmbedUrl?';
+            const myQueryString = $.param(parameters);
+            apiGatewayUrl = apiGatewayUrl + myQueryString;
+
+            const headers = {
+                'Content-Type': 'application/json'
+            }
+
+            axios.get(apiGatewayUrl, {
+                    headers: headers
+                })
+                .then((response) => {
+                    EmbedDashboard('DisplayDivReaderView', response.data.EmbedUrl);;
+                })
+                .catch(function(error) {
+                    $('#ErrorDisplayModal').modal('show');
+                    console.log(error);
+                });
+        }
+
+        //Make APIGateway call to generate the dashboard list.
+        function LoadDashboardList() {
+            WriteDebugInfo('In LoadDashboardList Function');
+            $('#LeftPanelEmbeddedViewGroup').html('');
+            const parameters = {
+                identityRegion: awsData.identityRegion,
+                dashboardRegion: awsData.dashboardRegion,
+                openIdToken: FetchToken()
+            }
+
+            var apiGatewayUrl = awsData.baseApiGatewayUrl + 'GetDashboardList?';
+            var cardHTML = '';
+
+            const myQueryString = $.param(parameters);
+            apiGatewayUrl = apiGatewayUrl + myQueryString;
+
+            const headers = {
+                'Content-Type': 'application/json'
+            }
+
+            axios.get(apiGatewayUrl, {
+                    headers: headers
+                })
+                .then((response) => {
+                    WriteDebugInfo(response.data.Dashboards);
+                    for (cnt = 0; cnt < response.data.Dashboards.length; cnt++) {
+                        cardHTML += '<div class="card" style="width:156px;margin-left:1px;margin-right:1px;margin-bottom:4px" id="' + response.data.Dashboards[cnt].DashboardId + '">\
+                      <a href="#" onclick="LoadDashboard(\'' + response.data.Dashboards[cnt].DashboardId + '\')">\
+                        <img id="Img' + response.data.Dashboards[cnt].DashboardId + '" \
+                        src="' + awsData.cloudFrontUrl + '/images/' + response.data.Dashboards[cnt].DashboardId + '.png"\
+                        class="card-img-top "\
+                        onerror="this.onerror=null; this.src=\'' + awsData.cloudFrontUrl + '/defaultIcon.png\'">\
+                      </a>';
+                        if (awsData.userType == 'author') {
+                            cardHTML += '<a class="text-primary text-center" href="#" onclick="ShowFileUploadModal(\'' + response.data.Dashboards[cnt].DashboardId + '.png\')" style="font-size:8px;">\
+                          Upload/Change image\
+                        </a>';
+                        }
+                        cardHTML += '<button type="button" class="btn btn-light btn-sm text-secondary" onclick="LoadDashboard(\'' + response.data.Dashboards[cnt].DashboardId + '\')">' + response.data.Dashboards[cnt].Name + '</button>\
+                  </div>';
+                    }
+                    $('#LeftPanelEmbeddedViewGroup').html(cardHTML);
+                    UpdateInfo('DisplayDivEmbeddedView', 'Please select a dashboard to view.');
+                })
+                .catch(function(error) {
+                    $('#ErrorDisplayModal').modal('show');
+                    console.log(error);
+                });
+        }
+
+        //Make APIGateway call to generate the embed url.
+        function LoadDashboard(dashboardId) {
+            WriteDebugInfo('In LoadDashboard Function');
+            if (awsData.focusDashboardId) {
+                $('#' + awsData.focusDashboardId)[0].style.borderColor = "";
+            }
+            $('#' + dashboardId)[0].style.borderColor = "#29a8dd";
+            awsData.focusDashboardId = dashboardId;
+
+            UpdateInfo('DisplayDivEmbeddedView', 'Loading dashboard. Please wait..');
+
+            const parameters = {
+                dashboardRegion: awsData.dashboardRegion,
+                openIdToken: FetchToken(),
+                dashboardId: dashboardId,
+                resetDisabled: true,
+                undoRedoDisabled: true
+            }
+
+            var apiGatewayUrl = awsData.baseApiGatewayUrl + 'GetDashboardEmbedUrl?';
+            const myQueryString = $.param(parameters);
+            apiGatewayUrl = apiGatewayUrl + myQueryString;
+
+            const headers = {
+                'Content-Type': 'application/json'
+            }
+
+            axios.get(apiGatewayUrl, {
+                    headers: headers
+                })
+                .then((response) => {
+                    EmbedDashboard('DisplayDivEmbeddedView', response.data.EmbedUrl);;
+                })
+                .catch(function(error) {
+                    $('#ErrorDisplayModal').modal('show');
+                    console.log(error);
+                });
+        }
+
+        function FileNameLoad() {
+            WriteDebugInfo('In FileNameLoad Function');
+            var fileName = document.getElementById('CustomFile').value.split("\\").pop();
+            $('#CustomFileLabel').html(fileName);
+            $('#FileUploadModalButton').removeClass('btn-secondary');
+            $('#FileUploadModalButton').addClass('btn-primary');
+            $('#FileUploadModalButton').prop('disabled', false);
+        }
+
+        function ShowFileUploadModal(fileName) {
+            WriteDebugInfo('In ShowFileUploadModal Function');
+            awsData.fileName = fileName;
+            $('#FileUploadModal').modal('show');
+        }
+
+        function ClearFileName() {
+            WriteDebugInfo('In ClearFileName Function');
+            awsData.fileName = '';
+            $('#CustomFileLabel').html('');
+            $('#FileUploadModalButton').removeClass('btn-primary');
+            $('#FileUploadModalButton').addClass('btn-secondary');
+            $('#FileUploadModalButton').prop('disabled', true);
+        }
+
+        function DiplayTab(tabName) {
+            WriteDebugInfo('In DisplayTab Function');
+            switch (tabName) {
+                case 'DisplayDivAuthorView':
+                    $('#DisplayDivReaderView').hide();
+                    $('#LeftPanelReaderView').hide();
+                    $('#NavReaderLink').removeClass('text-primary').addClass('text-secondary');
+                    $('#DisplayDivEmbeddedView').hide();
+                    $('#LeftPanelEmbeddedView').hide();
+                    $('#NavEmbeddedLink').removeClass('text-primary').addClass('text-secondary');
+                    $('#DisplayDivAuthorView').show();
+                    $('#LeftPanelAuthorView').show();
+                    $('#NavAuthorLink').removeClass('text-secondary').addClass('text-primary');
+                    break;
+                case 'DisplayDivEmbeddedView':
+                    $('#DisplayDivAuthorView').hide();
+                    $('#LeftPanelAuthorView').hide();
+                    $('#NavAuthorLink').removeClass('text-primary').addClass('text-secondary');
+                    $('#DisplayDivReaderView').hide();
+                    $('#LeftPanelReaderView').hide();
+                    $('#NavReaderLink').removeClass('text-primary').addClass('text-secondary');
+                    $('#DisplayDivEmbeddedView').show();
+                    $('#LeftPanelEmbeddedView').show();
+                    $('#NavEmbeddedLink').removeClass('text-secondary').addClass('text-primary');
+
+                    break;
+                default:
+                    $('#DisplayDivEmbeddedView').hide();
+                    $('#LeftPanelEmbeddedView').hide();
+                    $('#NavEmbeddedLink').removeClass('text-primary').addClass('text-secondary');
+                    $('#DisplayDivAuthorView').hide();
+                    $('#LeftPanelAuthorView').hide();
+                    $('#NavAuthorLink').removeClass('text-primary').addClass('text-secondary');
+                    $('#DisplayDivReaderView').show();
+                    $('#LeftPanelReaderView').show();
+                    $('#NavReaderLink').removeClass('text-secondary').addClass('text-primary');
+            }
+        }
+
+        function GetUploadUrl() {
+            WriteDebugInfo('In GetUploadUrl Function');
+            var apiGatewayUrl = awsData.baseApiGatewayUrl + 'GetUploadUrl?';
+            const parameters = {
+                openIdToken: FetchToken(),
+                fileName: 'images/' + awsData.fileName
+            }
+            event.preventDefault();
+            $('#FileUploadModalButton').prop('disabled', true);
+            const myQueryString = $.param(parameters);
+            apiGatewayUrl = apiGatewayUrl + myQueryString;
+
+            const headers = {
+                'Content-Type': 'application/json'
+            }
+
+            axios.get(apiGatewayUrl, {
+                    headers: headers
+                })
+                .then((response) => {
+                    console.log(response.data);
+                    var uploadUrl = response.data;
+                    var theFormFile = $('#CustomFile').get()[0].files[0];
+
+                    $.ajax({
+                        type: 'PUT',
+                        url: uploadUrl,
+                        contentType: 'binary/octet-stream',
+                        processData: false,
+                        data: theFormFile,
+                        success: function() {
+                            $('#FileUploadModal').modal('hide');
+                            $('#Img' + awsData.fileName.split('.')[0]).removeAttr("src").attr("src", awsData.cloudFrontUrl + "/images/" + awsData.fileName + "?timestamp=" + new Date().getTime());
+                            ClearFileName();
+                            return false;
+                        },
+                        error: function() {
+                            $('#FileUploadModal').modal('hide');
+                            $('#ErrorDisplayModal').modal('show');
+                            ClearFileName();
+                            console.log(arguments);
+                            return false;
+                        }
+                    });
+                })
+                .catch(function(error) {
+                    $('#FileUploadModal').modal('hide');
+                    $('#ErrorDisplayModal').modal('show');
+                    ClearFileName();
+                    console.log(error);
+                });
+        }
+
+        function ChangeRegion(regionName) {
+            WriteDebugInfo('In ChangeRegion Function');
+            awsData.dashboardRegion = regionName;
+            UpdateInfo('DisplayDivEmbeddedView', 'Changing region. Please wait..');
+            UpdateInfo('DisplayDivAuthorView', 'Changing region. Please wait..');
+            UpdateInfo('DisplayDivReaderView', 'Changing region. Please wait..');
+
+            LoadAuthorSession();
+            LoadDashboardList();
+            LoadReaderSession();
+        }
+
+        function SignOut() {
+            WriteDebugInfo('In SignOut Function');
+            SetCookie('id_token', '');
+            window.location.href = awsData.cognitoLogOutUrl;
+        }
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand">
+            <img id="navbarLogo" src="" height="50px" alt="" loading="lazy">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a id="NavAuthorLink" class="nav-link text-primary" href="#" style="display:None;" onclick="DiplayTab('DisplayDivAuthorView')">Embedded Author View</a>
+                </li>
+                <li class="nav-item active">
+                    <a id="NavEmbeddedLink" class="nav-link text-secondary" href="#" style="display:None;" onclick="DiplayTab('DisplayDivEmbeddedView')">Embedded Dashboard View</a>
+                </li>
+                <li class="nav-item active" style="margin-right:80px">
+                    <a id="NavReaderLink" class="nav-link text-secondary" href="#" style="display:None;" onclick="DiplayTab('DisplayDivReaderView')">Embedded Reader View</a>
+                </li>
+            </ul>
+            <ul id="NavRegion" class="navbar-nav" style="margin-right:40px; display:None;">
+                <li class="nav-item inactive">
+                    <a class="nav-link text-secondary "> Region </a>
+                </li>
+                <li class="nav-item active">
+                    <select class="form-control text-secondary" id="RegionSelectDropDown" style="width:200px;" onchange="ChangeRegion($(this).val())" )>
+            </select>
+                </li>
+                <li class="nav-item active">
+                    <a id="NavSignOut" class="nav-link text-secondary" href="#" onclick="SignOut()">LogOut</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <table style="width:100vw; margin-top:76px">
+        <tr>
+            <td style="width: 160px">
+                <div id="LeftPanel" class="overflow-auto">
+                    <div id="LeftPanelAuthorView" class="overflow-auto" style="background-color:#e9ecef;display:None">
+                        <div id="LeftPanelAuthorViewCard" class="card overflow-auto" style="width: 160px;">
+                            <div class="card-body">
+                                <p class="card-text text-secondary">With QuickSight's capability to embed author sessions, you can now let your power users explore curated data sets and build dashboards right from your own portal. <br><br> Embedded Dashboard View shows how your power authors
+                                    can be empowered to provide a custom embedded experience for end users. Try changing the image associated with dashboards in left panel.<br><br> Try Embedded Reader View to see how a more generic reader view can be
+                                    embedded.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="LeftPanelEmbeddedView" class="card " style="display:None">
+                        <button type="button" class="btn btn-light btn-sm text-secondary" onclick="LoadDashboardList()">Refresh</button>
+                        <div id="LeftPanelEmbeddedViewGroup" class="overflow-auto">
+                        </div>
+                    </div>
+                    <div id="LeftPanelReaderView" class="overflow-auto" style="background-color:#e9ecef;display:None">
+                        <div id="LeftPanelReaderViewCard" class="card overflow-auto" style="width: 160px;">
+                            <div class="card-body">
+                                <p class="card-text text-secondary">With QuickSight's capability to embed reader sessions, you can now embed a generic reader view very easily. <br><br> Try Embedded Author View to see how authoring experience can be embedded. <br><br> Check out Embedded
+                                    Dashboard View to see how you can provide a more customized experience to end users. <br><br>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td id="DisplayDivCol">
+                <div id="DisplayDiv" class="overflow-auto" style="background-color:#e9ecef;">
+                    <div id="DisplayDivAuthorView" class="overflow-auto" style="background-color:#e9ecef;display:None">
+                    </div>
+                    <div id="DisplayDivEmbeddedView" class="overflow-auto" style="background-color:#e9ecef;display:None">
+                        <div class="jumbotron jumbotron-fluid text-center">
+                            <div class="container">
+                                <h4 class="text-secondary">Please select a dashboard to view.</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="DisplayDivReaderView" class="overflow-auto" style="background-color:#e9ecef;display:None">
+                    </div>
+                </div>
+                <div class="modal fade" id="FileUploadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="FileUploadModalLabel">Upload dashboard thumbnail (PNG)</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="FileUploadForm" action="" method="post" enctype="multipart/form-data">
+                                    <div id="FileUploadFormDiv" class="custom-file">
+                                        <label id="CustomFileLabel" class="custom-file-label" for="CustomFile">Choose file</label> File:
+                                        <input type="file" name="file" class="custom-file-input" id="CustomFile" onchange="FileNameLoad()" accept=".png">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button id="FileUploadModalButton" type="button" class="btn btn-secondary" onclick="GetUploadUrl()" disabled="true">Upload</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="ErrorDisplayModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="ErrorDisplayModalLabel">Ouch. Hit an issue.</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                            </div>
+                            <div class="modal-body">
+                                Please see browser console log for more error details.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="LoadingDisplayModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="LoadingDisplayModalLabel">Please wait</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                            </div>
+                            <div class="modal-body">
+                                Loading ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
