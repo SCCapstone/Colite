@@ -10,7 +10,8 @@ db.sequelize.sync( /*{ force: true }*/ ).then(() => {
 });
 
 var corsOptions = {
-    origin: "http://localhost:8081"
+    origin: "http://colite-tech-deployment-v2.s3-website-us-east-1.amazonaws.com"
+        //origin: "http://localhost:8081" //to check offline capabilities...
 };
 
 app.use(cors(corsOptions));
