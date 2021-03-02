@@ -28,50 +28,27 @@
       </gmap-info-window>
 
     </gmap-map>
+	</div>
   </div>
-    
-    
-
-    
-  </div>
-  
-
-
-  
 </template>
 
 <script>
 import axios from 'axios'
-import XLSX from 'xlsx'
-import transformSheets from './readXlx.js'
-import {locations} from './data.js'
-
-
-
-
- 
-
   const dataObj = {
-    lat: 6.465422,
-    lng: 3.406448
+    lat: 39,
+    lng: -93
   };
   export default {
     name: "GoogleMap",
     data() {
-      console.log('data')
-    
       return {
-        content:'',
-        err: 'lOjhsh',
         center: {lat: dataObj.lat, lng: dataObj.lng},
-        map: null,
-        infoContent: '',
-        infoWindowPos: {
+		infoContent: '',                                                                                               
+		infoWindowPos: {
           lat: 0,
           lng: 0
         },
         infoWinOpen: false,
-        currentMidx: null,
         //optional: offset infowindow so it visually sits nicely on top of our marker
         infoOptions: {
           pixelOffset: {
@@ -79,74 +56,39 @@ import {locations} from './data.js'
             height: -35
           }
         },
-        markers: ''
+        markers: []
       };
     },
-    mounted() {
-     console.log(this.markers)
+    
+	mounted() {
+		axios.get('http://localhost:8080/api/poles')
+		.then(response => {
+			this.markers = response.data.map((transform) => {
+				return {
+					...transform, position: {
+						lat: Number(transform.latitude),
+						lng: Number(transform.longitude)
+					}
+				}
+			});
      
-     this.$refs.gmap.$mapPromise.then((map) => {
-        const bounds = new google.maps.LatLngBounds()
-        for (let m of this.markers) {
-          console.log(m)
-          bounds.extend(m.position)
-        }
-        map.fitBounds(bounds);
-      });
-   
-
-    
-     
-
-    },
-
-
-
-  created() {
-    var url = "./testmap.xlsx" // Files placed in the public directory can be accessed directly
-
-       axios.get(url, {responseType:'arraybuffer'})
-    .then((res) => {
-    var data = new Uint8Array(res.data)
-    var wb = XLSX.read(data, {type:"array"})
-    var sheets = wb.SheetNames[0];
-     let worksheet = wb.Sheets[sheets];
-    this.markers = XLSX.utils.sheet_to_json(worksheet).map((transform) => {
-    return {
-      ...transform, position: {
-        lat: transform.Latitude,
-        lng: transform.Longitude
-      }
-    }
-      
-    })
-    console.log(this.markers)
-     this.$refs.gmap.$mapPromise.then((map) => {
-        const bounds = new google.maps.LatLngBounds()
-        for (let m of this.markers) {
-          console.log(m)
-          bounds.extend(m.position)
-        }
-        map.fitBounds(bounds);
-      });
-    }).catch( err =>{
-      this.err = err
-    })
-    
-   
-  },
-
-    
-
-
-   
+			this.$refs.gmap.$mapPromise.then((map) => {
+				const bounds = new google.maps.LatLngBounds()
+				for (let m of this.markers) {
+				  bounds.extend(m.position)
+				}
+				map.fitBounds(bounds);
+			});
+		}).catch( err => {
+			this.err = err
+		})
+	},
     methods: {
       toggleInfoWindow: function (marker, idx) {
         
         this.infoWindowPos = marker.position
         this.infoContent = this.getInfoWindowContent(marker);
         
-
         //check if its the same marker that was selected if yes toggle
         if (this.currentMidx == idx) {
           this.infoWinOpen = !this.infoWinOpen;
@@ -157,9 +99,7 @@ import {locations} from './data.js'
           this.currentMidx = idx;
         }
       },
-
       
-
      
       getInfoWindowContent: function (marker) {
         return (`<div class="card">
@@ -167,28 +107,23 @@ import {locations} from './data.js'
   <div class="card-content">
     
     <div class="content pt-3">
-      <p>Latitude : ${marker.position.lat} <p />
-     <p>Longitude: ${marker.position.lng} </p>
-      <p class="">Rmp : ${marker.RPM}</p>
-      <p class="">Date : ${marker.Date}</p>
-
-
-     
-      
+		<p>Latitude : ${marker.position.lat} <p />
+		<p>Longitude: ${marker.position.lng} </p>
+		<p class="">Rmp : ${marker.rpm}</p>
+		<p class="">Wind : v:${marker.wind_v} a:${marker.wind_a} a2:${marker.wind_a2} a3:${marker.wind_a3} w:${marker.wind_w}</p>
+		<p class="">Led : 1v:${marker.led_1v} 1a:${marker.led_1a} 1w:${marker.led_1w} 2v:${marker.led_2v} 2a:${marker.led_2a} 2w:${marker.led_2w}</p>
+		<p class="">Date : ${marker.date_mdy}</p>
+		<p class="">Time : ${marker.time_hms}</p>
     </div>
   </div>
 </div>`);
       },
     }
   };
-
-
 </script>
 
 
-
 <style>
-
 .map {
   background-color: #2c3e50;
   /* min-height: 100%; */
