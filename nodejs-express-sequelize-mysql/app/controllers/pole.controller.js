@@ -37,7 +37,9 @@ exports.create = (req, res) => {
         temp_c: req.body.temp_c,
         ex_in_v: req.body.ex_in_v,
         date_mdy: req.body.date_mdy,
-        time_hms: req.body.time_hms
+        time_hms: req.body.time_hms,
+		longitude: req.body.longitude,
+        latitude: req.body.latitude
     };
 
     // Save Pole in the database
