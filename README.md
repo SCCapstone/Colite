@@ -154,6 +154,19 @@ THEN run the command: (replace ronro with your username or adjust path as intend
 > Go to Tests page through the navbar
 > Click on a pole.
 
+## Log On Information:
+
+Username: nsdemo10-author-DemoUser3
+Password: TestPass-1
+
+Username: default-reader-DemoUser2
+Password: TestPass-2
+
+Username: default-author-DemoUser1
+Password: TestPass-3
+
+Username: nsdemo10-reader-DemoUser4
+Password: TestPass-4
 
 ## Authors
 

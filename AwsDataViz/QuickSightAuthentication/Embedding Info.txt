@@ -9,3 +9,30 @@ App Client Name: QSCognitoAppClient
 
 Username: default-author-DemoUser1
 Pw: TestPass-1
+
+
+NEW EMBEDDING INFO:
+
+Stack Name: QuickSightAuthorEmbedSample
+Email: mhayward@email.sc.edu
+Suffix: 10
+
+Username: nsdemo10-author-DemoUser3
+Password: TestPass-1
+
+Username: default-reader-DemoUser2
+Password: TestPass-2
+
+Username: default-author-DemoUser1
+Password: TestPass-3
+
+Username: nsdemo10-reader-DemoUser4
+Password: TestPass-4
+
+https://learnquicksight.workshop.aws/en/session-embedding/5.embedded-analytics.html
+
+Cloudfront URL: https://d3uloz2irj3oqp.cloudfront.net/
+
+QSSampleEmbedUrl/Data Visualization Link: https://d3uloz2irj3oqp.cloudfront.net/qsauthorembed.html
+
+Webapp Link: http://colite-tech-deployment-v2.s3-website-us-east-1.amazonaws.com/
