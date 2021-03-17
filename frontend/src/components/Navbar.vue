@@ -1,6 +1,6 @@
 <template>
 <div>
-  <b-navbar toggleable="lg" type="dark" variant="dark">
+  <b-navbar toggleable="lg" type="light" variant="light">
     <b-navbar-brand href="#" to="/"><img alt="ColiteLogo" src="@/assets/coliteNavBar.png"></b-navbar-brand>
     <!-- <b-navbar-brand><router-link to="/"><img alt="ColiteLogo" src="@/assets/coliteNavBar.png"></router-link> </b-navbar-brand> -->
 
@@ -32,14 +32,14 @@
           <b-dropdown-item href="#">FA</b-dropdown-item>
         </b-nav-item-dropdown> -->
 
-        <b-nav-item-dropdown right>
+        <!-- <b-nav-item-dropdown right> -->
           <!-- Using 'button-content' slot -->
-          <template #button-content>
+          <!-- <template #button-content> -->
             <!-- <em>User</em> -->
-          </template>
+          <!-- </template> -->
           <!-- <b-dropdown-item href="#">Profile</b-dropdown-item> -->
           <!-- <b-dropdown-item href="#">Sign Out</b-dropdown-item> -->
-        </b-nav-item-dropdown>
+        <!-- </b-nav-item-dropdown> -->
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
