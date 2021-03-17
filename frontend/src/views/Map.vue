@@ -61,7 +61,7 @@ import axios from 'axios'
     },
     
 	mounted() {
-		axios.get('http://localhost:8080/api/poles')
+		axios.get('http://colitetechrestapi.us-east-1.elasticbeanstalk.com/api/poles')
 		.then(response => {
 			this.markers = response.data.map((transform) => {
 				return {
