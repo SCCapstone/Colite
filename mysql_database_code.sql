@@ -1,5 +1,5 @@
 
-create table data_set(
+create table poles(
     Load1_time1_Set int default 0,
     Load1_time2_Set int default 0,
     Load1_OutMode varchar(30) default 'NIGHT',
@@ -20,7 +20,7 @@ create table data_set(
     MPPT_Start_V dec(10,5) default 6.0
 );
 
-insert into data_set (
+insert into poles (
     Load1_time1_Set,
     Load1_time2_Set,
     Load1_OutMode,
@@ -57,3 +57,29 @@ values (0,0,'NIGHT',1,1,'NIGHT','pv_v',0,'12V',0,0,0,12,11.9,10,9.9,2,4),
 (14,14,'NIGHT',15,15,'NIGHT','pv_v',0.5,'24V',14,14,14,12.6,12.5,10.6,10.5,2.6,4.6),
 (15,15,'NIGHT',16,16,'DAY','pv_v',0.6,'48V',15,15,15,12.7,12.6,10.7,10.6,2.7,4.7),
 (16,16,'DAY',17,17,'PWM','extern_v',40,'Auto',16,16,16,60,59.9,59.8,59.7,25.5,25.5);
+
+
+-- adding in pole_id, longitude and latitude to poles database.
+alter table poles
+add pole_id CHAR(12);
+
+alter table poles
+add longitude Decimal(9,6);
+
+alter table poles
+alter longitude set default 0.0;
+
+alter table poles
+add latitude Decimal(8,6);
+
+alter table poles
+alter latitude set default 0.0;
+--setting the pole_id to a number so you can set it to primary key
+select @i:=0;
+update poles set pole_id = @i:=@i+1;
+
+alter table poles
+add primary key (pole_id);
+--reseting longitude and latitude
+update poles set longitude = default;
+update poles set latitude = default;
