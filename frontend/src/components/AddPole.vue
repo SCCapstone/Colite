@@ -2,14 +2,14 @@
   <div class="submit-form">
     <div v-if="!submitted">
       <div class="form-group">
-        <label for="id_number">Id Number</label>
+        <label for="pole_id">Id Number</label>
         <input
           type="text"
           class="form-control"
-          id="id_number"
+          id="pole_id"
           required
-          v-model="pole.id_number"
-          name="id_number"
+          v-model="pole.pole_id"
+          name="pole_id"
         />
       </div>
 
@@ -43,7 +43,7 @@ export default {
     return {
       pole: {
         id: null,
-        id_number: "",
+        pole_id: "",
         column_1: ""
       },
       submitted: false
@@ -52,7 +52,7 @@ export default {
   methods: {
     savePole() {
       var data = {
-        id_number: this.pole.id_number,
+        pole_id: this.pole.pole_id,
         column_1: this.pole.column_1
       };
 

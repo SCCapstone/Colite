@@ -2,7 +2,7 @@ module.exports = {
     HOST: "proof-of-concept-2.cg5oknnxxjpg.us-east-1.rds.amazonaws.com",
     USER: "admin",
     PASSWORD: "ColiteTech!",
-    DB: "poc_md",
+    DB: "beta_md",
     dialect: "mysql",
     pool: {
         max: 5,
