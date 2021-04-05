@@ -3,9 +3,9 @@
     <h4>Pole</h4>
     <form>
       <div class="form-group">
-        <label for="id_number">Id_number</label>
-        <input type="text" class="form-control" id="id_number"
-          v-model="currentPole.id_number"
+        <label for="pole_id">pole_id</label>
+        <input type="text" class="form-control" id="pole_id"
+          v-model="currentPole.pole_id"
         />
       </div>
       <div class="form-group">
