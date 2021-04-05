@@ -11,6 +11,10 @@ The main technologies being used will be Amazon Web Services, MYSQL, and HTML/Vu
 
 The web application is now hosted at: http://colite-tech-deployment-v2.s3-website-us-east-1.amazonaws.com/#/
 
+The login information is as follows:
+Username: nsdemo10-author-DemoUser3
+Password: TestPass-1
+
 ## Running the Application (Open 2 Terminal Windows)
 
 ### 1st Window
