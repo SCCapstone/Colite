@@ -72,13 +72,18 @@ import axios from 'axios'
 				}
 			});
      
-			this.$refs.gmap.$mapPromise.then((map) => {
-				const bounds = new google.maps.LatLngBounds()
-				for (let m of this.markers) {
-				  bounds.extend(m.position)
-				}
-				map.fitBounds(bounds);
-			});
+			if (this.markers.length > 0) {
+				this.$refs.gmap.$mapPromise.then((map) => {
+					const bounds = new google.maps.LatLngBounds()
+					for (let m of this.markers) {
+						bounds.extend(m.position)
+					}
+					map.fitBounds(bounds);
+					if (map.getZoom() > 12) {
+						map.setZoom(12);
+					}
+				});
+			}
 		}).catch( err => {
 			this.err = err
 		})
