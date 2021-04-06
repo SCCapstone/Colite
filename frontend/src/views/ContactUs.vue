@@ -1,12 +1,8 @@
 <template>
   <div class="contactUs">
     <h1>Welcome to the Contact Us page</h1>
-    <h3>
-        If you have any questions feel free to reach out to any of the emails
-        below and we will get back to you as quickly as possible
-   </h3>
     <h4> 
-    <table id="contacts" class="contacts">      
+    <table id="contacts" class="contacts">
         <tr>
             <th>Name</th>
             <br>
@@ -33,11 +29,6 @@
             <br>
             <td>adenman@email.sc.edu</td>
         </tr>
-        <tr>
-            <td>Kailen King</td>
-            <br>
-            <td>khking@email.sc.edu</td>
-        </tr>
     </table>
     </h4>
     <img alt="ColiteLogo" src="../assets/colite2.png" width="27%">
@@ -52,9 +43,5 @@
     }
     .contactUs {
          background-color: #2c3e50;
-    }
-
-    .h5 {
-        text-align: center;
     }
 </style>

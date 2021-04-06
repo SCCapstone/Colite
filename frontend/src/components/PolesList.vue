@@ -2,8 +2,8 @@
   <div class="list row">
     <div class="col-md-8">
       <!--<div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Search by pole_id"
-          v-model="pole_id"/>
+        <input type="text" class="form-control" placeholder="Search by id_number"
+          v-model="id_number"/>
         <div class="input-group-append">
           <<button class="btn btn-outline-secondary" type="button"
             @click="searchIdNumber"
@@ -17,7 +17,7 @@
       <h4>Poles List</h4>
       <table class="list-group">
         <tr>
-          <th>Mac Address</th>
+          <th>ID Number</th>
         </tr>
         <tr class="list-group-item"
           :class="{ active: index == currentIndex }"
@@ -25,7 +25,7 @@
           :key="index"
           @click="setActivePole(pole, index); redFlag(pole);"
         >
-          <td>{{ pole.pole_id }}</td>
+          <td>{{ pole.id_number }}</td>
         </tr>
       </table>
 
@@ -35,67 +35,79 @@
       <div v-if="currentPole">
         <h4>Pole</h4>
         <div id="idnumber">
-          <label><strong>Mac Address:</strong></label> {{ currentPole.pole_id }}
+          <label><strong>ID Number:</strong></label> {{ currentPole.id_number }}
         </div>
         <div>
-          <label><strong>load1_time1_set:</strong></label> {{ currentPole.load1_time1_set }}
+          <label><strong>Column 1:</strong></label> {{ currentPole.column_1 }}
         </div>
         <div>
-          <label><strong>load1_time2_set:</strong></label> {{ currentPole.load1_time2_set }}
+          <label><strong>RPMs:</strong></label> {{ currentPole.rpm }}
         </div>
         <div>
-          <label><strong>load1_outmode:</strong></label> {{ currentPole.load1_outmode }}
+          <label><strong>Wind Velocity:</strong></label> {{ currentPole.wind_v }}
         </div>
         <div>
-          <label><strong>load2_time1_set:</strong></label> {{ currentPole.load2_time1_set }}
+          <label><strong>Wind Acceleration:</strong></label> {{ currentPole.wind_a }}
         </div>
         <div>
-          <label><strong>load2_time2_set:</strong></label> {{ currentPole.load2_time2_set }}
+          <label><strong>Wind Acceleration 2:</strong></label> {{ currentPole.wind_a2 }}
         </div>
         <div>
-          <label><strong>load2_outmode:</strong></label> {{ currentPole.load2_outmode }}
+          <label><strong>Wind Acceleration 3:</strong></label> {{ currentPole.wind_a3 }}
         </div>
         <div>
-          <label><strong>scale_mode:</strong></label> {{ currentPole.scale_mode }}
+          <label><strong>Wind (Watts?):</strong></label> {{ currentPole.wind_w }}
         </div>
         <div>
-          <label><strong>param_setup_voltage:</strong></label> {{ currentPole.param_setup_voltage }}
+          <label><strong>PV (Velocity?):</strong></label> {{ currentPole.pv_v }}
         </div>
         <div>
-          <label><strong>work_v_setup:</strong></label> {{ currentPole.work_v_setup }}
+          <label><strong>PV (Acceleration?):</strong></label> {{ currentPole.pv_a }}
         </div>
         <div>
-          <label><strong>menu_password_1:</strong></label> {{ currentPole.menu_password_1 }}
+          <label><strong>Untitled:</strong></label> {{ currentPole.untitled }}
         </div>
         <div>
-          <label><strong>menu_password_2</strong></label> {{ currentPole.menu_password_2 }}
+          <label><strong>Battery Volts</strong></label> {{ currentPole.bat_v }}
         </div>
         <div>
-          <label><strong>menu_password_3</strong></label> {{ currentPole.menu_password_3 }}
+          <label><strong>Battery Amps</strong></label> {{ currentPole.bat_a }}
         </div>
         <div>
-          <label><strong>max_bat_limit</strong></label> {{ currentPole.max_bat_limit }}
+          <label><strong>Battery Watts</strong></label> {{ currentPole.bat_w }}
         </div>
         <div>
-          <label><strong>over_v_comeback</strong></label> {{ currentPole.over_v_comeback }}
+          <label><strong>LED 1 Volts</strong></label> {{ currentPole.led_1v }}
         </div>
         <div>
-          <label><strong>low_v_comeback</strong></label> {{ currentPole.low_v_comeback }}
+          <label><strong>LED 1 Amps</strong></label> {{ currentPole.led_1a }}
         </div>
         <div>
-          <label><strong>low_v_limit</strong></label> {{ currentPole.low_v_limit }}
+          <label><strong>LED 1 Watts</strong></label> {{ currentPole.led_1w }}
         </div>
         <div>
-          <label><strong>mppt_close_v</strong></label> {{ currentPole.mppt_close_v }}
+          <label><strong>LED 2 Volts</strong></label> {{ currentPole.led_2v }}
         </div>
         <div>
-          <label><strong>mppt_start_v</strong></label> {{ currentPole.mppt_start_v }}
+          <label><strong>LED 2 Amps</strong></label> {{ currentPole.led_2a }}
         </div>
         <div>
-          <label><strong>longitude</strong></label> {{ currentPole.longitude }}
+          <label><strong>LED 2 Watts</strong></label> {{ currentPole.led_2w }}
         </div>
         <div>
-          <label><strong>latitude</strong></label> {{ currentPole.latitude }}
+          <label><strong>LED 1 Volts</strong></label> {{ currentPole.led_1v }}
+        </div>
+        <div>
+          <label><strong>Temperature (C)</strong></label> {{ currentPole.temp_c }}
+        </div>
+        <div id="exinv">
+          <label><strong>Ex in V</strong></label> {{ currentPole.ex_in_v }}
+        </div>
+        <div>
+          <label><strong>Date (mdy)</strong></label> {{ currentPole.date_mdy }}
+        </div>
+        <div>
+          <label><strong>Time (hms)</strong></label> {{ currentPole.time_hms }}
         </div>
 
         <!--<a class="badge badge-warning"
@@ -122,7 +134,7 @@ export default {
       poles: [],
       currentPole: null,
       currentIndex: -1,
-      pole_id: ""
+      id_number: ""
     };
   },
   methods: {
@@ -160,7 +172,7 @@ export default {
     },
     
     searchIdNumber() {
-      PoleDataService.findByIdNumber(this.pole_id)
+      PoleDataService.findByIdNumber(this.id_number)
         .then(response => {
           this.poles = response.data;
           console.log(response.data);
