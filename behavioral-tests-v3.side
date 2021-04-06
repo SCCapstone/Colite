@@ -1,0 +1,147 @@
+{
+  "id": "d40100d6-30f2-4d1c-90e6-dff878d7e1f6",
+  "version": "2.0",
+  "name": "Colite",
+  "url": "https://d1dbghzuqwd5nk.cloudfront.net/qsauthorembed.html#",
+  "tests": [{
+    "id": "9d6180d4-5023-4c31-8f55-a9f31e16d4f0",
+    "name": "Login",
+    "commands": [{
+      "id": "604ba826-f5fb-49c6-a070-59316019c241",
+      "comment": "",
+      "command": "open",
+      "target": "https://qsev2151340338600.auth.us-east-1.amazoncognito.com/login?client_id=7344es1llo5ut903s7hr0l8qqk&response_type=token&scope=openid+profile&redirect_uri=https://d1dbghzuqwd5nk.cloudfront.net/qsauthorembed.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fec45885-82b9-4cf9-818b-2a26ff8dcec1",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x831",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "24821360-8ccf-4770-95d0-2e6d2d86fe5d",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(2) > div > div > .cognito-asf #signInFormUsername",
+      "targets": [
+        ["css=div:nth-child(2) > div > div > .cognito-asf #signInFormUsername", "css:finder"],
+        ["xpath=(//input[@id='signInFormUsername'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6ee578af-1391-46c1-899e-96fffed832d7",
+      "comment": "",
+      "command": "type",
+      "target": "css=div:nth-child(2) > div > div > .cognito-asf #signInFormUsername",
+      "targets": [
+        ["css=div:nth-child(2) > div > div > .cognito-asf #signInFormUsername", "css:finder"],
+        ["xpath=(//input[@id='signInFormUsername'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": "default-author-DemoUser1"
+    }, {
+      "id": "862c1eac-7ed8-47f8-b8ec-aa17a87ed6ef",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(2) > div > div > .cognito-asf #signInFormPassword",
+      "targets": [
+        ["css=div:nth-child(2) > div > div > .cognito-asf #signInFormPassword", "css:finder"],
+        ["xpath=(//input[@id='signInFormPassword'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "36e081c4-f85f-4264-aa08-f5e277972f2a",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(2) > div > div > .cognito-asf #signInFormPassword",
+      "targets": [
+        ["css=div:nth-child(2) > div > div > .cognito-asf #signInFormPassword", "css:finder"],
+        ["xpath=(//input[@id='signInFormPassword'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "249d2b6d-0baa-4600-8d7e-a66c2d73a7be",
+      "comment": "",
+      "command": "type",
+      "target": "css=div:nth-child(2) > div > div > .cognito-asf #signInFormPassword",
+      "targets": [
+        ["css=div:nth-child(2) > div > div > .cognito-asf #signInFormPassword", "css:finder"],
+        ["xpath=(//input[@id='signInFormPassword'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form/div[2]/input", "xpath:position"]
+      ],
+      "value": "TestPass-2"
+    }, {
+      "id": "df6f50b7-4d2f-48ee-85b9-99e6e71f4992",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(2) > div > div > .cognito-asf",
+      "targets": [
+        ["css=div:nth-child(2) > div > div > .cognito-asf", "css:finder"],
+        ["xpath=(//form[@name='cognitoSignInForm'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ed5c29c9-3178-4d97-9320-7e27867cc54b",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(2) > div > div > .cognito-asf",
+      "targets": [
+        ["css=div:nth-child(2) > div > div > .cognito-asf", "css:finder"],
+        ["xpath=(//form[@name='cognitoSignInForm'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "785627fd-a175-4e51-864e-4659aabd7a07",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(2) > div > div > .cognito-asf > .btn",
+      "targets": [
+        ["css=div:nth-child(2) > div > div > .cognito-asf > .btn", "css:finder"],
+        ["xpath=(//input[@name='signInSubmitButton'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form/input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b56d387f-bd3d-4272-8ec7-7599b010c1bd",
+      "comment": "",
+      "command": "click",
+      "target": "css=#ErrorDisplayModal .btn",
+      "targets": [
+        ["css=#ErrorDisplayModal .btn", "css:finder"],
+        ["xpath=(//button[@type='button'])[7]", "xpath:attributes"],
+        ["xpath=//div[@id='ErrorDisplayModal']/div/div/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8e6d415a-d5ea-4735-95c1-0aa7cfa74f18",
+      "comment": "",
+      "command": "click",
+      "target": "css=#ErrorDisplayModal .btn",
+      "targets": [
+        ["css=#ErrorDisplayModal .btn", "css:finder"],
+        ["xpath=(//button[@type='button'])[7]", "xpath:attributes"],
+        ["xpath=//div[@id='ErrorDisplayModal']/div/div/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "00afd651-48f6-4306-bee2-112a79dc7e25",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["9d6180d4-5023-4c31-8f55-a9f31e16d4f0"]
+  }],
+  "urls": [],
+  "plugins": []
+}
