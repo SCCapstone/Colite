@@ -48,8 +48,7 @@ Vue.use(DropdownPlugin)
 Vue.use(TablePlugin)
 Vue.use(BootstrapVue)
 
-import Plotly from 'plotly'
-
+ 
 Vue.prototype.$http = axios;
 
 // line below is not working

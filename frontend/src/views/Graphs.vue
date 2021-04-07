@@ -1,38 +1,27 @@
-
 <template>
-	
     <div class="home">
     
       <h1 class="card-title">Welcome to the Colite Technology Data Visualization Application!</h1>
       <div class="card-body" id="tester">
-        {{ grapher }}
-        Plot:
+        Test
       </div>
       <b-jumbotron> 
       <div id="graph">
-          {{ grapher }}
+          test3
+          {{ message }}
         <!--<PlotlyTestv2></PlotlyTestv2>-->
-        <button v-on:click="w">Button</button>
       </div>
         </b-jumbotron> 
-        <canvas id="myChart" width="400" height="400"></canvas>
-
     </div>
-
 </template>
 
 <script>
-import * as graphScript from '../components/PlotlyGraphs.js'
+import * as mykey from '../components/PlotlyGraphs.js'
+
 export default {
-  name: "default",
   data() {
     return {
-      grapher: graphScript.foo(4,5)
-    }
-  },
-  methods: {
-    w: function() {
-      graphScript.chartjs();
+      message: mykey.aVar // Hello Vue.js!
     }
   }
 }
