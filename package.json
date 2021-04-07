@@ -16,6 +16,7 @@
     "@vue/cli-service": "^3.2.0",
     "amazon-quicksight-embedding-sdk": "^1.0.12",
     "apexcharts": "^3.22.2",
+    "cors": "^2.8.5",
     "node": "^15.4.0",
     "python": "0.0.4",
     "vue": "^2.5.21",
