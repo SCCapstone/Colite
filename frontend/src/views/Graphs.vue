@@ -1,4 +1,4 @@
-<template>
+<!--<template>
   <div id="app">
     <pie-chart :data="chartData" :options="chartOptions"></pie-chart>
   </div>
@@ -43,8 +43,8 @@ export default {
   margin-top: 60px;
 }
 </style>
-
-<!--<template>
+-->
+<template>
 	
     <div class="home">
     
@@ -63,7 +63,7 @@ export default {
         </b-jumbotron> 
 <div class="small">
     <line-chart :chart-data="datacollection"></line-chart>
-    <button @click="fillData()">Randomize</button>
+
   </div>
     </div>
 
@@ -71,7 +71,7 @@ export default {
 
 <script>
 import LineChart from '../components/PlotlyGraphs'
-
+/*
 export default {
   components: {
     LineChart
@@ -83,7 +83,7 @@ export default {
   },
   mounted () {
     
-    this.fillData();
+    //this.fillData();
   },
   methods: {
     fillData () {
@@ -108,8 +108,10 @@ export default {
     }
   }
 }*/
-/*export default({
-  
+export default({
+    components: {
+    LineChart
+  },
   data: {
     class1: 'revol',
     class2: 'revol'
@@ -143,7 +145,7 @@ export default {
       
     }
   }
-}*/
+}
 /*
 import  Plotly  from '../../node_modules/plotly';
 
@@ -173,4 +175,4 @@ export default {
 
 <style>
 
-</style>-->
+</style>

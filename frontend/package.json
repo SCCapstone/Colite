@@ -16,7 +16,7 @@
     "axioss": "^0.0.1-security",
     "bootstrap": "^4.5.3",
     "bootstrap-vue": "^2.19.0",
-    "chart.js": "^3.0.2",
+    "chart.js": "^2.9.4",
     "core-js": "^3.6.5",
     "express": "^4.17.1",
     "plotly": "^1.0.6",

@@ -1,4 +1,29 @@
-import { Doughnut, mixins } from "vue-chartjs";
+import { Bar } from 'vue-chartjs'
+
+export default {
+  extends: Bar,
+  data: () => ({
+    chartdata: {
+      labels: ['January', 'February'],
+      datasets: [
+        {
+          label: 'Data One',
+          backgroundColor: '#f87979',
+          data: [40, 20]
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false
+    }
+  }),
+
+  mounted () {
+    this.renderChart(this.chartdata, this.options)
+  }
+}
+/*import { Doughnut, mixins } from "vue-chartjs";
 export default {
   extends: Doughnut,
   props: ["data", "options"],
@@ -13,14 +38,14 @@ export default {
   }
 };
 
-/*import { LinearScale } from 'chart.js';
+import { LinearScale } from 'chart.js';
 import Vue from 'vue';
 import { Line } from 'vue-chartjs'
 
 var plotly = require('plotly/index.js')('node-test-account', 'tpmz9ye8hg');
 export const aVar = 'Vue';
 
-/*
+
 function chartjs (ctx){
 
 var myChart = new Chart(ctx, {
@@ -96,7 +121,7 @@ export function layout() {
     return layout1;
 }
 
-/*
+
 export default({
     extends: Line,
     props: ['chartdata','options'],
@@ -122,7 +147,7 @@ export default({
         
       },
       
-      /*chartjs: function  (){
+      chartjs: function  (){
         
         var myChart = new Chart(class1, {
     
