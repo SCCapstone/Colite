@@ -48,7 +48,7 @@ Vue.use(DropdownPlugin)
 Vue.use(TablePlugin)
 Vue.use(BootstrapVue)
 
-
+ 
 Vue.prototype.$http = axios;
 
 // line below is not working
