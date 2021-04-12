@@ -12,6 +12,7 @@
     "@megaket4up/vuejs-google-maps": "0.0.11",
     "@ramonak/react-excel": "^1.0.1",
     "amazon-quicksight-embedding-sdk": "^1.0.12",
+    "apexcharts": "^3.26.0",
     "axios": "^0.21.1",
     "axioss": "^0.0.1-security",
     "bootstrap": "^4.5.3",
