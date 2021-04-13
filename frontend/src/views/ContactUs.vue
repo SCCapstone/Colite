@@ -29,6 +29,11 @@
             <br>
             <td>adenman@email.sc.edu</td>
         </tr>
+        <tr>
+            <td>Kailen King</td>
+            <br>
+            <td>khking@email.sc.edu</td>
+        </tr>
     </table>
     </h4>
     <img alt="ColiteLogo" src="../assets/colite2.png" width="27%">
