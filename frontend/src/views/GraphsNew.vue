@@ -5,9 +5,9 @@
       <b-jumbotron> 
         <div >
 
-          
+<!--           
           <!-- <button v-on:click="renderChart">Update</button>
-          <button v-on:click="rand">Randomize Data</button> -->
+          <button v-on:click="rand">Randomize Data</button> --> -->
 
         </div>
 
@@ -19,7 +19,7 @@
         :key="index"
         :chartdata="pole.pole_id" 
         :options="currentPole.pole_id"/>
-
+        <!-- Says that pole is not defined need to get to the botom of this-->
       </div>
     </div>
 </template>
@@ -33,12 +33,14 @@ export default {
   components: { LineChart },
   data: () => {
     return {
-    loaded: false,
-    chartdata: null,
-    poles: [],
-    currentPoll: null,
-    currentIndex: -1,
-    pole_id: ""
+        loaded: false,
+        chartdata: null,
+        poles: [],
+        currentPoll: null,
+        currentIndex: -1,
+        pole_id: "",
+        options: null,
+        index: 0
   };
 },
   methods: {
