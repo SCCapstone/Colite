@@ -10,13 +10,17 @@
 
       </b-jumbotron> 
       <div class="small">
-          
         <!-- <line-chart 
         :class ="{active: index == currentIndex}"
         v-for="(pole, index) in poles"
         :key="index"
         :chartdata="pole.pole_id" 
         :options="currentPole.pole_id"/> -->
+        <line-chart :key="chartKey" 
+        :chartdata="dataLine" 
+        :options="options"></line-chart>
+        
+
         <line-chart :key="chartKey" 
         :chartdata="dataLine" 
         :options="options"></line-chart>
@@ -37,13 +41,13 @@ export default {
         // loaded: false,
         // chartdata: null,
         chartKey: 0,
-        dataLine: 0,
-        // poles: [],
-        // currentPoll: null,
-        // currentIndex: -1,
-        // pole_id: "",
+        dataLine: null,
+        poles: [],
+        currentPoll: null,
+        currentIndex: -1,
+        pole_id: "",
         options: null,
-        // index: 0
+        index: 0
   };
 },
   methods: {
@@ -104,20 +108,11 @@ export default {
         document.getElementById("exinv").style.color = "#95c23b";
         document.getElementById("idnumber").style.color = "#95c23b";
       }
-    }
-  },
-
-  mounted() {
-    this.retrievePoles();
-    //this.redFlag(pole);
-    this.renderChart();
-    this.chartdata = pole_id;
-    this.loaded = true;
-  },
-   methods: {
+    },
     renderChart: function() {
       this.chartKey+=1;
     },
+
     rand: function() {
       this.renderChart();
       this.dataLine = LineChart.methods.randomizeData();
@@ -126,7 +121,17 @@ export default {
         maintainAspectRatio: false
       
       };
-    },
-  }
+    }
+  },
+
+  async mounted() {
+    this.retrievePoles();
+    //this.redFlag(pole);
+    this.renderChart();
+    const { pollList } = await fetch ('/api/poles')
+    this.chartdata = pollList;
+    this.rand();
+    this.loaded = true;
+  },
 };
 </script>
