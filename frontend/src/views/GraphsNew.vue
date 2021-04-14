@@ -16,9 +16,9 @@
         :key="index"
         :chartdata="pole.pole_id" 
         :options="currentPole.pole_id"/> -->
-        <line-chart :key="chartKey" 
+        <!-- <line-chart :key="chartKey" 
         :chartdata="dataLine" 
-        :options="options"></line-chart>
+        :options="options"></line-chart> -->
         
 
         <line-chart :key="chartKey" 
@@ -130,8 +130,19 @@ export default {
     this.renderChart();
     const { pollList } = await fetch ('/api/poles')
     this.chartdata = pollList;
-    this.rand();
-    this.loaded = true;
+    // this.rand();
+    // this.loaded = true;
+    // config = require("../nodejs-express-sequelize-mysql/app/config/db.config.js");
+    // db = config.database;
+    // var connection=mysql.createConnection({user: "admin", password: "ColiteTech!", 
+    //     DB: "rc1", dialect: "mysql", 
+    //     pool: {
+    //         max: 5,
+    //         min: 0,
+    //         acquire: 30000,
+    //         idle: 10000
+    //     }    
+    // })
   },
 };
 </script>
