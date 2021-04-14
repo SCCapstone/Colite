@@ -14,6 +14,7 @@ The web application is now hosted at: http://colite-tech-deployment-v2.s3-websit
 The login information is as follows:
 Username: nsdemo10-author-DemoUser3
 Password: TestPass-1
+After you login you can test out the AWS Data Visualization through QuickSight, make sure to click the Home Navbar button link to see the main page and the rest of our implemented features
 
 ## Running the Application (Open 2 Terminal Windows)
 
