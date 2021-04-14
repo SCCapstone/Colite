@@ -14,9 +14,9 @@
       </b-jumbotron> 
       <div class="small">
         <line-chart 
-        v-if="loaded"
-        
-        :chartdata="dataLine" 
+        v-for="(pole, index) in poles"
+        :key="index"
+        :chartdata="pole.pole_id" 
         :options="options"/>
 
       </div>
