@@ -14,10 +14,11 @@
       </b-jumbotron> 
       <div class="small">
         <line-chart 
+        :class ="{active: index == currentIndex}"
         v-for="(pole, index) in poles"
         :key="index"
         :chartdata="pole.pole_id" 
-        :options="options"/>
+        :options="currentPole.pole_id"/>
 
       </div>
     </div>
@@ -99,6 +100,8 @@ export default {
   mounted() {
     this.retrievePoles();
     //this.redFlag(pole);
+    this.chartdata = pole_id;
+    this.loaded = true;
   }
 };
 </script>
