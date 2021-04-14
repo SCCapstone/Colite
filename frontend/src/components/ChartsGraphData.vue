@@ -9,6 +9,7 @@ import { Line, mixins } from 'vue-chartjs'
 const { reactiveProp } = mixins
 import PoleDataService from "../services/PoleDataService";
 
+
 export default {
   extends: Line,
   mixin: [reactiveProp],

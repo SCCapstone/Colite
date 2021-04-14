@@ -5,20 +5,23 @@
       <b-jumbotron> 
         <div >
 
-<!--           
-          <!-- <button v-on:click="renderChart">Update</button>
-          <button v-on:click="rand">Randomize Data</button> --> -->
+        <!--           
+        <button v-on:click="renderChart">Update</button>
+        <button v-on:click="rand">Randomize Data</button> -->
 
         </div>
 
       </b-jumbotron> 
       <div class="small">
-        <line-chart 
+        <!-- <line-chart 
         :class ="{active: index == currentIndex}"
         v-for="(pole, index) in poles"
         :key="index"
         :chartdata="pole.pole_id" 
-        :options="currentPole.pole_id"/>
+        :options="currentPole.pole_id"/> -->
+        <line-chart :key="chartKey" 
+        :chartdata="dataLine" 
+        :options="options"></line-chart>
         <!-- Says that pole is not defined need to get to the botom of this-->
       </div>
     </div>
@@ -33,14 +36,16 @@ export default {
   components: { LineChart },
   data: () => {
     return {
-        loaded: false,
-        chartdata: null,
-        poles: [],
-        currentPoll: null,
-        currentIndex: -1,
-        pole_id: "",
+        // loaded: false,
+        // chartdata: null,
+        chartKey: 0,
+        dataLine: 0,
+        // poles: [],
+        // currentPoll: null,
+        // currentIndex: -1,
+        // pole_id: "",
         options: null,
-        index: 0
+        // index: 0
   };
 },
   methods: {
@@ -53,6 +58,10 @@ export default {
         .catch(e => {
           console.log(e);
         });
+    },
+
+    renderChart: function() {
+      this.chartKey+=1;
     },
 
     refreshList() {
@@ -99,11 +108,27 @@ export default {
       }
     }
   },
+
   mounted() {
     this.retrievePoles();
     //this.redFlag(pole);
+    this.renderChart();
     this.chartdata = pole_id;
     this.loaded = true;
+  },
+   methods: {
+    renderChart: function() {
+      this.chartKey+=1;
+    },
+    rand: function() {
+      this.renderChart();
+      this.dataLine = LineChart.methods.randomizeData();
+      this.options = {
+        responsive: true,
+        maintainAspectRatio: false
+      
+      };
+    },
   }
 };
 </script>
