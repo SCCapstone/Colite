@@ -23,7 +23,7 @@ export default {
       var newLabels = [];
       var newData = [];
       var i;
-
+      //start randomization
       var len = 100;
     
       for(i = 0; i<len;++i) {
@@ -33,6 +33,12 @@ export default {
       for(i =0; i<len;++i){
         newData.push(Math.floor(Math.random()*100));
       }
+      // end randomization
+
+      //Data formatted like:
+      //newLabels = y data of the line graph
+      //newData = x data of the line graph
+      //a Point is (newLabels[i], newData[i])
       var aChartdata = {
         labels: newLabels,
         datasets: [
@@ -43,18 +49,16 @@ export default {
           }
         ]
       };
+      //default options that can be changed
       var aOptions = {
         responsive: true,
         maintainAspectRatio: false
       
       };
-      console.log("newlabels: "+newLabels);
-      console.log("new data: "+newData);
+      console.log("newlabels(y points): "+newLabels);
+      console.log("new data(x points): "+newData);
 
-
-
-
-      console.log("set data/options: "+this);
+      //console.log("set data/options: "+this);
       return aChartdata;
     },
     getRandomInt: function() {

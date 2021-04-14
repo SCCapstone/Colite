@@ -110,9 +110,9 @@ export default {
         document.getElementById("idnumber").style.color = "#95c23b";
       }
     },
-    renderChart: function() {
+    /*renderChart: function() {
       this.chartKey+=1;
-    },
+    },*/
 
     rand: function() {
       this.renderChart();
