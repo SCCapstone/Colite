@@ -4,15 +4,13 @@
       <h1 class="card-title">Welcome to the Colite Technology Data Visualization Application!</h1>
       <b-jumbotron> 
         <div >
-
-        <!--           
         <button v-on:click="renderChart">Update</button>
-        <button v-on:click="rand">Randomize Data</button> -->
-
+        <button v-on:click="rand">Randomize Data</button>
         </div>
 
       </b-jumbotron> 
       <div class="small">
+          
         <!-- <line-chart 
         :class ="{active: index == currentIndex}"
         v-for="(pole, index) in poles"
