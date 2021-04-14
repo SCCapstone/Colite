@@ -1,4 +1,12 @@
+
+
+<template>
+
+  
+</template>
+<script>
 import { Line } from 'vue-chartjs'
+import PoleDataService from "../services/PoleDataService";
 
 export default {
   extends: Line,
@@ -16,3 +24,4 @@ export default {
     this.renderChart(this.chartdata, this.options)
   }
 }
+</script>
