@@ -64,17 +64,30 @@ export default({
  
   methods: {
     //methods for chart
-    renderChart: function() {
+    renderChart() {
       this.chartKey+=1;
     },
-    renderSelected: function() {
+    renderSelected() {
       this.renderChart();
-      this.dataLine = LineChart.methods.renderSelectedData(currentPole.over_v_comeback);
+      var in_X = [];
+      var in_Y = [];
+      poles.forEach(element => {
+        var temp = [];
+        temp = this.readDataFromPoles(element);
+        in_X.push(temp[0]);
+        in_Y.push(temp[1]);
+      });
+      this.dataLine = LineChart.methods.renderSelectedData(in_X,in_Y);
       this.options = {
         responsive: true,
         maintainAspectRatio: false
       
       };
+    },
+    readDataFromPoles(item) {
+      var tempY = item.over_v_comeback;
+      var tempX = item.pole_id;
+      return tempX, tempY;
     },
     //methods for pole list
     retrievePoles() {
@@ -123,11 +136,11 @@ export default({
 
     redFlag(pole) {
       if (pole.ex_in_v == 3.4) {
-        document.getElementById("exinv").style.color = "red";
+
         document.getElementById("idnumber").style.color = "red";
       }
       else{
-        document.getElementById("exinv").style.color = "#95c23b";
+
         document.getElementById("idnumber").style.color = "#95c23b";
       }
     }
