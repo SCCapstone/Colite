@@ -1,0 +1,111 @@
+{
+  "id": "c6d560ad-64c4-49c7-bc2d-b68bb3e4779f",
+  "version": "2.0",
+  "name": "test3",
+  "url": "http://colite-tech-deployment-v2.s3-website-us-east-1.amazonaws.com",
+  "tests": [{
+    "id": "c549627d-ad92-462b-aea3-28f4be2200b2",
+    "name": "test3",
+    "commands": [{
+      "id": "07a54c52-857f-49ca-8e00-a8eaf279084e",
+      "comment": "",
+      "command": "open",
+      "target": "https://qse15134033860010.auth.us-east-1.amazoncognito.com/login?client_id=5omeipe0i2gv86me2maa0v37ph&response_type=token&scope=openid+profile&redirect_uri=https://d3uloz2irj3oqp.cloudfront.net/qsauthorembed.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "756cb09f-34bf-4e2f-b9ea-03cd62b3fe4b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x831",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9718d8eb-a3ab-47b0-9618-be462c08c205",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(2) > div > div > .cognito-asf > .btn",
+      "targets": [
+        ["css=div:nth-child(2) > div > div > .cognito-asf > .btn", "css:finder"],
+        ["xpath=(//input[@name='signInSubmitButton'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/form/input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c95db29b-8fd4-4add-b076-badaa3c7bb17",
+      "comment": "",
+      "command": "click",
+      "target": "id=NavEmbeddedLink",
+      "targets": [
+        ["id=NavEmbeddedLink", "id"],
+        ["linkText=Embedded Dashboard View", "linkText"],
+        ["css=#NavEmbeddedLink", "css:finder"],
+        ["xpath=//a[contains(text(),'Embedded Dashboard View')]", "xpath:link"],
+        ["xpath=//a[@id='NavEmbeddedLink']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, 'https://d3uloz2irj3oqp.cloudfront.net/qsauthorembed.html#')])[2]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Embedded Dashboard View')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e1ebf059-629c-44cd-a040-c3c1a7984fe7",
+      "comment": "",
+      "command": "click",
+      "target": "id=Img5e7fd4c8-30ab-473b-a662-c9ad7fc4ef1b",
+      "targets": [
+        ["id=Img5e7fd4c8-30ab-473b-a662-c9ad7fc4ef1b", "id"],
+        ["css=#Img5e7fd4c8-30ab-473b-a662-c9ad7fc4ef1b", "css:finder"],
+        ["xpath=//img[contains(@src,'https://d3uloz2irj3oqp.cloudfront.net/defaultIcon.png')]", "xpath:img"],
+        ["xpath=//img[@id='Img5e7fd4c8-30ab-473b-a662-c9ad7fc4ef1b']", "xpath:attributes"],
+        ["xpath=//div[@id='5e7fd4c8-30ab-473b-a662-c9ad7fc4ef1b']/a/img", "xpath:idRelative"],
+        ["xpath=//div/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "856d13b0-b012-49ba-90be-8eed8af37412",
+      "comment": "",
+      "command": "click",
+      "target": "id=NavReaderLink",
+      "targets": [
+        ["id=NavReaderLink", "id"],
+        ["linkText=Embedded Reader View", "linkText"],
+        ["css=#NavReaderLink", "css:finder"],
+        ["xpath=//a[contains(text(),'Embedded Reader View')]", "xpath:link"],
+        ["xpath=//a[@id='NavReaderLink']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, 'https://d3uloz2irj3oqp.cloudfront.net/qsauthorembed.html#')])[3]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Embedded Reader View')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8bc150fe-1bdd-47e9-ac7f-48110ad999ac",
+      "comment": "",
+      "command": "click",
+      "target": "id=NavSignOut",
+      "targets": [
+        ["id=NavSignOut", "id"],
+        ["linkText=LogOut", "linkText"],
+        ["css=#NavSignOut", "css:finder"],
+        ["xpath=//a[contains(text(),'LogOut')]", "xpath:link"],
+        ["xpath=//a[@id='NavSignOut']", "xpath:attributes"],
+        ["xpath=//ul[@id='NavRegion']/li[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, 'https://d3uloz2irj3oqp.cloudfront.net/qsauthorembed.html#')])[4]", "xpath:href"],
+        ["xpath=//ul[2]/li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'LogOut')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "cb8d4053-9e34-409c-9ca3-9ff1db4d9d68",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["c549627d-ad92-462b-aea3-28f4be2200b2"]
+  }],
+  "urls": ["http://colite-tech-deployment-v2.s3-website-us-east-1.amazonaws.com/"],
+  "plugins": []
+}
