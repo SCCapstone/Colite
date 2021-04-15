@@ -14,7 +14,7 @@
             :class="{ active: index == currentIndex }"
             v-for="(pole, index) in poles"
             :key="index"
-            @click="setActivePole(pole, index); redFlag(pole);"
+            @click="setActivePole(pole, index);"
           >
             <td>{{ pole.pole_id }}</td>
           </tr>
@@ -71,7 +71,7 @@ export default({
       this.renderChart();
       var in_X = [];
       var in_Y = [];
-      poles.forEach(element => {
+      this.poles.forEach(element => {
         var temp = [];
         temp = this.readDataFromPoles(element);
         in_X.push(temp[0]);
@@ -86,7 +86,8 @@ export default({
     },
     readDataFromPoles(item) {
       var tempY = item.over_v_comeback;
-      var tempX = item.pole_id;
+      var tempX = item.id;
+      console.log("Add Y: "+tempY + " Add X: "+tempX);
       return tempX, tempY;
     },
     //methods for pole list
@@ -133,17 +134,6 @@ export default({
           console.log(e);
         });
     },
-
-    redFlag(pole) {
-      if (pole.ex_in_v == 3.4) {
-
-        document.getElementById("idnumber").style.color = "red";
-      }
-      else{
-
-        document.getElementById("idnumber").style.color = "#95c23b";
-      }
-    }
 
   },
   mounted () {
