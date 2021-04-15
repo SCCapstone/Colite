@@ -15,14 +15,17 @@ export default {
     }
   },
   methods: {
-    randomizeData: function() {
+    renderSelectedData: function(in_data) {
 
+      
       var newLabels = [];
       var newData = [];
       var i;
 
-      var len = 100;
-    
+      var len = 0;
+      in_data.forEach(element => {
+        len++;
+      });
       for(i = 0; i<len;++i) {
         newLabels.push(i);
       }
@@ -45,13 +48,13 @@ export default {
         maintainAspectRatio: false
       
       };
-      console.log("newlabels: "+newLabels);
-      console.log("new data: "+newData);
+      //console.log("newlabels: "+newLabels);
+      //console.log("new data: "+newData);
 
 
 
 
-      console.log("set data/options: "+this);
+      //console.log("set data/options: "+this);
       return aChartdata;
     },
     getRandomInt: function() {

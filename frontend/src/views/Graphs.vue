@@ -4,27 +4,46 @@
     <div class="dataVis">
     
       <h1 class="card-title">Welcome to the Colite Technology Data Visualization Application!</h1>
-      <b-jumbotron> 
-        <div >
+      <div class="col-md-6" style="width: 20%; float:left">
+        <h4>Poles List</h4>
+        <table class="list-group">
+          <tr>
+            <th>Mac Address</th>
+          </tr>
+          <tr class="list-group-item"
+            :class="{ active: index == currentIndex }"
+            v-for="(pole, index) in poles"
+            :key="index"
+            @click="setActivePole(pole, index); redFlag(pole);"
+          >
+            <td>{{ pole.pole_id }}</td>
+          </tr>
+        </table>
 
-          
-          <button v-on:click="renderChart">Update</button>
-          <button v-on:click="rand">Randomize Data</button>
 
-        </div>
+      </div>
 
-      </b-jumbotron> 
-      <div class="small">
+      <div class="small" style="width: 80%; float:right">
         <line-chart :key="chartKey" 
         :chartdata="dataLine" 
         :options="options"></line-chart>
 
       </div>
+
+        <div style="margin: auto">
+
+          
+          <button v-on:click="renderChart">Update</button>
+          <button v-on:click="renderSelected">Render Selected Pole</button>
+
+        </div>
+
     </div>
 
 </template>
 
 <script>
+import PoleDataService from "../services/PoleDataService";
 import LineChart from '../components/PlotlyGraphs'
 
 export default({
@@ -35,57 +54,87 @@ export default({
     return {
       chartKey: 0,
       dataLine: null,
-      options: null
+      options: null,
+      poles: [],
+      currentPole: null,
+      currentIndex: -1,
+      pole_id: ""
     };
   },
-  mounted () {
-    this.rand()
-  },
+ 
   methods: {
+    //methods for chart
     renderChart: function() {
       this.chartKey+=1;
     },
-    rand: function() {
+    renderSelected: function() {
       this.renderChart();
-      this.dataLine = LineChart.methods.randomizeData();
+      this.dataLine = LineChart.methods.renderSelectedData(currentPole.over_v_comeback);
       this.options = {
         responsive: true,
         maintainAspectRatio: false
       
       };
     },
-    /*randomizeData: function() {
+    //methods for pole list
+    retrievePoles() {
+      PoleDataService.getAll()
+        .then(response => {
+          this.poles = response.data;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    },
 
-      var newLabels = [];
-      var newData = [];
-      var i;
+    refreshList() {
+      this.retrievePoles();
+      this.currentPole = null;
+      this.currentIndex = -1;
+    },
 
-      var len = 100;
+    setActivePole(pole, index) {
+      this.currentPole = pole;
+      this.currentIndex = index;
+    },
+
+    removeAllPoles() {
+      PoleDataService.deleteAll()
+        .then(response => {
+          console.log(response.data);
+          this.refreshList();
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    },
     
-      for(i = 0; i<len;++i) {
-        newLabels.push(i);
-      }
+    searchIdNumber() {
+      PoleDataService.findByIdNumber(this.pole_id)
+        .then(response => {
+          this.poles = response.data;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    },
 
-      for(i =0; i<len;++i){
-        newData.push(Math.random(0,100));
+    redFlag(pole) {
+      if (pole.ex_in_v == 3.4) {
+        document.getElementById("exinv").style.color = "red";
+        document.getElementById("idnumber").style.color = "red";
       }
-      var aChartdata = {
-        labels: newLabels,
-        datasets: [
-          {
-            label: 'Data One',
-            backgroundColor: '#f87979',
-            data: newData
-          }
-        ]
-      };
+      else{
+        document.getElementById("exinv").style.color = "#95c23b";
+        document.getElementById("idnumber").style.color = "#95c23b";
+      }
+    }
 
-      console.log("setDataLine");
-      this.dataLine = aChartdata;
-      
-      
-      return;
-    },*/
+  },
+  mounted () {
+    this.retrievePoles();
   }
 });
 </script>
