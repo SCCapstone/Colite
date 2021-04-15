@@ -5,7 +5,7 @@
   "url": "https://d1dbghzuqwd5nk.cloudfront.net/qsauthorembed.html#",
   "tests": [{
     "id": "9d6180d4-5023-4c31-8f55-a9f31e16d4f0",
-    "name": "Login",
+    "name": "behavior-tests-v3",
     "commands": [{
       "id": "604ba826-f5fb-49c6-a070-59316019c241",
       "comment": "",

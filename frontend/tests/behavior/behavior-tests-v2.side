@@ -5,7 +5,7 @@
   "url": "https://d206g30w6pnjoc.cloudfront.net",
   "tests": [{
     "id": "cdcf310b-f1b9-4bac-b7f0-5e83bea3feb8",
-    "name": "behavior-tests.side",
+    "name": "behavior-tests-v2.side",
     "commands": [{
       "id": "4841d91b-a06c-4dca-8164-065a8e841012",
       "comment": "",
