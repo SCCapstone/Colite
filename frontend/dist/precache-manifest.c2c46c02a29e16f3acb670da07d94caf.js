@@ -8,6 +8,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/ContactUs.74124f25.css"
   },
   {
+    "revision": "cd6ee4776440166ec2af",
+    "url": "/css/Graphs.72702f03.css"
+  },
+  {
     "revision": "ba488ad5905fa2ca5991",
     "url": "/css/PolesList.3c08b8db.css"
   },
@@ -20,7 +24,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/about.ed7b5585.css"
   },
   {
-    "revision": "927d57cde467a37f0bf2",
+    "revision": "20254989b63242a10e92",
     "url": "/css/app.d9d9125b.css"
   },
   {
@@ -52,7 +56,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/coliteNavBar.3baa9d76.png"
   },
   {
-    "revision": "217112e4d1b2bfcd50592a7569c72745",
+    "revision": "9a3735068679cc9ae1f2c8d7e43a3ad0",
     "url": "/index.html"
   },
   {
@@ -64,8 +68,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/ContactUs.233d8412.js"
   },
   {
-    "revision": "18145d4f563783a2c5e8",
-    "url": "/js/Graphs.ce0f4ead.js"
+    "revision": "cd6ee4776440166ec2af",
+    "url": "/js/Graphs.838d4bb3.js"
   },
   {
     "revision": "ba488ad5905fa2ca5991",
@@ -80,8 +84,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about.93b280b4.js"
   },
   {
-    "revision": "927d57cde467a37f0bf2",
-    "url": "/js/app.6be21f16.js"
+    "revision": "20254989b63242a10e92",
+    "url": "/js/app.c252a1df.js"
   },
   {
     "revision": "de83ab01f2281b5bb2e8",
