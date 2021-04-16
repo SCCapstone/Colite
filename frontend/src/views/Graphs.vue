@@ -99,7 +99,7 @@ export default({
       currentIndex: -1,
       pole_id: "",
       //chart drawing variables
-      chartType: "",
+      chartType: "lineChart",
       hideLineChart: true,
       hideBarChart: true,
       chartKey: 0,
@@ -135,8 +135,20 @@ export default({
     },
     //sects chart type
     selectChartType(chart_type) {
-      this.selectedStyle = !this.selectedStyle;
-      this.chartType = chart_type;
+      if(chart_type != this.chartType) {
+        if(chart_type == "lineChart") {
+          this.selectedStyle = false;
+        } else if (chart_type == "barChart") {
+          this.selectedStyle = true;
+        }
+        this.chartType = chart_type;
+        this.buttonList.forEach(element => {
+          if(element.state) {
+            this.renderSelected(element.param1,element.param2);
+            
+          }
+        });
+      }
     },
     
     //drawing the chart
@@ -144,7 +156,7 @@ export default({
       var in_X = [];
       var in_Y = [];
       var color = [];
-      console.log("barchart: "+BarChart);
+      //console.log("barchart: "+BarChart);
       this.poles.forEach(element => {
         //var temp = [];
         //temp = this.readDataFromPoles(element);
