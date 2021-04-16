@@ -17,7 +17,6 @@ export default {
   methods: {
     renderSelectedData: function(in_dataX,in_dataY,color) {
 
-      
       var newLabels = in_dataX;
       var newData = in_dataY;
   

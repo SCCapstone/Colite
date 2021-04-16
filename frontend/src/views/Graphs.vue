@@ -220,7 +220,7 @@ export default({
       } else if (id == 'param_setup_volta') {
         tempVal = item.param_setup_volta;
       } else if (id == 'work_v_setup') {
-        tempVal = item.work_v_setup;
+        tempVal = parseInt(item.work_v_setup);
       } else if (id == 'menu_password_1') {
         console.log("Error in readDataFromPoles");
       } else if (id == 'menu_password_2') {
@@ -246,7 +246,7 @@ export default({
       } else if (id == 'updatedAt') {
         tempVal = item.updatedAt;
       } else {
-        console.log("How did u do this?");
+        console.log("Error in readDataFromPoles");
       }
       return tempVal;
     },
