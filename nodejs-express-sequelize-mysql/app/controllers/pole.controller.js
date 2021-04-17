@@ -14,31 +14,26 @@ exports.create = (req, res) => {
 
     // Create a Pole
     const pole = {
-        id_number: req.body.id_number,
-        column_1: req.body.colum_1,
-        rpm: req.body.rpm,
-        wind_v: req.body.wind_v,
-        wind_a: req.body.wind_a,
-        wind_a2: req.body.wind_a2,
-        wind_a3: req.body.wind_a3,
-        wind_w: req.body.wind_w,
-        pv_v: req.body.pv_v,
-        pv_a: req.body.pv_a,
-        untitled: req.body.untitled,
-        bat_v: req.body.bat_v,
-        bat_a: req.body.bat_a,
-        bat_w: req.body.bat_w,
-        led_1v: req.body.led_1v,
-        led_1a: req.body.led_1a,
-        led_1w: req.body.led_1w,
-        led_2v: req.body.led_2v,
-        led_2a: req.body.led_2a,
-        led_2w: req.body.led_2w,
-        temp_c: req.body.temp_c,
-        ex_in_v: req.body.ex_in_v,
-        date_mdy: req.body.date_mdy,
-        time_hms: req.body.time_hms,
-	longitude: req.body.longitude,
+        pole_id: req.body.pole_id,
+        load1_time1_set: req.body.load1_time1_set,
+        load1_time2_set: req.body.load1_time2_set,
+        load1_outmode: req.body.load1_outmode,
+        load2_time1_set: req.body.load2_time1_set,
+        load2_time2_set: req.body.load2_time2_set,
+        load2_outmode: req.body.load2_outmode,
+        scale_mode: req.body.scale_mode,
+        param_setup_voltage: req.body.param_setup_voltage,
+        work_v_setup: req.body.work_v_setup,
+        menu_password_1: req.body.menu_password_1,
+        menu_password_2: req.body.menu_password_2,
+        menu_password_3: req.body.menu_password_3,
+        max_bat_limit: req.body.max_bat_limit,
+        over_v_comeback: req.body.over_v_comeback,
+        low_v_comeback: req.body.low_v_comeback,
+        low_v_limit: req.body.low_v_limit,
+        mppt_close_v: req.body.mppt_close_v,
+        mppt_start_v: req.body.mppt_start_v,
+        longitude: req.body.longitude,
         latitude: req.body.latitude
     };
 
@@ -76,7 +71,7 @@ exports.findAll = (req, res) => {
 
 // Find a single Pole with an id
 exports.findOne = (req, res) => {
-    const id = req.params.id;
+    const id = req.params.pole_id;
 
     Pole.findByPk(id)
         .then(data => {
@@ -91,7 +86,7 @@ exports.findOne = (req, res) => {
 
 // Update a Pole by the id in the request
 exports.update = (req, res) => {
-    const id = req.params.id;
+    const id = req.params.pole_id;
 
     Pole.update(req.body, {
             where: { id: id }
@@ -116,7 +111,7 @@ exports.update = (req, res) => {
 
 // Delete a Pole with the specified id in the request
 exports.delete = (req, res) => {
-    const id = req.params.id;
+    const id = req.params.pole_id;
 
     Pole.destroy({
             where: { id: id }

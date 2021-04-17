@@ -72,13 +72,18 @@ import axios from 'axios'
 				}
 			});
      
-			this.$refs.gmap.$mapPromise.then((map) => {
-				const bounds = new google.maps.LatLngBounds()
-				for (let m of this.markers) {
-				  bounds.extend(m.position)
-				}
-				map.fitBounds(bounds);
-			});
+			if (this.markers.length > 0) {
+				this.$refs.gmap.$mapPromise.then((map) => {
+					const bounds = new google.maps.LatLngBounds()
+					for (let m of this.markers) {
+						bounds.extend(m.position)
+					}
+					map.fitBounds(bounds);
+					if (map.getZoom() > 12) {
+						map.setZoom(12);
+					}
+				});
+			}
 		}).catch( err => {
 			this.err = err
 		})
@@ -102,21 +107,21 @@ import axios from 'axios'
       
      
       getInfoWindowContent: function (marker) {
-        return (`<div class="card">
-  
-  <div class="card-content">
-    
-    <div class="content pt-3">
-		<p>Latitude : ${marker.position.lat} <p />
-		<p>Longitude: ${marker.position.lng} </p>
-		<p class="">Rmp : ${marker.rpm}</p>
-		<p class="">Wind : v:${marker.wind_v} a:${marker.wind_a} a2:${marker.wind_a2} a3:${marker.wind_a3} w:${marker.wind_w}</p>
-		<p class="">Led : 1v:${marker.led_1v} 1a:${marker.led_1a} 1w:${marker.led_1w} 2v:${marker.led_2v} 2a:${marker.led_2a} 2w:${marker.led_2w}</p>
-		<p class="">Date : ${marker.date_mdy}</p>
-		<p class="">Time : ${marker.time_hms}</p>
-    </div>
-  </div>
-</div>`);
+		console.log(marker);
+		var contentsHtml = '<div class="card"><div class="card-content"><div class="content pt-3">';
+		var i = 0;
+		for (var key in marker) {
+			if (marker.hasOwnProperty(key) && typeof marker[key] !== 'object') {
+				if (i % 2 == 0) {
+					contentsHtml += '<p>' + key  + ': ' + marker[key] + ' | ';
+				} else {
+					contentsHtml += key  + ': ' + marker[key] + '</p>';
+				}
+				i++;
+			}
+		}
+		contentsHtml += '</div></div></div>';
+        return (contentsHtml);
       },
     }
   };
