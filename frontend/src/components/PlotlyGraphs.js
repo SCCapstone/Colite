@@ -15,21 +15,12 @@ export default {
     }
   },
   methods: {
-    randomizeData: function() {
+    renderSelectedData: function(in_dataX,in_dataY) {
 
-      var newLabels = [];
-      var newData = [];
-      var i;
-
-      var len = 100;
-    
-      for(i = 0; i<len;++i) {
-        newLabels.push(i);
-      }
-
-      for(i =0; i<len;++i){
-        newData.push(Math.floor(Math.random()*100));
-      }
+      
+      var newLabels = in_dataX;
+      var newData = in_dataY;
+  
       var aChartdata = {
         labels: newLabels,
         datasets: [
@@ -40,18 +31,18 @@ export default {
           }
         ]
       };
-      var aOptions = {
+      /*var aOptions = {
         responsive: true,
         maintainAspectRatio: false
       
-      };
-      console.log("newlabels: "+newLabels);
-      console.log("new data: "+newData);
+      };*/
+      //console.log("newlabels: "+newLabels);
+      //console.log("new data: "+newData);
 
 
 
 
-      console.log("set data/options: "+this);
+      //console.log("set data/options: "+this);
       return aChartdata;
     },
     getRandomInt: function() {
