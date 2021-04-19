@@ -15,7 +15,7 @@ export default {
     }
   },
   methods: {
-    renderSelectedData: function(in_dataX,in_dataY,color) {
+    renderSelectedData: function(in_dataX,in_dataY,color,in_label) {
 
       var newLabels = in_dataX;
       var newData = in_dataY;
@@ -24,7 +24,7 @@ export default {
         labels: newLabels,
         datasets: [
           {
-            label: 'Bar Chart',
+            label: in_label,
             data: newData,
             backgroundColor: color,
             borderWidth: 1

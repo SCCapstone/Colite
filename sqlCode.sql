@@ -25,9 +25,56 @@ CREATE TABLE mock_data_table (
             aTime Time,
             PRIMARY KEY (id)
 );
-LOAD DATA LOCAL INFILE ''
+LOAD DATA INFILE 'C:\Users\Revt0\Documents\GitHub\Colite\mock_data1.csv'
 INTO TABLE mock_data_table
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '/n'
 IGNORE 1 ROWS;
+
+INSERT INTO poles (
+    pole_id, 
+    load1_time1_set, 
+    load1_time2_set, 
+    load1_outmode, 
+    load2_time1_set, 
+    load2_time2_set, 
+    load2_outmode, 
+    scale_mode, 
+    param_setup_volta, 
+    work_v_setup,menu_password_1, 
+    menu_password_2, 
+    menu_password_3, 
+    max_bat_limit, 
+    over_v_comeback, 
+    low_v_comeback, 
+    low_v_limit, 
+    mppt_close_v, 
+    mppt_start_v, 
+    longitude, 
+    latitude,
+    createdAt,
+    updatedAt) 
+    VALUES ('1', 
+     '0',
+     '0',
+     'NIGHT',
+        '1',
+       '1',
+       'NIGHT',
+       'pv_v',
+       '0',
+        '12V',
+        '0',
+        '0',
+        '0',
+        '12',
+        '11.9',
+        '10',
+        '9.9',
+        '2',
+        '4',
+        '81.0348',
+        '34.0007',
+        '2020-01-01 01:01:00',
+        '2020-01-01 01:01:00');
