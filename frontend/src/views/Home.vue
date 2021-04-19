@@ -22,6 +22,14 @@
         receives from the Colite systems. The application is hosted through the
         Amazon Web Services cloud computing service. Feel free to visit our Contact Us
         Page and reach out to a developer if you have any questions about the features provided.
+        <b> <i>
+        Here is a link to the github repository with the code used to create the application: 
+        https://github.com/SCCapstone/Colite </i> </b>
+      </div>
+      <div class="card-body">
+        Below you will find a video highlighting our features and what problems you are able to solve 
+        by using our application! 
+        <b> https://www.youtube.com/watch </b>
       </div>
     <!-- <img alt="ColiteLogo" src="../assets/colite2.png"> -->
     </b-jumbotron>
