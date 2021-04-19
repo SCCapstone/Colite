@@ -9,11 +9,13 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
+        <b-nav-item href="#" to="/"> Home </b-nav-item>
         <b-nav-item href="https://d3uloz2irj3oqp.cloudfront.net/qsauthorembed.html">Data Visualization</b-nav-item>
         <b-nav-item href="#" to="/polesList">List of Parts</b-nav-item>
         <b-nav-item href="#" to="/map">Map</b-nav-item>
         <b-nav-item href="#" to="/graphs">Graphs</b-nav-item>
-        <b-nav-item href="#" to="/"> Home </b-nav-item>
+        <b-nav-item href="#" to="/about">About Us</b-nav-item>
+        <b-nav-item href="#" to="/contactus">Contact Us</b-nav-item>
         <!--<b-nav-item href="#" to="/unitTests"> Tests </b-nav-item> -->
         <!-- <b-nav-item href="#" to="/about">About</b-nav-item>
         <b-nav-item href="#" to="/contactUs">Contact Us</b-nav-item> -->
