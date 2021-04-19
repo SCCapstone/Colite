@@ -1,4 +1,4 @@
-
+//written by Andrew Denman
 <template>
 	
     <div class="dataVis">
@@ -12,7 +12,7 @@
           </tr>
           <tr class="list-group-item"
             :class="{ active: index == currentIndex }"
-            v-for="(pole, index) in poles"
+            v-for="(pole, index) in polesId"
             :key="index"
             @click="setActivePole(pole, index);"
           >
@@ -95,6 +95,7 @@ export default({
     return {
       //pole list variables
       poles: [],
+      polesId: [],
       currentPole: null,
       currentIndex: -1,
       pole_id: "",
@@ -160,11 +161,13 @@ export default({
       this.poles.forEach(element => {
         //var temp = [];
         //temp = this.readDataFromPoles(element);
-        in_X.push(this.readDataFromPoles(element,type_X));
-        in_Y.push(this.readDataFromPoles(element,type_Y));
-        if(this.chartType == "barChart") {
-          var tempColor = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
-          color.push(tempColor);
+        if(element.pole_id == this.currentPole.pole_id) {
+          in_X.push(this.readDataFromPoles(element,type_X));
+          in_Y.push(this.readDataFromPoles(element,type_Y));
+          if(this.chartType == "barChart") {
+            var tempColor = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+            color.push(tempColor);
+          }
         }
       });
       //console.log("in_X: "+in_X+"\nin_Y "+in_Y);
@@ -255,6 +258,21 @@ export default({
       PoleDataService.getAll()
         .then(response => {
           this.poles = response.data;
+          this.poles.forEach(element => {
+            if(this.polesId == null){
+              this.polesId.push(element);
+            } else {
+              var test = true;
+              this.polesId.forEach(element2 => {
+                if(element2.pole_id == element.pole_id) {
+                  test = false;
+                }
+              });
+              if(test) {
+                this.polesId.push(element);
+              }
+            }
+          });
           console.log(response.data);
         })
         .catch(e => {
@@ -269,7 +287,7 @@ export default({
     },
 
     setActivePole(pole, index) {
-      this.currentPole = pole;
+      this.currentPole = this.poles[index];
       this.currentIndex = index;
     },
 
