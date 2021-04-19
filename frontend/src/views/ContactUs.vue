@@ -8,11 +8,16 @@
             <br>
             <br>
             <th>Email</th>
+            <br>
+            <br>
+            <th>LinkedIn</th>
         </tr>
         <tr>
-            <td>Matthew Hayward</td>
+            <td>Matthew Hayward </td>
             <br>
-            <td>mhayward@email.sc.edu</td>
+            <td>mhayward@email.sc.edu </td>
+            <br>
+            <td>     https://www.linkedin.com/in/mhayward7 </td>
         </tr>
         <tr>
             <td>Simon Benzer</td>
@@ -23,12 +28,20 @@
             <td>Kundana Narla</td>
             <br>
             <td>knarla@email.sc.edu</td>
+            <br>
+            <td> https://www.linkedin.com/in/knarla15 </td>
         </tr>
         <tr>
             <td>Andrew Denman</td>
             <br>
             <td>adenman@email.sc.edu</td>
         </tr>
+        <tr>
+            <td>Kailen King</td>
+            <br>
+            <td>khking@email.sc.edu</td>
+        </tr>
+        <br>
     </table>
     </h4>
     <img alt="ColiteLogo" src="../assets/colite2.png" width="27%">

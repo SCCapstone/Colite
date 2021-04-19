@@ -11,8 +11,10 @@
         you to view our current available polls and all of their associated data. You 
         have the ability to be able to change any of the data that is in the polls if you 
         wish. You can also view these polls in a data visualization format by clicking 
-        the "Data Visualization" tab. In addition, you are able to view them on a google maps 
-        page by clicking the "Map" tab.
+        the "Graphs" tab. In addition, you are able to view them on a google maps 
+        page by clicking the "Map" tab. We also have a link to the Amazon QuickSight page 
+        if you wish to use the AWS plugin QuickSight to create visualizations using excel or 
+        a database hosted on AWS. 
       </div>
       <div class="card-body"> 
         This website features a database and web application that will allow 
