@@ -1,9 +1,10 @@
-//written by Andrew Denman
+<!--written by Andrew Denman-->
 <template>
 	
     <div class="dataVis">
     
       <h1 class="card-title">Welcome to the Colite Technology Data Visualization Application!</h1>
+      <!--List of poles to choose from-->
       <div class="col-md-6" style="width: 20%; float:left">
         <h4>Poles List</h4>
         <table class="list-group">
@@ -22,7 +23,7 @@
 
 
       </div>
-
+      <!-- Chart draw area-->
       <div class="small" style="width: 80%; float:right">
 
         <div id="lineChart" v-if="!hideLineChart">
@@ -35,47 +36,53 @@
           :chartdata="dataChart" 
           :options="options"></bar-chart>
         </div>
+        <div id="scatterChart" v-if="!hideScatterChart">
+          <scatter-chart :key="chartKey" 
+          :chartdata="dataChart" 
+          :options="options"></scatter-chart>
+        </div>
 
       </div>
 
-        <div style="margin: auto">
-
-          
-          <button v-on:click="renderChart" :class="{
-            'am-active': true
-          }">Update</button>
-          <button v-on:click="selectChartType('barChart')" 
-          :class="{
-            'am-active': selectedStyle,
-            'am-not-active': !selectedStyle
-          }">Chart type Bar</button>
-          <button v-on:click="selectChartType('lineChart')"
-          :class="{
-            'am-active': !selectedStyle,
-            'am-not-active': selectedStyle
-          }">Chart type Line</button>
-          <!--<button v-on:click="renderSelected('id','over_v_comeback')"
-          :class="{
-            'am-active': selectedData,
-            'am-not-active': !selectedData
-          }">Render Over Voltage Comback</button>
-          <button v-on:click="renderSelected('id','work_v_setup')">Render Work Voltage Setup</button>
-          <button v-on:click="renderSelected('id','low_v_limit')">Render Low Voltage Limit</button>
-          <button v-on:click="renderSelected('id','mppt_start_v')">Render MPPT Start Voltage</button>
-          <button v-on:click="renderSelected('id','max_bat_limit')">Render Max Battery Limit</button>
-          <button v-on:click="renderSelected('longitude','latitude')">Render Location</button>
-          <button v-on:click="renderSelected('id','mppt_close_v')">Render MPPT Close Voltage</button>
-          -->
-          <button v-for="(button, i) in buttonList" v-on:click="renderSelected(button.param1,button.param2);
-          buttonSelect(i)"
-          :class="{
-            'am-active': button.state,
-            'am-not-active': !button.state
-          }"
-          :key=i>
-            {{button.text}}
-          </button>
-        </div>
+      <div style="margin: auto">
+        <!--Buttons for chart -->
+        <!--<button v-on:click="renderChart" :class="{
+          'am-active': true
+        }">Update</button>-->
+        <!--<button v-on:click="selectChartType('barChart')" 
+        :class="{
+          'am-active': selectedStyle,
+          'am-not-active': !selectedStyle
+        }">Chart type Bar</button>
+        <button v-on:click="selectChartType('lineChart')"
+        :class="{
+          'am-active': !selectedStyle,
+          'am-not-active': selectedStyle
+        }">Chart type Line</button>
+        <button v-on:click="selectChartType('scatterChart')"
+        :class="{
+          'am-active': !selectedStyle,
+          'am-not-active': selectedStyle
+        }">Chart type Scatter</button>-->
+        <button v-for="(button, i) in buttonListStyle" v-on:click="selectChartType(button.param1);
+        buttonSelectStyle(i)"
+        :class="{
+          'am-active': button.state,
+          'am-not-active': !button.state
+        }"
+        :key=i>
+          {{button.text}}
+        </button>
+        <button v-for="(button, i) in buttonList" v-on:click="renderSelected(button.param1,button.param2,button.chartLabel,button.XLabel);
+        buttonSelect(i)"
+        :class="{
+          'am-active': button.state,
+          'am-not-active': !button.state
+        }"
+        :key=i>
+          {{button.text}}
+        </button>
+      </div>
 
     </div>
 
@@ -85,11 +92,13 @@
 import PoleDataService from "../services/PoleDataService";
 import LineChart from '../components/PlotlyGraphs'
 import BarChart from '../components/BarChart.js'
+import ScatterChart from '../components/ScatterChart.js'
 
 export default({
   components: {
     LineChart,
-    BarChart
+    BarChart,
+    ScatterChart
   },
   data() {
     return {
@@ -103,20 +112,26 @@ export default({
       chartType: "lineChart",
       hideLineChart: true,
       hideBarChart: true,
+      hideScatterChart: true,
       chartKey: 0,
       dataChart: null,
       options: null,
       //style variables
+      buttonListStyle: [
+        {text: "Chart type Bar", param1: "barChart",state: false},
+        {text: "Chart type Line", param1: "lineChart",state: false},
+        {text: "Chart type Scatter", param1: "scatterChart",state: false},
+      ],
       selectedStyle: false,
       selectedData: false,
       buttonList: [
-        {text: "Render Over Voltage Comback", param1: "id",param2: "over_v_comeback",state: false },
-        {text: "Render Work Voltage Setup", param1: "id",param2: "work_v_setup",state: false },
-        {text: "Render Low Voltage Limit", param1: "id",param2: "low_v_limit",state: false },
-        {text: "Render MPPT Start Voltage", param1: "id",param2: "mppt_start_v",state: false },
-        {text: "Render Max Battery Limit", param1: "id",param2: "max_bat_limit",state: false },
-        {text: "Render Locatio", param1: "longitude",param2: "latitude",state: false },
-        {text: "Render MPPT Close Voltage", param1: "id",param2: "mppt_close_v",state: false }
+        {text: "Render Over Voltage Comback", param1: "id",param2: "over_v_comeback",state: false, chartLabel: "Over Voltage Comback vs input id(time)", XLabel: "Over Voltage Comback"},
+        {text: "Render Work Voltage Setup", param1: "id",param2: "work_v_setup",state: false, chartLabel: "Work Voltage Setup vs input id(time)", XLabel: "Work Voltage Setup"},
+        {text: "Render Low Voltage Limit", param1: "id",param2: "low_v_limit",state: false, chartLabel: "Low Voltage Limit vs input id(time)", XLabel: "Low Voltage Limit"},
+        {text: "Render MPPT Start Voltage", param1: "id",param2: "mppt_start_v",state: false, chartLabel: "MPPT Start Voltage vs input id(time)", XLabel: "MPPT Start Voltage"},
+        {text: "Render Max Battery Limit", param1: "id",param2: "max_bat_limit",state: false, chartLabel: "Max Battery Limit vs input id(time)", XLabel: "Max Battery Limit"},
+        {text: "Render Location", param1: "longitude",param2: "latitude",state: false, chartLabel: "Longitude vs Latitude", XLabel: "Longitude"},
+        {text: "Render MPPT Close Voltage", param1: "id",param2: "mppt_close_v",state: false, chartLabel: "MPPT Close Voltage vs input id(time)", XLabel: "MPPT Close Voltage"}
       ]
     };
   },
@@ -130,30 +145,39 @@ export default({
       });
       this.buttonList[i].state = true;
     },
+    buttonSelectStyle(i) {
+      this.buttonListStyle.forEach(element => {
+        element.state = false;
+      });
+      this.buttonListStyle[i].state = true;
+    },
     //methods for chart
     renderChart() {
       this.chartKey+=1;
     },
     //sects chart type
     selectChartType(chart_type) {
-      if(chart_type != this.chartType) {
+      //if(chart_type != this.chartType) {
         if(chart_type == "lineChart") {
           this.selectedStyle = false;
         } else if (chart_type == "barChart") {
           this.selectedStyle = true;
+        } else if (chart_type == "scatterChart") {
+          this.selectedStyle = false;
         }
         this.chartType = chart_type;
+        //console.log("select type: "+chart_type);
         this.buttonList.forEach(element => {
           if(element.state) {
-            this.renderSelected(element.param1,element.param2);
+            this.renderSelected(element.param1,element.param2,element.chartLabel,element.XLabel);
             
           }
         });
-      }
+      //}
     },
     
     //drawing the chart
-    renderSelected(type_X,type_Y) {
+    renderSelected(type_X,type_Y,dataLabel,in_XLabel) {
       var in_X = [];
       var in_Y = [];
       var color = [];
@@ -174,7 +198,8 @@ export default({
       if(this.chartType == "barChart") {
         this.hideLineChart = true;
         this.hideBarChart = false;
-        this.dataChart = BarChart.methods.renderSelectedData(in_X,in_Y,color);
+        this.hideScatterChart = true;
+        this.dataChart = BarChart.methods.renderSelectedData(in_X,in_Y,color,in_XLabel);
         this.options = {
           responsive: true,
           maintainAspectRatio: false
@@ -182,13 +207,34 @@ export default({
       } else if(this.chartType == "lineChart") {
         this.hideLineChart = false;
         this.hideBarChart = true;
-        this.dataChart = LineChart.methods.renderSelectedData(in_X,in_Y);
+        this.hideScatterChart = true;
+        this.dataChart = LineChart.methods.renderSelectedData(in_X,in_Y,in_XLabel);
         this.options = {
           responsive: true,
           maintainAspectRatio: false,
           scales: {
             y: {
               beginAtZero: true
+            }
+          }
+        };
+      } else if(this.chartType == "scatterChart") {
+        //console.log("selected scatter chart");
+        this.hideLineChart = true;
+        this.hideBarChart = true;
+        this.hideScatterChart = false;
+        this.dataChart = ScatterChart.methods.renderSelectedData(in_X,in_Y,in_XLabel);
+        this.options = {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: {
+              type: 'linear',
+              position: 'bottom'
+            },
+            y: {
+              type: 'linear',
+              position: 'left'
             }
           }
         };
@@ -287,7 +333,7 @@ export default({
     },
 
     setActivePole(pole, index) {
-      this.currentPole = this.poles[index];
+      this.currentPole = this.polesId[index];
       this.currentIndex = index;
     },
 
@@ -322,7 +368,7 @@ export default({
 
 <style>
 .am-active {
-    background-color: rgb(77, 179, 111);
+    background-color: #95c23b;
     color: rgb(0, 0, 0);
  }
  .am-not-active {

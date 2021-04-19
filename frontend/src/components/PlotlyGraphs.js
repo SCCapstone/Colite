@@ -12,12 +12,11 @@ export default {
     options: {
       type: Object,
       default: null
-    }
+    },
   },
   methods: {
-    renderSelectedData: function(in_dataX,in_dataY) {
+    renderSelectedData: function(in_dataX,in_dataY,in_label) {
 
-      
       var newLabels = in_dataX;
       var newData = in_dataY;
   
@@ -25,8 +24,8 @@ export default {
         labels: newLabels,
         datasets: [
           {
-            label: 'Data One',
-            backgroundColor: '#f87979',
+            label: in_label,
+            backgroundColor: '#95c23b',
             data: newData
           }
         ]
