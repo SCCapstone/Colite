@@ -1,147 +1,125 @@
 {
-  "id": "d40100d6-30f2-4d1c-90e6-dff878d7e1f6",
+  "id": "86324df8-04a4-41c0-abd3-a5ff36d0e4b2",
   "version": "2.0",
-  "name": "Colite",
-  "url": "https://d1dbghzuqwd5nk.cloudfront.net/qsauthorembed.html#",
+  "name": "ColiteTech",
+  "url": "http://colite-tech-deployment-v2.s3-website-us-east-1.amazonaws.com/#/",
   "tests": [{
-    "id": "9d6180d4-5023-4c31-8f55-a9f31e16d4f0",
+    "id": "b2085774-51e6-49d4-a3a8-aa256acf6497",
     "name": "behavior-tests-v3",
     "commands": [{
-      "id": "604ba826-f5fb-49c6-a070-59316019c241",
+      "id": "465007c5-d4af-4d18-86df-6e1ccbaa24e3",
       "comment": "",
       "command": "open",
-      "target": "https://qsev2151340338600.auth.us-east-1.amazoncognito.com/login?client_id=7344es1llo5ut903s7hr0l8qqk&response_type=token&scope=openid+profile&redirect_uri=https://d1dbghzuqwd5nk.cloudfront.net/qsauthorembed.html",
+      "target": "http://colite-tech-deployment-v2.s3-website-us-east-1.amazonaws.com/#/graphs",
       "targets": [],
       "value": ""
     }, {
-      "id": "fec45885-82b9-4cf9-818b-2a26ff8dcec1",
+      "id": "3c0a60c0-0a12-4c53-ad39-361ba4fc4133",
       "comment": "",
       "command": "setWindowSize",
       "target": "1200x831",
       "targets": [],
       "value": ""
     }, {
-      "id": "24821360-8ccf-4770-95d0-2e6d2d86fe5d",
+      "id": "0bbdd53f-66f6-4af0-b4d1-e7d4b21b37ae",
       "comment": "",
       "command": "click",
-      "target": "css=div:nth-child(2) > div > div > .cognito-asf #signInFormUsername",
+      "target": "linkText=About Us",
       "targets": [
-        ["css=div:nth-child(2) > div > div > .cognito-asf #signInFormUsername", "css:finder"],
-        ["xpath=(//input[@id='signInFormUsername'])[2]", "xpath:attributes"],
-        ["xpath=//div[2]/div/div/form/div/input", "xpath:position"]
+        ["linkText=About Us", "linkText"],
+        ["css=.nav-item:nth-child(6) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'About Us')]", "xpath:link"],
+        ["xpath=//div[@id='nav-collapse']/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[6]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'About Us')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
-      "id": "6ee578af-1391-46c1-899e-96fffed832d7",
-      "comment": "",
-      "command": "type",
-      "target": "css=div:nth-child(2) > div > div > .cognito-asf #signInFormUsername",
-      "targets": [
-        ["css=div:nth-child(2) > div > div > .cognito-asf #signInFormUsername", "css:finder"],
-        ["xpath=(//input[@id='signInFormUsername'])[2]", "xpath:attributes"],
-        ["xpath=//div[2]/div/div/form/div/input", "xpath:position"]
-      ],
-      "value": "default-author-DemoUser1"
-    }, {
-      "id": "862c1eac-7ed8-47f8-b8ec-aa17a87ed6ef",
+      "id": "b7c1bb62-b267-4f31-aa15-6b34c6ea54cc",
       "comment": "",
       "command": "click",
-      "target": "css=div:nth-child(2) > div > div > .cognito-asf #signInFormPassword",
+      "target": "linkText=Graphs",
       "targets": [
-        ["css=div:nth-child(2) > div > div > .cognito-asf #signInFormPassword", "css:finder"],
-        ["xpath=(//input[@id='signInFormPassword'])[2]", "xpath:attributes"],
-        ["xpath=//div[2]/div/div/form/div[2]/input", "xpath:position"]
+        ["linkText=Graphs", "linkText"],
+        ["css=.nav-item:nth-child(5) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Graphs')]", "xpath:link"],
+        ["xpath=//div[@id='nav-collapse']/ul/li[5]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[5]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Graphs')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
-      "id": "36e081c4-f85f-4264-aa08-f5e277972f2a",
+      "id": "71119def-020e-4f6c-be8a-86ab212b0078",
       "comment": "",
       "command": "click",
-      "target": "css=div:nth-child(2) > div > div > .cognito-asf #signInFormPassword",
+      "target": "linkText=Map",
       "targets": [
-        ["css=div:nth-child(2) > div > div > .cognito-asf #signInFormPassword", "css:finder"],
-        ["xpath=(//input[@id='signInFormPassword'])[2]", "xpath:attributes"],
-        ["xpath=//div[2]/div/div/form/div[2]/input", "xpath:position"]
+        ["linkText=Map", "linkText"],
+        ["css=.nav-item:nth-child(4) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Map')]", "xpath:link"],
+        ["xpath=//div[@id='nav-collapse']/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[4]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Map')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
-      "id": "249d2b6d-0baa-4600-8d7e-a66c2d73a7be",
+      "id": "aa1e62db-f8ef-46bd-913c-34edf230e017",
       "comment": "",
-      "command": "type",
-      "target": "css=div:nth-child(2) > div > div > .cognito-asf #signInFormPassword",
+      "command": "mouseOver",
+      "target": "linkText=List of Parts",
       "targets": [
-        ["css=div:nth-child(2) > div > div > .cognito-asf #signInFormPassword", "css:finder"],
-        ["xpath=(//input[@id='signInFormPassword'])[2]", "xpath:attributes"],
-        ["xpath=//div[2]/div/div/form/div[2]/input", "xpath:position"]
-      ],
-      "value": "TestPass-2"
-    }, {
-      "id": "df6f50b7-4d2f-48ee-85b9-99e6e71f4992",
-      "comment": "",
-      "command": "click",
-      "target": "css=div:nth-child(2) > div > div > .cognito-asf",
-      "targets": [
-        ["css=div:nth-child(2) > div > div > .cognito-asf", "css:finder"],
-        ["xpath=(//form[@name='cognitoSignInForm'])[2]", "xpath:attributes"],
-        ["xpath=//div[2]/div/div/form", "xpath:position"]
+        ["linkText=List of Parts", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'List of Parts')]", "xpath:link"],
+        ["xpath=//div[@id='nav-collapse']/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[3]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'List of Parts')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
-      "id": "ed5c29c9-3178-4d97-9320-7e27867cc54b",
+      "id": "da020dca-bd70-4cf0-8223-a714a241884d",
       "comment": "",
-      "command": "click",
-      "target": "css=div:nth-child(2) > div > div > .cognito-asf",
+      "command": "mouseOut",
+      "target": "linkText=List of Parts",
       "targets": [
-        ["css=div:nth-child(2) > div > div > .cognito-asf", "css:finder"],
-        ["xpath=(//form[@name='cognitoSignInForm'])[2]", "xpath:attributes"],
-        ["xpath=//div[2]/div/div/form", "xpath:position"]
+        ["linkText=List of Parts", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'List of Parts')]", "xpath:link"],
+        ["xpath=//div[@id='nav-collapse']/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[3]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'List of Parts')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
-      "id": "785627fd-a175-4e51-864e-4659aabd7a07",
+      "id": "affbb423-8c94-4132-b3e2-623d1b70cf01",
       "comment": "",
       "command": "click",
-      "target": "css=div:nth-child(2) > div > div > .cognito-asf > .btn",
+      "target": "linkText=Data Visualization",
       "targets": [
-        ["css=div:nth-child(2) > div > div > .cognito-asf > .btn", "css:finder"],
-        ["xpath=(//input[@name='signInSubmitButton'])[2]", "xpath:attributes"],
-        ["xpath=//div[2]/div/div/form/input[3]", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "b56d387f-bd3d-4272-8ec7-7599b010c1bd",
-      "comment": "",
-      "command": "click",
-      "target": "css=#ErrorDisplayModal .btn",
-      "targets": [
-        ["css=#ErrorDisplayModal .btn", "css:finder"],
-        ["xpath=(//button[@type='button'])[7]", "xpath:attributes"],
-        ["xpath=//div[@id='ErrorDisplayModal']/div/div/div[3]/button", "xpath:idRelative"],
-        ["xpath=//div[3]/div/div/div[3]/button", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "8e6d415a-d5ea-4735-95c1-0aa7cfa74f18",
-      "comment": "",
-      "command": "click",
-      "target": "css=#ErrorDisplayModal .btn",
-      "targets": [
-        ["css=#ErrorDisplayModal .btn", "css:finder"],
-        ["xpath=(//button[@type='button'])[7]", "xpath:attributes"],
-        ["xpath=//div[@id='ErrorDisplayModal']/div/div/div[3]/button", "xpath:idRelative"],
-        ["xpath=//div[3]/div/div/div[3]/button", "xpath:position"]
+        ["linkText=Data Visualization", "linkText"],
+        ["css=.nav-item:nth-child(2) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Data Visualization')]", "xpath:link"],
+        ["xpath=//div[@id='nav-collapse']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://d3uloz2irj3oqp.cloudfront.net/qsauthorembed.html')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Data Visualization')]", "xpath:innerText"]
       ],
       "value": ""
     }]
   }],
   "suites": [{
-    "id": "00afd651-48f6-4306-bee2-112a79dc7e25",
+    "id": "9d625dd7-f4ee-4125-8aae-188684e6713f",
     "name": "Default Suite",
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["9d6180d4-5023-4c31-8f55-a9f31e16d4f0"]
+    "tests": ["b2085774-51e6-49d4-a3a8-aa256acf6497"]
   }],
-  "urls": [],
+  "urls": ["http://colite-tech-deployment-v2.s3-website-us-east-1.amazonaws.com/#/"],
   "plugins": []
 }
