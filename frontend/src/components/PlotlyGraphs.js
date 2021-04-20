@@ -25,6 +25,7 @@ export default {
         datasets: [
           {
             label: in_label,
+            borderColor: '#000000',
             backgroundColor: '#95c23b',
             data: newData
           }

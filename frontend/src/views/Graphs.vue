@@ -46,24 +46,7 @@
 
       <div style="margin: auto">
         <!--Buttons for chart -->
-        <!--<button v-on:click="renderChart" :class="{
-          'am-active': true
-        }">Update</button>-->
-        <!--<button v-on:click="selectChartType('barChart')" 
-        :class="{
-          'am-active': selectedStyle,
-          'am-not-active': !selectedStyle
-        }">Chart type Bar</button>
-        <button v-on:click="selectChartType('lineChart')"
-        :class="{
-          'am-active': !selectedStyle,
-          'am-not-active': selectedStyle
-        }">Chart type Line</button>
-        <button v-on:click="selectChartType('scatterChart')"
-        :class="{
-          'am-active': !selectedStyle,
-          'am-not-active': selectedStyle
-        }">Chart type Scatter</button>-->
+        
         <button v-for="(button, i) in buttonListStyle" v-on:click="selectChartType(button.param1);
         buttonSelectStyle(i)"
         :class="{
@@ -137,7 +120,6 @@ export default({
   },
  
   methods: {
-
     //methods for button coloring
     buttonSelect(i) {
       this.buttonList.forEach(element => {
@@ -227,15 +209,10 @@ export default({
         this.options = {
           responsive: true,
           maintainAspectRatio: false,
-          scales: {
-            x: {
-              type: 'linear',
-              position: 'bottom'
-            },
-            y: {
-              type: 'linear',
-              position: 'left'
-            }
+          scales: {       
+            yAxes: [{
+                stacked: true
+            }]
           }
         };
       } else {
