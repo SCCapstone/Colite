@@ -27,7 +27,8 @@ export default {
             label: in_label,
             data: newData,
             backgroundColor: color,
-            borderWidth: 1
+            borderWidth: 1,
+            borderColor: '#000000'
           }
         ]
       };
