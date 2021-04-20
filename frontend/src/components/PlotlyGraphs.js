@@ -26,7 +26,7 @@ export default {
           {
             label: in_label,
             borderColor: '#000000',
-            backgroundColor: '#95c23b',
+            backgroundColor: '#308551',
             data: newData
           }
         ]
