@@ -48,7 +48,7 @@ export default {
               fill: false,
               showLine: false,
               borderColor: '#000000',
-              backgroundColor: '#95c23b',
+              backgroundColor: '#308551',
               data: newData
             }, {
               label: 'Line of Best Fit',
@@ -56,7 +56,7 @@ export default {
               type: 'line',    
               fill:false,
               borderColor: '#ffffff',
-              backgroundColor: '#95c23b',
+              backgroundColor: '#308551',
               pointRadius: 0
             }]
           };

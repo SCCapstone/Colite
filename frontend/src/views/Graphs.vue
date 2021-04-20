@@ -65,17 +65,23 @@
         :key=i>
           {{button.text}}
         </button>
-      </div>
 
+      </div>
+      <div style="margin: auto; padding-top: 20px">
+        <p>Input the number of data points you would like to display:</p>
+        <input type="text" v-model="num_points" placeholder="Number of Data Points">
+        <button v-on:click="selectChartType(null)" :class="{'am-not-active': true}">Update</button>
+        <p>(displays newest data points first)</p>
+      </div>
     </div>
 
 </template>
 
 <script>
 import PoleDataService from "../services/PoleDataService";
-import LineChart from '../components/PlotlyGraphs'
-import BarChart from '../components/BarChart.js'
-import ScatterChart from '../components/ScatterChart.js'
+import LineChart from '../components/PlotlyGraphs';
+import BarChart from '../components/BarChart.js';
+import ScatterChart from '../components/ScatterChart.js';
 
 export default({
   components: {
@@ -91,6 +97,7 @@ export default({
       currentPole: null,
       currentIndex: -1,
       pole_id: "",
+      num_points: 100,
       //chart drawing variables
       chartType: "lineChart",
       hideLineChart: true,
@@ -140,21 +147,16 @@ export default({
     //sects chart type
     selectChartType(chart_type) {
       //if(chart_type != this.chartType) {
-        if(chart_type == "lineChart") {
-          this.selectedStyle = false;
-        } else if (chart_type == "barChart") {
-          this.selectedStyle = true;
-        } else if (chart_type == "scatterChart") {
-          this.selectedStyle = false;
+      if(chart_type == null) {
+        chart_type = this.chartType;
+      }
+      this.chartType = chart_type;
+      //console.log("select type: "+chart_type);
+      this.buttonList.forEach(element => {
+        if(element.state == true) {
+          this.renderSelected(element.param1,element.param2,element.chartLabel,element.XLabel);
         }
-        this.chartType = chart_type;
-        //console.log("select type: "+chart_type);
-        this.buttonList.forEach(element => {
-          if(element.state) {
-            this.renderSelected(element.param1,element.param2,element.chartLabel,element.XLabel);
-            
-          }
-        });
+      });
       //}
     },
     
@@ -163,19 +165,34 @@ export default({
       var in_X = [];
       var in_Y = [];
       var color = [];
+      var counter = 0;
       //console.log("barchart: "+BarChart);
-      this.poles.forEach(element => {
-        //var temp = [];
-        //temp = this.readDataFromPoles(element);
-        if(element.pole_id == this.currentPole.pole_id) {
-          in_X.push(this.readDataFromPoles(element,type_X));
-          in_Y.push(this.readDataFromPoles(element,type_Y));
-          if(this.chartType == "barChart") {
-            var tempColor = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
-            color.push(tempColor);
+      if(dataLabel == "Longitude vs Latitude") {
+        for(var i = this.polesId.length-1; i >= 0;--i) { 
+          var temp1 = this.polesId[i];
+          in_X.push(this.readDataFromPoles(temp1,type_X));
+          in_Y.push(this.readDataFromPoles(temp1,type_Y));
+        }
+      } else {
+        for(var j = this.poles.length-1; j >= 0;--j) {
+          var temp2 = this.poles[j];
+          if(temp2 == null) {
+            alert("Please select a pole");
+          }
+          //console.log("temp2: "+temp2);
+          if(temp2.pole_id == this.currentPole.pole_id && counter < this.num_points) {
+            counter++;
+            in_X.push(this.readDataFromPoles(temp2,type_X));
+            in_Y.push(this.readDataFromPoles(temp2,type_Y));
+            if(this.chartType == "barChart") {
+              var tempColor = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+              color.push(tempColor);
+            }
           }
         }
-      });
+
+      }
+      counter = 0;
       //console.log("in_X: "+in_X+"\nin_Y "+in_Y);
       if(this.chartType == "barChart") {
         this.hideLineChart = true;
@@ -268,9 +285,9 @@ export default({
       } else if (id == 'latitude') {
         tempVal = item.latitude;
       } else if (id == 'createdAt') {
-        tempVal = item.createdAt;
+        tempVal = Date.parse(item.createdAt);
       } else if (id == 'updatedAt') {
-        tempVal = item.updatedAt;
+        tempVal = Date.parse(item.updatedAt);
       } else {
         console.log("Error in readDataFromPoles");
       }
@@ -345,10 +362,61 @@ export default({
 
 <style>
 .am-active {
-    background-color: #95c23b;
-    color: rgb(0, 0, 0);
+  border-radius: 8px;
+  margin: 5px 5px;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  background-color: #308551;
+  color: #ffffff;
+  transition-duration: 0.4s;
+ }
+ .am-active:hover {
+  border-radius: 8px;
+  margin: 5px 5px;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  background-color: #309c59;
+  color: #ffffff;
+  transition-duration: 0.4s;
  }
  .am-not-active {
+    border-radius: 8px;
+    margin: 5px 5px;
+    padding: 5px 5px;
+    text-align: center;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
     background-color: rgb(198, 207, 197);
+    transition-duration: 0.4s;
  }
+ .am-not-active:hover {
+    border-radius: 8px;
+    padding: 5px 5px;
+    margin: 5px 5px;
+    text-align: center;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    background-color: #308551;
+    color: #ffffff;
+ }
+ input[type=text], select {
+  width: 70px;
+  text-align: center;
+  padding: 5px 5px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
 </style>
