@@ -2,10 +2,10 @@
   <div class="home">
     <!--<Navbar></Navbar>-->
     <b-jumbotron>     
-      <h1 class="card-title">Welcome to the Colite Technology Data Visualization Application!</h1>
+      <h1 class="card-title">Welcome to the Colite Technologies Data Visualization Application!</h1>
           <!-- <img alt="ColiteLogo" src="../assets/colite2.png"> -->
       <div class="card-body"> 
-        Our application is centered around working with Colite Technology,
+        Our application is centered around working with Colite Technologies,
         a company helping businesses switch to renewable energy sources that promote 
         sustainable business and energy resilience. The List of Parts page will allow for 
         you to view our current available polls and all of their associated data. You 
@@ -22,14 +22,20 @@
         receives from the Colite systems. The application is hosted through the
         Amazon Web Services cloud computing service. Feel free to visit our Contact Us
         Page and reach out to a developer if you have any questions about the features provided.
-        <b> <i>
-        Here is a link to the github repository with the code used to create the application: 
+        <br>
+        <b> <i>Here is a link to the github repository with the code used to create the application: 
         https://github.com/SCCapstone/Colite </i> </b>
       </div>
-      <div class="card-body">
-        Below you will find a video highlighting our features and what problems you are able to solve 
-        by using our application! 
-        <b> https://www.youtube.com/watch </b>
+
+      <h3>
+        Below you will find a video (placeholder) highlighting our features and what problems you are able to solve 
+        by using our application!
+      </h3>
+      <div class="video-embed"> 
+        <video-embed css="embed-responsive-21by9" class="video-embed" src="https://www.youtube.com/watch?v=qZXt1Aom3Cs&ab_channel=TraversyMedia"></video-embed>  
+
+        <!-- sample embedded image below -->
+        <!-- <img alt="Video Embed Component for Vue.JS" loading="lazy" class="img-fluid w-full" src="https://i.morioh.com/2019/11/04/ddb5ea1ce140.jpg"> -->
       </div>
     <!-- <img alt="ColiteLogo" src="../assets/colite2.png"> -->
     </b-jumbotron>
@@ -61,4 +67,15 @@ background-color: #2c3e50;
 background-color: #2c3e50;
 padding: 2.50rem;
 }
+.video-embed {
+max-width: 70%;
+max-height: 70%;
+/* position: absolute; */
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+margin: auto;
+}
+
 </style>
