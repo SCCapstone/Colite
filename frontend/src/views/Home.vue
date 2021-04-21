@@ -46,18 +46,17 @@
     <!-- <img alt="ColiteLogo" src="../assets/colite2.png"> -->
       <br>
       <b-container class="images-embed">
-        <h4>
+        <h2>
           What features can our application provide?
-        </h4>
+        </h2>
         <b-row>
-            <b-col> Visualizing Polls on Google Maps!
-            <img alt="Map" src="@/assets/embedded-map.png" height="600" width="900"> 
-            <br> </b-col>
-          <b-col> Create Your Own Graphs! 
-          <br>
+          <b-col> <br><h3>Visualize Polls on Google Maps!</h3><br>
+          <img alt="Map" src="@/assets/embedded-map.png" height="600" width="900"> 
+          <br> </b-col>
+          <b-col> <br><h3>Create Your Own Graphs! </h3><br>
           <img alt="Map" src="@/assets/embedded-data-graph.png" height="600" width="900"> 
           <br></b-col>
-          <b-col> Viewing the Results of Each Poll!
+          <b-col> <br><h3>View the Data From Each Poll!</h3><br>
           <img alt="Map" src="@/assets/embedded-list-of-parts.png" height="600" width="900"> 
           <br></b-col>
         </b-row>
