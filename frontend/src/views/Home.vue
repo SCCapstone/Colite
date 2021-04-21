@@ -50,7 +50,7 @@
           What features can our application provide?
         </h4>
         <b-row>
-          <b-col>1 of 3</b-col>
+          <b-col><img alt="Map" src="../assets/embed-Map-V2.PNG">1 of 3</b-col>
           <b-col>2 of 3</b-col>
           <b-col>3 of 3</b-col>
         </b-row>
