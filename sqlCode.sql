@@ -78,3 +78,11 @@ INSERT INTO poles (
         '34.0007',
         '2020-01-01 01:01:00',
         '2020-01-01 01:01:00');
+
+
+/* INSERT QUERY NO: 1 */
+INSERT INTO poles(id, pole_id, load1_time1_set, load1_time2_set, load1_outmode, load2_time1_set, load2_time2_set, load2_outmode, scale_mode, param_setup_volta, work_v_setup, menu_password_1, menu_password_2, menu_password_3, max_bat_limit, over_v_comeback, low_v_comeback, low_v_limit, mppt_close_v, mppt_start_v, longitude, latitude, createdAt, updatedAt)
+VALUES
+(
+11, 11, 8.123506398, 'NIGHT', 4.440812611, 1.200021229, 'NIGHT', 'pv_v', 0, 11, 12, 0, 0, 0, 12, 14.44812552, 8.107118568, 7.082669401, 6, 10, -81.05, 34.12, '2020-11-11 00:20:10', '2020-11-11 00:20:10'
+);
