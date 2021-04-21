@@ -50,11 +50,16 @@
           What features can our application provide?
         </h4>
         <b-row>
-            <b-col>
-            <img alt="Map" src="@/assets/embedded-map.PNG">
-             Visualizing Polls on Google Maps!</b-col>
-          <b-col> Create Your Own Graphs! </b-col>
-          <b-col> Viewing the Results of Each Poll!</b-col>
+            <b-col> Visualizing Polls on Google Maps!
+            <img alt="Map" src="@/assets/embedded-map.png" height="600" width="900"> 
+            <br> </b-col>
+          <b-col> Create Your Own Graphs! 
+          <br>
+          <img alt="Map" src="@/assets/embedded-data-graph.png" height="600" width="900"> 
+          <br></b-col>
+          <b-col> Viewing the Results of Each Poll!
+          <img alt="Map" src="@/assets/embedded-list-of-parts.png" height="600" width="900"> 
+          <br></b-col>
         </b-row>
       </b-container>
     </b-jumbotron>
