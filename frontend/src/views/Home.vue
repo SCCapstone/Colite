@@ -50,9 +50,9 @@
           What features can our application provide?
         </h4>
         <b-row>
-          <!-- <b-col><img alt="Map" src="@/assets/embedded-map.PNG"> 1 of 3</b-col> -->
-          <b-col>2 of 3</b-col>
-          <b-col>3 of 3</b-col>
+            <b-col> <!--<img alt="Map" src="@/assets/embedded-map.PNG">--> Visualizing Polls on Google Maps!</b-col>
+          <b-col> Create Your Own Graphs! </b-col>
+          <b-col> Viewing the Results of Each Poll!</b-col>
         </b-row>
       </b-container>
     </b-jumbotron>
@@ -64,7 +64,7 @@
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
 import Navbar from '@/components/Navbar.vue'
-import Map from '../assets/embedded-map.PNG'
+// import Map from '../assets/embedded-map.PNG'
 
 export default {
   name: 'Home',
