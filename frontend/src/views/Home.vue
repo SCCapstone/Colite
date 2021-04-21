@@ -50,7 +50,7 @@
           What features can our application provide?
         </h4>
         <b-row>
-          <b-col><img alt="Map" src="../assets/embed-Map-V2.PNG">1 of 3</b-col>
+          <!-- <b-col><img alt="Map" src="@/assets/embedded-map.PNG"> 1 of 3</b-col> -->
           <b-col>2 of 3</b-col>
           <b-col>3 of 3</b-col>
         </b-row>
@@ -64,6 +64,8 @@
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
 import Navbar from '@/components/Navbar.vue'
+import Map from '../assets/embedded-map.PNG'
+
 export default {
   name: 'Home',
   components: {

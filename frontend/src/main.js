@@ -12,7 +12,7 @@ import * as QuicksightEmbedding from 'amazon-quicksight-embedding-sdk';
 // import VueApexCharts from 'vue-apexcharts'
 //@ is global
 import '@/components/apexcharts.js';
-import Embed from 'v-video-embed'
+import Embed from 'v-video-embed';
 
 // to embed the video
 Vue.use(Embed);
