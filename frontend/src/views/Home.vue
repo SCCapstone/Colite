@@ -1,10 +1,12 @@
 <template>
+<!-- This is our homepage which will be the first thing the user sees when coming to the app -->
   <div class="home">
     <!--<Navbar></Navbar>-->
     <b-jumbotron>     
       <h1 class="card-title">Welcome to the Colite Technologies Data Visualization Application!</h1>
           <!-- <img alt="ColiteLogo" src="../assets/colite2.png"> -->
       <div class="card-body"> 
+        <!-- Explaining about what Colite Tech is and what features our application offers -->
         Our application is centered around working with Colite Technologies,
         a company helping businesses switch to renewable energy sources that promote 
         sustainable business and energy resilience. It will take in data from Colite 
@@ -29,6 +31,7 @@
         questions answered!
         <br>
         <br>
+        <!-- GitHub Link for our source code -->
         <b> <i>If you want to view the source code used to create this application here is a link to the github repository:
         https://github.com/SCCapstone/Colite </i> </b>
       </div>
@@ -41,22 +44,23 @@
         <video-embed css="embed-responsive-21by9" class="video-embed" src="https://www.youtube.com/watch?v=qZXt1Aom3Cs&ab_channel=TraversyMedia"></video-embed>  
 
         <!-- sample embedded image below -->
-        <!-- <img alt="Video Embed Component for Vue.JS" loading="lazy" class="img-fluid w-full" src="https://i.morioh.com/2019/11/04/ddb5ea1ce140.jpg"> -->
       </div>
     <!-- <img alt="ColiteLogo" src="../assets/colite2.png"> -->
       <br>
       <b-container class="images-embed">
-        <h2>
+        <h4>
           What features can our application provide?
-        </h2>
+        </h4>
         <b-row>
-          <b-col> <br><h3>Visualize Polls on Google Maps!</h3><br>
-          <img alt="Map" src="@/assets/embedded-map.png" height="600" width="900"> 
-          <br> </b-col>
-          <b-col> <br><h3>Create Your Own Graphs! </h3><br>
-          <img alt="Map" src="@/assets/embedded-data-graph.png" height="600" width="900"> 
+          <!-- 3 Images embedded for our website milestone -->
+            <b-col> Visualizing Polls on Google Maps!
+            <img alt="Map" style="text-align: left" src="@/assets/embedded-map.png" height="300" width="450"> 
+            <br> </b-col>
+          <b-col> Create Your Own Graphs! 
+          <br>
+          <img alt="Map" style="text-align: center" src="@/assets/embedded-data-graph.png" height="600" width="900"> 
           <br></b-col>
-          <b-col> <br><h3>View the Data From Each Poll!</h3><br>
+          <b-col> Viewing the Results of Each Poll!
           <img alt="Map" src="@/assets/embedded-list-of-parts.png" height="600" width="900"> 
           <br></b-col>
         </b-row>
@@ -68,6 +72,7 @@
 
 <script>
 // @ is an alias to /src
+// Importing the navigation bar so it will be on the page
 import HelloWorld from '@/components/HelloWorld.vue'
 import Navbar from '@/components/Navbar.vue'
 // import Map from '../assets/embedded-map.PNG'
@@ -81,6 +86,7 @@ export default {
 }
 </script>
 <style scoped>
+/* Styling to allow for better UI done below */
 p {
 font-size: 14pt;
 }

@@ -1,5 +1,6 @@
 
 <template>
+<!-- Page is essentially just for using the navbar across all pages -->
   <div id="app">
     <Navbar> </Navbar>
     <br />
@@ -16,6 +17,7 @@
 </template>
 
 <style lang="scss">
+// Styling for some of the colors we use throughout the map
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

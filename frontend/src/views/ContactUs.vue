@@ -1,4 +1,5 @@
 <template>
+<!-- Page focusing on our names, emails and linkedins. There is one row for each person in our group (5) -->
   <div class="contactUs">
     <h1>Welcome to the Contact Us page</h1>
     <h4> 
@@ -44,11 +45,13 @@
         <br>
     </table>
     </h4>
+    <!-- Standard colite logo below -->
     <img alt="ColiteLogo" src="../assets/colite2.png" width="27%">
   </div>
 </template>
 
 <style scoped>
+/* Centering and aligning the content provided below: */
     #contacts {
         margin-left: auto;
         margin-right: auto;

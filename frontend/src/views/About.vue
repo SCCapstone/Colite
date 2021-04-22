@@ -1,4 +1,5 @@
 <template>
+<!-- This is our about us page that will tell you about our group members as well as features provided -->
   <div class="about">
     <b-jumbotron>
       <div class="card-title">
@@ -14,6 +15,7 @@
           have a map of all of our existing polls that will highlight the various outputs from each poll that is being used in 
           the database. 
       </div>
+      <!-- Creators of application below: -->
       <h4 class="card-title">This application was designed by Matthew Hayward, Simon Benzer, Andrew Denman, Kailen King and Kundana Narla </h4>
       <br>
     <img alt="ColiteLogo" src="../assets/colite2.png" width="27%">
@@ -22,6 +24,7 @@
 </template>
 
 <style scoped>
+/* Formatting colors and font sizes below */
 .jumbotron {
   background-color: #2c3e50;
 }
