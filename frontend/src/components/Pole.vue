@@ -1,8 +1,10 @@
 <template>
+<!-- Pole code is implemented here so that you can add, delete or update poles -->
   <div v-if="currentPole" class="edit-form">
     <h4>Pole</h4>
     <form>
       <div class="form-group">
+        <!-- Setting varaibles and calling the id number -->
         <label for="id_number">Id_number</label>
         <input type="text" class="form-control" id="id_number"
           v-model="currentPole.id_number"
@@ -15,13 +17,13 @@
         />
       </div>
     </form>
-
+    <!-- Code to delete a pole is lsited below -->
     <button class="badge badge-danger mr-2"
       @click="deletePole"
     >
       Delete
     </button>
-
+    <!-- Code to update attributes of a pole is listed below -->
     <button type="submit" class="badge badge-success"
       @click="updatePole"
     >
@@ -37,6 +39,7 @@
 </template>
 
 <script>
+// Need to import poledataservice so that we can view and use values pulled from MySQL db
 import PoleDataService from "../services/PoleDataService";
 
 export default {
@@ -47,7 +50,9 @@ export default {
       message: ''
     };
   },
+  // Methods section
   methods: {
+    // Method for acquriing a pole id
     getPole(id) {
       PoleDataService.get(id)
         .then(response => {
@@ -58,7 +63,7 @@ export default {
           console.log(e);
         });
     },
-
+    // Method for updating a pole
     updatePole() {
       PoleDataService.update(this.currentPole.id, this.currentPole)
         .then(response => {
@@ -69,7 +74,7 @@ export default {
           console.log(e);
         });
     },
-
+    // Method for deleting a pole
     deletePole() {
       PoleDataService.delete(this.currentPole.id)
         .then(response => {

@@ -1,4 +1,5 @@
 <template>
+<!-- Old page that we used for data visualization. Currently now used for formatting -->
   <div class="container-fluid">
     <!-- <div class="body"> -->
     <!-- <h1 class="card-body"> -->
@@ -13,6 +14,7 @@
     </h5>
     <br>
     <!-- <span class="border border-success"> -->
+      <!-- Ability to align graphs below via wrapper 1-->
     <div class="chart-wrapper">
       <apexchart
         width="700" type="scatter"
@@ -21,6 +23,7 @@
     </div>
     <!-- </span>  -->
     <hr>
+    <!-- Wrapper 2 for the graphs -->
     <div class="chart-wrapper2">
       <apexchart
         width="700" type="bar"
@@ -39,6 +42,7 @@
 </template>
 <script>
 export default {
+  // Chart 1 is no longer being used the data below for it is no longer valid/shown anywhere
   name: 'Chart1',
   data: () => ({
     options: {

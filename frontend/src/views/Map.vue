@@ -1,16 +1,18 @@
 <template>
   <div class="map">
+    <!-- Page for the maps section on navbar -->
     <h1>Welcome to the map of all active parts page!</h1>
   
     <div>
     <gmap-map
+    
       ref="gmap"
       :center="{ lat: 36.778259, lng: -119.417931
  }"
       :zoom="10"
       style="width:100%;  height: 100vh;"
     >
-      
+      <!-- Code for the red markers in this blow, as well as ability to toggle the attributes -->
       <gmap-marker
         :key="index"
         v-for="(m, index) in markers"
@@ -61,17 +63,19 @@ import axios from 'axios'
     },
     
 	mounted() {
+    // Mounting our API so that we can pull data from MySQL DB
 		axios.get('http://colitetechrestapi.us-east-1.elasticbeanstalk.com/api/poles')
 		.then(response => {
 			this.markers = response.data.map((transform) => {
 				return {
 					...transform, position: {
+            // Variables to acquire the lat and longitudes of the poles
 						lat: Number(transform.latitude),
 						lng: Number(transform.longitude)
 					}
 				}
 			});
-     
+    //  Fitting the marker bounds onto the map and assignign variables
 			if (this.markers.length > 0) {
 				this.$refs.gmap.$mapPromise.then((map) => {
 					const bounds = new google.maps.LatLngBounds()
@@ -129,6 +133,7 @@ import axios from 'axios'
 
 
 <style>
+/* Styling for the map so that it fits onto the website in our color scheme */
 .map {
   background-color: #2c3e50;
   /* min-height: 100%; */

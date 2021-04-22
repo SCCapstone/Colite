@@ -1,4 +1,5 @@
 <template>
+<!-- Navigation bar that is shown on the top of the page is implemented on this page -->
 <div>
   <b-navbar toggleable="lg" type="light" variant="light">
     <b-navbar-brand href="#" to="/"><img alt="ColiteLogo" src="@/assets/coliteNavBar.png"></b-navbar-brand>
@@ -9,6 +10,7 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
+        <!-- Below are all the links listed on the naviation bar along with the tests section which is disabled for client  -->
         <b-nav-item href="#" to="/"> Home </b-nav-item>
         <b-nav-item href="https://d3uloz2irj3oqp.cloudfront.net/qsauthorembed.html">Data Visualization</b-nav-item>
         <b-nav-item href="#" to="/polesList">List of Parts</b-nav-item>
