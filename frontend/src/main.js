@@ -12,7 +12,10 @@ import * as QuicksightEmbedding from 'amazon-quicksight-embedding-sdk';
 // import VueApexCharts from 'vue-apexcharts'
 //@ is global
 import '@/components/apexcharts.js';
+import Embed from 'v-video-embed';
 
+// to embed the video
+Vue.use(Embed);
 
 // Vue.use(VueApexCharts)
 // Vue.component('apexchart', VueApexCharts)
@@ -48,7 +51,7 @@ Vue.use(DropdownPlugin)
 Vue.use(TablePlugin)
 Vue.use(BootstrapVue)
 
- 
+
 Vue.prototype.$http = axios;
 
 // line below is not working
