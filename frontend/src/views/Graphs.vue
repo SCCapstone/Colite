@@ -1,8 +1,6 @@
 <!--written by Andrew Denman-->
 <template>
-	
     <div class="dataVis">
-    
       <h1 class="card-title">Welcome to the Colite Technology Data Visualization Application!</h1>
       <!--List of poles to choose from-->
       <div class="col-md-6" style="width: 20%; float:left">
@@ -20,12 +18,9 @@
             <td>{{ pole.pole_id }}</td>
           </tr>
         </table>
-
-
       </div>
       <!-- Chart draw area-->
       <div class="small" style="width: 80%; float:right">
-
         <div id="lineChart" v-if="!hideLineChart">
           <line-chart :key="chartKey" 
           :chartdata="dataChart" 
@@ -41,12 +36,9 @@
           :chartdata="dataChart" 
           :options="options"></scatter-chart>
         </div>
-
       </div>
-
       <div style="margin: auto">
         <!--Buttons for chart -->
-        
         <button v-for="(button, i) in buttonListStyle" v-on:click="selectChartType(button.param1);
         buttonSelectStyle(i)"
         :class="{
@@ -65,7 +57,6 @@
         :key=i>
           {{button.text}}
         </button>
-
       </div>
       <div style="margin: auto; padding-top: 20px">
         <p>Input the number of data points you would like to display:</p>
@@ -74,10 +65,12 @@
         <p>(displays newest data points first)</p>
       </div>
     </div>
-
 </template>
 
 <script>
+//Pole data service is for fetching the poles data form the sql server
+//the three imported charts are the types of graphs available
+//-./^\,~<>-:
 import PoleDataService from "../services/PoleDataService";
 import LineChart from '../components/PlotlyGraphs';
 import BarChart from '../components/BarChart.js';
@@ -114,6 +107,8 @@ export default({
       ],
       selectedStyle: false,
       selectedData: false,
+      //Buttons to draw data, each button had the two ids to send into renderselected
+      //to show the types of choosen data
       buttonList: [
         {text: "Render Over Voltage Comback", param1: "id",param2: "over_v_comeback",state: false, chartLabel: "Over Voltage Comback vs input id(time)", XLabel: "Over Voltage Comback"},
         {text: "Render Work Voltage Setup", param1: "id",param2: "work_v_setup",state: false, chartLabel: "Work Voltage Setup vs input id(time)", XLabel: "Work Voltage Setup"},
@@ -144,7 +139,7 @@ export default({
     renderChart() {
       this.chartKey+=1;
     },
-    //sects chart type
+    //selects chart type and calls the renderSelected for which ever button is currently active
     selectChartType(chart_type) {
       //if(chart_type != this.chartType) {
       if(chart_type == null) {
@@ -161,25 +156,29 @@ export default({
     },
     
     //drawing the chart
+    //type_x and type_y are the type of data to retrieve from the sql server
+    //dataLabel is used to check which type of data render to do
+    //in_XLabel is for drawing the legend datapoint
     renderSelected(type_X,type_Y,dataLabel,in_XLabel) {
       var in_X = [];
       var in_Y = [];
       var color = [];
       var counter = 0;
       //console.log("barchart: "+BarChart);
+      //if LvL then draw all unique poles on the chart
       if(dataLabel == "Longitude vs Latitude") {
         for(var i = this.polesId.length-1; i >= 0;--i) { 
           var temp1 = this.polesId[i];
           in_X.push(this.readDataFromPoles(temp1,type_X));
           in_Y.push(this.readDataFromPoles(temp1,type_Y));
         }
+      //else then draw all the data for the selected pole
       } else {
         for(var j = this.poles.length-1; j >= 0;--j) {
           var temp2 = this.poles[j];
-          if(temp2 == null) {
-            alert("Please select a pole");
-          }
           //console.log("temp2: "+temp2);
+          //if the selected pole matches to the pole at j. 
+          //counter is to control how many data points to render
           if(temp2.pole_id == this.currentPole.pole_id && counter < this.num_points) {
             counter++;
             in_X.push(this.readDataFromPoles(temp2,type_X));
@@ -190,10 +189,10 @@ export default({
             }
           }
         }
-
       }
       counter = 0;
       //console.log("in_X: "+in_X+"\nin_Y "+in_Y);
+      //use this.chartType to select which type of chart to draw and which options to use
       if(this.chartType == "barChart") {
         this.hideLineChart = true;
         this.hideBarChart = false;
@@ -235,35 +234,34 @@ export default({
       } else {
         console.log("error in render selected chart type\n "+this.chartType);
       }
-
+      //updates chart
       this.renderChart();
-
     },
     //takes in id to see what data point the user wants to render.
     readDataFromPoles(item,id) {
       var tempVal;
       if(id == 'id') {
-        tempVal = item.id;
+        tempVal = parseFloat(item.id);
       } else if (id == 'pole_id') {
-        tempVal = item.pole_id;
+        tempVal = parseFloat(item.pole_id);
       } else if (id == 'load1_time1_set') {
-        tempVal = item.load1_time1_set;
+        tempVal = parseFloat(item.load1_time1_set);
       } else if (id == 'load1_time2_set') {
-        tempVal = item.load1_time2_set;
+        tempVal = parseFloat(item.load1_time2_set);
       } else if (id == 'load1_outmode') {
         tempVal = item.load1_outmode;
       } else if (id == 'load2_time1_set') {
-        tempVal = item.load2_time1_set;
+        tempVal = parseFloat(item.load2_time1_set);
       } else if (id == 'load2_time2_set') {
-        tempVal = item.load2_time2_set;
+        tempVal = parseFloat(item.load2_time2_set);
       } else if (id == 'load2_outmode') {
         tempVal = item.load2_outmode;
       } else if (id == 'scale_mode') {
         tempVal = item.scale_mode;
       } else if (id == 'param_setup_volta') {
-        tempVal = item.param_setup_volta;
+        tempVal = parseFloat(item.param_setup_volta);
       } else if (id == 'work_v_setup') {
-        tempVal = parseInt(item.work_v_setup);
+        tempVal = parseFloat(item.work_v_setup);
       } else if (id == 'menu_password_1') {
         console.log("Error in readDataFromPoles");
       } else if (id == 'menu_password_2') {
@@ -271,19 +269,19 @@ export default({
       } else if (id == 'menu_password_3') {
         console.log("Error in readDataFromPoles");
       } else if (id == 'max_bat_limit') {
-        tempVal = item.max_bat_limit;
+        tempVal = parseFloat(item.max_bat_limit);
       } else if (id == 'over_v_comeback') {
-        tempVal = item.over_v_comeback;
+        tempVal = parseFloat(item.over_v_comeback);
       } else if (id == 'low_v_limit') {
-        tempVal = item.low_v_limit;
+        tempVal = parseFloat(item.low_v_limit);
       } else if (id == 'mppt_close_v') {
-        tempVal = item.mppt_close_v;
+        tempVal = parseFloat(item.mppt_close_v);
       } else if (id == 'mppt_start_v') {
-        tempVal = item.mppt_start_v;
+        tempVal = parseFloat(item.mppt_start_v);
       } else if (id == 'longitude') {
-        tempVal = item.longitude;
+        tempVal = parseFloat(item.longitude);
       } else if (id == 'latitude') {
-        tempVal = item.latitude;
+        tempVal = parseFloat(item.latitude);
       } else if (id == 'createdAt') {
         tempVal = Date.parse(item.createdAt);
       } else if (id == 'updatedAt') {
@@ -298,6 +296,7 @@ export default({
       PoleDataService.getAll()
         .then(response => {
           this.poles = response.data;
+          //adds each unique pole to polesId
           this.poles.forEach(element => {
             if(this.polesId == null){
               this.polesId.push(element);
@@ -319,7 +318,7 @@ export default({
           console.log(e);
         });
     },
-
+    //all following methods are to get the data from the SQL server
     refreshList() {
       this.retrievePoles();
       this.currentPole = null;
