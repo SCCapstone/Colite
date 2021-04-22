@@ -1,3 +1,4 @@
+//Written by Andrew Denman
 import { Bar , mixins} from 'vue-chartjs'
 const { reactiveProp } = mixins
 
@@ -15,6 +16,7 @@ export default {
     }
   },
   methods: {
+    //Sets up the chart data to be drawn on the chart area
     renderSelectedData: function(in_dataX,in_dataY,color,in_label) {
 
       var newLabels = in_dataX;

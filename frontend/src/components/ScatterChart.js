@@ -1,3 +1,4 @@
+//Written by Andrew Denman
 import { Scatter , mixins} from 'vue-chartjs'
 const { reactiveProp } = mixins
 
@@ -15,6 +16,7 @@ export default {
     }
   },
   methods: {
+    //Sets up the chart data to be drawn on the chart area
     renderSelectedData: function(in_dataX,in_dataY,in_label) {
         var length = in_dataX.length;
         var i = 0;
@@ -62,6 +64,7 @@ export default {
           };
       return aChartdata;
     },
+    //Calculate the Line of best fit given the in_dataX and in_dataY
     LineofBestFit: function(in_dataX,in_dataY) {
       var outData = [];
       //setup variables
