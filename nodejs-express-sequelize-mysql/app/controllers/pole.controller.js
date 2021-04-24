@@ -33,6 +33,8 @@ exports.create = (req, res) => {
         low_v_limit: req.body.low_v_limit,
         mppt_close_v: req.body.mppt_close_v,
         mppt_start_v: req.body.mppt_start_v,
+        
+        //updated to require the long/latitude files in order to provide coordinates for the Map page
         longitude: req.body.longitude,
         latitude: req.body.latitude
     };
