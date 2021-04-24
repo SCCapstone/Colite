@@ -58,6 +58,8 @@ module.exports = (sequelize, Sequelize) => {
         mppt_start_v: {
             type: Sequelize.STRING
         },
+        
+        //edited to take into account the longitude and the latitude in order to produce coordinates for the map page
         longitude: {
             type: Sequelize.DECIMAL(10, 7)
         },
