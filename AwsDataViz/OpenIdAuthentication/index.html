@@ -15,6 +15,7 @@
                 userArn: getParameterValues('userarn'),
                 apiGatewayUrl: 'https://w45cyomtkg.execute-api.us-east-1.amazonaws.com/prod/getDashboardEmbedURL?',
             }
+            //setting up access to the AWS dashboard once the information is verified
             embedDashboardQuickSightAuthenticated(awsData);
 
             function getParameterValues(param) {
