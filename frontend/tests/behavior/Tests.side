@@ -1,0 +1,96 @@
+{
+  "id": "35dd0448-6855-4bd3-ac1e-dfd2296c0218",
+  "version": "2.0",
+  "name": "Tests",
+  "url": "http://colite-tech-deployment-v2.s3-website-us-east-1.amazonaws.com",
+  "tests": [{
+    "id": "2f55186c-152e-4506-831a-6f0f867bccc9",
+    "name": "Tests",
+    "commands": [{
+      "id": "9ab54c65-5fd4-4f6a-9321-ad6276342c5e",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6e943525-7199-4790-b025-05125be2d3c3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1440x853",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "52efd4d9-9100-4ba2-a7a4-b7bb5cedff36",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Tests",
+      "targets": [
+        ["linkText=Tests", "linkText"],
+        ["css=.nav-item:nth-child(8) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Tests')]", "xpath:link"],
+        ["xpath=//div[@id='nav-collapse']/ul/li[8]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[8]", "xpath:href"],
+        ["xpath=//li[8]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Tests')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7dcaea17-c88a-45f2-a257-c49354c1b011",
+      "comment": "",
+      "command": "click",
+      "target": "css=.list-group-item:nth-child(3)",
+      "targets": [
+        ["css=.list-group-item:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div[2]/table/tr[3]", "xpath:idRelative"],
+        ["xpath=//tr[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0a09cdbd-eab1-4b7d-9ae7-1a2b0e111447",
+      "comment": "",
+      "command": "click",
+      "target": "css=.list-group-item:nth-child(8)",
+      "targets": [
+        ["css=.list-group-item:nth-child(8)", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div[2]/table/tr[8]", "xpath:idRelative"],
+        ["xpath=//tr[8]", "xpath:position"],
+        ["xpath=//tr[contains(.,'19')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "92179836-4226-4172-96f8-b970e907b777",
+      "comment": "",
+      "command": "click",
+      "target": "css=.list-group-item:nth-child(12)",
+      "targets": [
+        ["css=.list-group-item:nth-child(12)", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div[2]/table/tr[12]", "xpath:idRelative"],
+        ["xpath=//tr[12]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e4cbfa58-ddab-4911-9111-1b622ca891a6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.list-group-item:nth-child(16)",
+      "targets": [
+        ["css=.list-group-item:nth-child(16)", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div[2]/table/tr[16]", "xpath:idRelative"],
+        ["xpath=//tr[16]", "xpath:position"],
+        ["xpath=//tr[contains(.,'10')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "e23a3d40-34d9-4cb2-8593-d23c53773ce7",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["2f55186c-152e-4506-831a-6f0f867bccc9"]
+  }],
+  "urls": ["http://colite-tech-deployment-v2.s3-website-us-east-1.amazonaws.com/"],
+  "plugins": []
+}

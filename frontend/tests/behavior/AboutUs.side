@@ -1,0 +1,98 @@
+{
+  "id": "d64c0820-995f-4bc9-ae2b-dac5a073da7f",
+  "version": "2.0",
+  "name": "AboutUs",
+  "url": "http://colite-tech-deployment-v2.s3-website-us-east-1.amazonaws.com",
+  "tests": [{
+    "id": "a5c79d0a-ec69-49aa-a931-2503e9da9f42",
+    "name": "AboutUs",
+    "commands": [{
+      "id": "1e27a545-5f9c-4d23-b7df-54e701272e48",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "447825ff-6f34-4bf6-b2cb-160ee11208b4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1440x853",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "66f09f55-b2ce-48e6-8385-a165edfffe71",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=About Us",
+      "targets": [
+        ["linkText=About Us", "linkText"],
+        ["css=.nav-item:nth-child(6) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'About Us')]", "xpath:link"],
+        ["xpath=//div[@id='nav-collapse']/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[6]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'About Us')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b4b9bcc2-22f1-4bd6-a18a-53e6f106fe36",
+      "comment": "",
+      "command": "click",
+      "target": "css=img:nth-child(5)",
+      "targets": [
+        ["css=img:nth-child(5)", "css:finder"],
+        ["xpath=(//img[@alt='ColiteLogo'])[2]", "xpath:img"],
+        ["xpath=//div[@id='app']/div[2]/div/img", "xpath:idRelative"],
+        ["xpath=//div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "eb7c4e10-8774-4851-9051-68b6c950a5b3",
+      "comment": "",
+      "command": "click",
+      "target": "css=img:nth-child(5)",
+      "targets": [
+        ["css=img:nth-child(5)", "css:finder"],
+        ["xpath=(//img[@alt='ColiteLogo'])[2]", "xpath:img"],
+        ["xpath=//div[@id='app']/div[2]/div/img", "xpath:idRelative"],
+        ["xpath=//div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5cc39b48-7656-4f0e-9a19-41e2700c47b0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.card-title:nth-child(3)",
+      "targets": [
+        ["css=.card-title:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/h4", "xpath:idRelative"],
+        ["xpath=//h4", "xpath:position"],
+        ["xpath=//h4[contains(.,'This application was designed by Matthew Hayward, Simon Benzer, Andrew Denman, Kailen King and Kundana Narla')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8c0b69ae-62aa-451b-8e0d-80d79d683cd9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.card-title > .card-title",
+      "targets": [
+        ["css=.card-title > .card-title", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Welcome to the page that will tell you more about the group members and the application we designed!')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "4bb56234-c155-45e8-83c1-fdc510d6e3fa",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["a5c79d0a-ec69-49aa-a931-2503e9da9f42"]
+  }],
+  "urls": ["http://colite-tech-deployment-v2.s3-website-us-east-1.amazonaws.com/"],
+  "plugins": []
+}
