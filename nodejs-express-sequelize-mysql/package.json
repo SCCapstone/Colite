@@ -1,4 +1,5 @@
 {
+    // self-explanatory, establishes name and information about the rest api we're using
     "name": "nodejs-express-sequelize-mysql",
     "version": "1.0.0",
     "description": "Node.js Rest Apis with Express, Sequelize, and MySQL.",
@@ -6,6 +7,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
+    
+    //initialize the Node.js App, estalbish keywords
     "keywords": [
         "nodejs",
         "express",
