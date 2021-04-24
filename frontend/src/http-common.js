@@ -1,3 +1,5 @@
+//get the baseURL from customApi.js axios that is created using export default axios.create()configuration.
+
 import axios from "axios";
 
 export default axios.create({
