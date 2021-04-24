@@ -1,3 +1,4 @@
+// where each aspect of the app is hosted
 module.exports = app => {
     const poles = require("../controllers/pole.controller.js");
 

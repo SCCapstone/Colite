@@ -1,3 +1,4 @@
+// SQL Database information
 module.exports = {
     HOST: "proof-of-concept-2.cg5oknnxxjpg.us-east-1.rds.amazonaws.com",
     USER: "admin",

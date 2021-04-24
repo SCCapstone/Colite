@@ -1,3 +1,4 @@
+// This is the structure of the pole we are accessing
 module.exports = (sequelize, Sequelize) => {
     const Pole = sequelize.define("poles", {
         pole_id: {

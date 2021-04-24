@@ -1,3 +1,4 @@
+//This is the functions used to interface with the api
 import http from "../http-common";
 
 class PoleDataService {

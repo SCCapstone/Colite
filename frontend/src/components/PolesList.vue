@@ -1,17 +1,9 @@
 <template>
   <div class="list row">
     <div class="col-md-8">
-      <!--<div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Search by pole_id"
-          v-model="pole_id"/>
-        <div class="input-group-append">
-          <<button class="btn btn-outline-secondary" type="button"
-            @click="searchIdNumber"
-          >
-            Search
-          </button>
-        </div>
-      </div>-->
+    <!-- This is the drop down menu of all accessed poles
+          This used a v-for, which will continue to add to
+           the table until no more poles remain on the api -->
     </div>
     <div class="col-md-6">
       <h4>Poles List</h4>
@@ -29,7 +21,7 @@
         </tr>
       </table>
 
-
+    <!-- this is the information displayed when you click on a mac address -->
     </div>
     <div class="col-md-6">
       <div v-if="currentPole">
@@ -59,7 +51,7 @@
           <label><strong>Scale Mode:</strong></label> {{ currentPole.scale_mode }}
         </div>
         <div>
-          <label><strong>Paramater Setup Voltage:</strong></label> {{ currentPole.param_setup_voltage }}
+          <label><strong>Paramater Setup Voltage:</strong></label> {{ currentPole.param_setup_volta }}
         </div>
         <div>
           <label><strong>Work Voltage Setup:</strong></label> {{ currentPole.work_v_setup }}
@@ -73,7 +65,7 @@
         <div>
           <label><strong>Menu Password 3:</strong></label> {{ currentPole.menu_password_3 }}
         </div>
-        <div>
+        <div id="maxbat">
           <label><strong>Max Battery Limit:</strong></label> {{ currentPole.max_bat_limit }}
         </div>
         <div>
@@ -112,7 +104,9 @@
   </div>
 </template>
 
+
 <script>
+// This imports the poleDataService and has the functions that can be used on this page
 import PoleDataService from "../services/PoleDataService";
 
 export default {
@@ -170,14 +164,11 @@ export default {
         });
     },
 
+    // basic red flag functionality, if something meets a criteria, it marks it red
     redFlag(pole) {
-      if (pole.ex_in_v == 3.4) {
-        document.getElementById("exinv").style.color = "red";
+      if (pole.max_bat_limit > 10) {
+        document.getElementById("maxbat").style.color = "red";
         document.getElementById("idnumber").style.color = "red";
-      }
-      else{
-        document.getElementById("exinv").style.color = "#95c23b";
-        document.getElementById("idnumber").style.color = "#95c23b";
       }
     }
   },
@@ -185,7 +176,7 @@ export default {
     this.retrievePoles();
     //this.redFlag(pole);
   }
-};
+}
 </script>
 
 <style scoped>
