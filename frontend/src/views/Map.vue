@@ -75,7 +75,7 @@ import axios from 'axios'
 					}
 				}
 			});
-    //  Fitting the marker bounds onto the map and assignign variables
+    //  Fitting the marker bounds onto the map and assigning variables
 			if (this.markers.length > 0) {
 				this.$refs.gmap.$mapPromise.then((map) => {
 					const bounds = new google.maps.LatLngBounds()
@@ -109,7 +109,7 @@ import axios from 'axios'
         }
       },
       
-     
+      //produces the information regarding a pole when the marker on the map is selected
       getInfoWindowContent: function (marker) {
 		console.log(marker);
 		var contentsHtml = '<div class="card"><div class="card-content"><div class="content pt-3">';
