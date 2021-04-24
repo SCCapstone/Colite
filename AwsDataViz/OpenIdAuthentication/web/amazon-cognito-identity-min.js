@@ -14,6 +14,8 @@
  * for the specific language governing permissions and
  * limitations under the License. 
  */
+
+// this page was predominantly auto-generated, therefore it does not have many code sections that warrent commenting
 ! function(t, e) { "object" == typeof exports && "object" == typeof module ? module.exports = e() : "function" == typeof define && define.amd ? define([], e) : "object" == typeof exports ? exports.AmazonCognitoIdentity = e() : t.AmazonCognitoIdentity = e() }("undefined" != typeof self ? self : this, function() {
     return function(t) {
         function e(r) { if (n[r]) return n[r].exports; var i = n[r] = { i: r, l: !1, exports: {} }; return t[r].call(i.exports, i, i.exports, e), i.l = !0, i.exports } var n = {}; return e.m = t, e.c = n, e.d = function(t, n, r) { e.o(t, n) || Object.defineProperty(t, n, { configurable: !1, enumerable: !0, get: r }) }, e.n = function(t) { var n = t && t.__esModule ? function() { return t.default } : function() { return t }; return e.d(n, "a", n), n }, e.o = function(t, e) { return Object.prototype.hasOwnProperty.call(t, e) }, e.p = "", e(e.s = 16) }([function(t, e, n) {! function(n, r) { t.exports = e = r() }(0, function() { var t = t || function(t, e) { var n = Object.create || function() {
