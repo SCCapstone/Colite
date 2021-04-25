@@ -1,0 +1,136 @@
+{
+  "id": "78aa99f9-ffd9-42bb-9c22-a82a3d45dc70",
+  "version": "2.0",
+  "name": "ColiteTech",
+  "url": "http://colite-tech-deployment-v2.s3-website-us-east-1.amazonaws.com/#/",
+  "tests": [{
+    "id": "ba1a11d9-d4c7-419d-9168-66b83e5bf615",
+    "name": "behavior-tests-v4",
+    "commands": [{
+      "id": "234b91b2-4a64-4bff-8876-4e7070ebe520",
+      "comment": "",
+      "command": "open",
+      "target": "http://colite-tech-deployment-v2.s3-website-us-east-1.amazonaws.com/#/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9ba19f06-6f89-4d77-8ea3-79a08f3c2767",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x831",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8ca69917-7a15-4cdd-ad36-d64289339d34",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Home",
+      "targets": [
+        ["linkText=Home", "linkText"],
+        ["css=.nav-item > .router-link-exact-active", "css:finder"],
+        ["xpath=//a[contains(text(),'Home')]", "xpath:link"],
+        ["xpath=//div[@id='nav-collapse']/ul/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[2]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Home')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ff0ef4d6-d0cf-43c2-9e28-93af74362d01",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=List of Parts",
+      "targets": [
+        ["linkText=List of Parts", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'List of Parts')]", "xpath:link"],
+        ["xpath=//div[@id='nav-collapse']/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[3]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'List of Parts')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6e55ccac-14cf-431e-9d0a-1c5530610592",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "linkText=List of Parts",
+      "targets": [
+        ["linkText=List of Parts", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'List of Parts')]", "xpath:link"],
+        ["xpath=//div[@id='nav-collapse']/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[3]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'List of Parts')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c1a630b7-b373-466d-a09e-54b5a319cbe0",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "linkText=List of Parts",
+      "targets": [
+        ["linkText=List of Parts", "linkText"],
+        ["css=.router-link-exact-active", "css:finder"],
+        ["xpath=//a[contains(text(),'List of Parts')]", "xpath:link"],
+        ["xpath=//div[@id='nav-collapse']/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[3]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'List of Parts')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fa109e69-52f8-484d-bb93-7d7bcb848b11",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Map",
+      "targets": [
+        ["linkText=Map", "linkText"],
+        ["css=.nav-item:nth-child(4) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Map')]", "xpath:link"],
+        ["xpath=//div[@id='nav-collapse']/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[4]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Map')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "13d34436-a9b4-464f-9da3-eb8da4c21559",
+      "comment": "",
+      "command": "click",
+      "target": "css=.gm-style > div:nth-child(1) > div:nth-child(3)",
+      "targets": [
+        ["css=.gm-style > div:nth-child(1) > div:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div/div/div/div/div/div/div[3]", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div/div/div/div/div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8b5b6a34-ff06-4a1f-878b-eedc1a3f1063",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=About Us",
+      "targets": [
+        ["linkText=About Us", "linkText"],
+        ["css=.nav-item:nth-child(6) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'About Us')]", "xpath:link"],
+        ["xpath=//div[@id='nav-collapse']/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[6]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'About Us')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "b731feeb-d8b2-451f-a024-089e67b2fd42",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["ba1a11d9-d4c7-419d-9168-66b83e5bf615"]
+  }],
+  "urls": ["http://colite-tech-deployment-v2.s3-website-us-east-1.amazonaws.com/#/"],
+  "plugins": []
+}

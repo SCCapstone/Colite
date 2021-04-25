@@ -1,0 +1,80 @@
+{
+  "id": "cf135e0d-2f39-4763-a25d-9774cd38c1a4",
+  "version": "2.0",
+  "name": "ColiteTech",
+  "url": "http://colite-tech-deployment-v2.s3-website-us-east-1.amazonaws.com/#/",
+  "tests": [{
+    "id": "5676e066-6100-4b55-9f18-7b347d4a5e8b",
+    "name": "behavior-tests-v7",
+    "commands": [{
+      "id": "83cb024c-215b-4c1f-aa29-debab9e7842d",
+      "comment": "",
+      "command": "open",
+      "target": "http://colite-tech-deployment-v2.s3-website-us-east-1.amazonaws.com/#/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1aeb8273-f85a-48e6-b1bc-e4e35affb1d4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1200x831",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "43295b0b-678d-4fa2-b548-f97dfafc4ce7",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=List of Parts",
+      "targets": [
+        ["linkText=List of Parts", "linkText"],
+        ["css=.nav-item:nth-child(2) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'List of Parts')]", "xpath:link"],
+        ["xpath=//div[@id='nav-collapse']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[2]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'List of Parts')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "011fad6c-7474-4617-a27d-a07e97780330",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "linkText=Data Visualization",
+      "targets": [
+        ["linkText=Data Visualization", "linkText"],
+        ["css=.nav-item:nth-child(1) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Data Visualization')]", "xpath:link"],
+        ["xpath=//div[@id='nav-collapse']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://d3uloz2irj3oqp.cloudfront.net/qsauthorembed.html')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Data Visualization')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7396231d-c022-4a44-a88f-9dffb5893b6c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Data Visualization",
+      "targets": [
+        ["linkText=Data Visualization", "linkText"],
+        ["css=.nav-item:nth-child(1) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Data Visualization')]", "xpath:link"],
+        ["xpath=//div[@id='nav-collapse']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://d3uloz2irj3oqp.cloudfront.net/qsauthorembed.html')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Data Visualization')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "4b56dc00-99b8-48a6-9d99-1fa2e5fb5aed",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["5676e066-6100-4b55-9f18-7b347d4a5e8b"]
+  }],
+  "urls": [],
+  "plugins": []
+}
