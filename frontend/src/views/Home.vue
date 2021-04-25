@@ -53,14 +53,14 @@
         </h4>
         <b-row>
           <!-- 3 Images embedded for our website milestone -->
-            <b-col> Visualizing Polls on Google Maps!
-            <img alt="Map" style="text-align: left" src="@/assets/embedded-map.png" height="300" width="450"> 
+            <b-col> <h3> Visualizing Polls on Google Maps! </h3>
+            <img alt="Map" style="text-align: left" src="@/assets/embedded-map.png" height="600" width="900"> 
             <br> </b-col>
-          <b-col> Create Your Own Graphs! 
+          <b-col> <h3> Create Your Own Graphs! </h3> 
           <br>
           <img alt="Map" style="text-align: center" src="@/assets/embedded-data-graph.png" height="600" width="900"> 
           <br></b-col>
-          <b-col> Viewing the Results of Each Poll!
+          <b-col> <h3> Viewing the Results of Each Poll! </h3>
           <img alt="Map" src="@/assets/embedded-list-of-parts.png" height="600" width="900"> 
           <br></b-col>
         </b-row>
