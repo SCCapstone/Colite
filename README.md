@@ -129,7 +129,7 @@ npm install express sequelize mysql2 body-parser cors --save
 
 - The unit tests will be located in frontend/tests/units
 - The behavioral tests will be located in frontend/tests/behavioral
-- BEHAIVORAL TESTING:
+- BEHAVIORAL TESTING:
 The behaivoral tests will be run using the Selenium IDE which lets us automate web browing.
 
 *Prerequisites:
@@ -139,25 +139,22 @@ The behaivoral tests will be run using the Selenium IDE which lets us automate w
 *Installing Browser Drivers:
 Chrome:
 > npm install -g chromedriver
-Edge:
-> npm install -g edgedriver
-Internet Explorer:
-> npm install -g iedriver
 
 *Launching the Runner:
 > selenium-side-runner /frontend/tests/behavioral/behavior-tests.side
 
 *TO RUN THE BEHAVIORAL TEST
-- The command below worked for me on my terminal, I was in C:Users\haywa and then ran the commands:
+- The command below worked for me on my terminal, I was in root and then ran the commands:
 > npm install -g selenium-side-runner
 > npm install -g chromedriver
-OR Install 88.0.4324.27 from:
-http://chromedriver.storage.googleapis.com/index.html?path=88.0.4324.27/
+
 THEN run the command: (replace ronro with your username or adjust path as intended)
->  selenium-side-runner C:\Users\ronro\Documents\GitHub\Colite\frontend\tests\behavior\behavior-test.side
+>  selenium-side-runner C:\Users\ronro\Documents\GitHub\Colite\frontend\tests\behavior\ContactUs.side
+>  selenium-side-runner C:\Users\ronro\Documents\GitHub\Colite\frontend\tests\behavior\Maps.side
+>  selenium-side-runner C:\Users\ronro\Documents\GitHub\Colite\frontend\tests\behavior\Graphs.side
+>  selenium-side-runner C:\Users\ronro\Documents\GitHub\Colite\frontend\tests\behavior\ListOfParts.side
 
-- BEHAVIORAL TESTING:
-
+UNIT TESTING
 > Go to Tests page through the navbar
 > Click on a pole.
 
