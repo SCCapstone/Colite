@@ -41,7 +41,7 @@
         by using our application!
       </h5>
       <div class="video-embed"> 
-        <video-embed css="embed-responsive-21by9" class="video-embed" src="https://www.youtube.com/watch?v=qZXt1Aom3Cs&ab_channel=TraversyMedia"></video-embed>  
+        <video-embed css="embed-responsive-21by9" class="video-embed" src="https://youtu.be/G2Oc5lSxY_Q"></video-embed>  
 
         <!-- sample embedded image below -->
       </div>
@@ -51,18 +51,26 @@
         <h4>
           What features can our application provide?
         </h4>
+        <br>
         <b-row>
           <!-- 3 Images embedded for our website milestone -->
-            <b-col> Visualizing Polls on Google Maps!
-            <img alt="Map" style="text-align: left" src="@/assets/embedded-map.png" height="300" width="450"> 
+            <b-col> <br><h2>Visualizing Polls on Google Maps!</h2>
+            <br>
+            <img alt="Map" style="text-align: left" src="@/assets/embedded-map.png" height="600" width="900"> 
             <br> </b-col>
-          <b-col> Create Your Own Graphs! 
+          </br>
+          <br>
+          <b-col> <br><h2>Create Your Own Graphs! </h2>
           <br>
           <img alt="Map" style="text-align: center" src="@/assets/embedded-data-graph.png" height="600" width="900"> 
           <br></b-col>
-          <b-col> Viewing the Results of Each Poll!
+          <br>
+          <br>
+          <b-col> <br><h2>Viewing the Results of Each Poll!</h2>
+          <br>
           <img alt="Map" src="@/assets/embedded-list-of-parts.png" height="600" width="900"> 
           <br></b-col>
+          <br>
         </b-row>
       </b-container>
     </b-jumbotron>

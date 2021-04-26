@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "64306ae586c4d6a6158b",
+    "revision": "9adcd5526827bd0c93b3",
     "url": "/css/AddPole.4d9f074c.css"
   },
   {
@@ -8,15 +8,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/ContactUs.3ba3582d.css"
   },
   {
-    "revision": "d1855b669413f31a5985",
+    "revision": "c0533c80b2c31422ac43",
     "url": "/css/Graphs.b32815a8.css"
   },
   {
-    "revision": "eb419e524346e9574c91",
+    "revision": "af3977f8492a8e36dfab",
     "url": "/css/PolesList.139b9626.css"
   },
   {
-    "revision": "85afdeab42fa67985cf6",
+    "revision": "e8db862dc5d5942a000a",
     "url": "/css/Testing.403d21db.css"
   },
   {
@@ -24,8 +24,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/about.eed0ce48.css"
   },
   {
-    "revision": "0d87386f0526622766ce",
-    "url": "/css/app.797d24f4.css"
+    "revision": "dc928b8b5a80706c4490",
+    "url": "/css/app.c860084f.css"
   },
   {
     "revision": "bea249a4d844f526fcda",
@@ -40,11 +40,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/listOfParts.a187fd38.css"
   },
   {
-    "revision": "8e8bdb04d64cbe3f880b",
+    "revision": "e250f898446c7880e100",
     "url": "/css/map.e7617218.css"
   },
   {
-    "revision": "8e353f6271147f86af65",
+    "revision": "f9b85909df9849f0c110",
     "url": "/css/pole.9f73d7d2.css"
   },
   {
@@ -68,36 +68,36 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/embedded-map.7df08c39.png"
   },
   {
-    "revision": "f04c6070480dd7a9f9f46154e220164f",
+    "revision": "155e9765f16f9026e827fdd94a6d933b",
     "url": "/index.html"
   },
   {
-    "revision": "64306ae586c4d6a6158b",
-    "url": "/js/AddPole.a19d3513.js"
+    "revision": "9adcd5526827bd0c93b3",
+    "url": "/js/AddPole.49200122.js"
   },
   {
     "revision": "a6dc35701da996b8f5a4",
     "url": "/js/ContactUs.a986d307.js"
   },
   {
-    "revision": "d1855b669413f31a5985",
-    "url": "/js/Graphs.ff5feec7.js"
+    "revision": "c0533c80b2c31422ac43",
+    "url": "/js/Graphs.a05e0799.js"
   },
   {
-    "revision": "eb419e524346e9574c91",
-    "url": "/js/PolesList.b1c8c29b.js"
+    "revision": "af3977f8492a8e36dfab",
+    "url": "/js/PolesList.78315993.js"
   },
   {
-    "revision": "85afdeab42fa67985cf6",
-    "url": "/js/Testing.07909a88.js"
+    "revision": "e8db862dc5d5942a000a",
+    "url": "/js/Testing.a47895a9.js"
   },
   {
     "revision": "deee95fcf627614562a7",
     "url": "/js/about.e61b3683.js"
   },
   {
-    "revision": "0d87386f0526622766ce",
-    "url": "/js/app.3bd86b0b.js"
+    "revision": "dc928b8b5a80706c4490",
+    "url": "/js/app.db1c783c.js"
   },
   {
     "revision": "bea249a4d844f526fcda",
@@ -112,12 +112,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/listOfParts.70cd197a.js"
   },
   {
-    "revision": "8e8bdb04d64cbe3f880b",
-    "url": "/js/map.635c8f78.js"
+    "revision": "e250f898446c7880e100",
+    "url": "/js/map.87d7be9f.js"
   },
   {
-    "revision": "8e353f6271147f86af65",
-    "url": "/js/pole.b2cac1ea.js"
+    "revision": "f9b85909df9849f0c110",
+    "url": "/js/pole.32c91e6a.js"
   },
   {
     "revision": "4b14c64efaf846819b9a229b4193c8b7",
