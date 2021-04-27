@@ -1,0 +1,133 @@
+{
+  "id": "7be8b61f-07bc-47f5-98c6-1170d6605e5d",
+  "version": "2.0",
+  "name": "Graphs",
+  "url": "http://colite-tech-deployment-v2.s3-website-us-east-1.amazonaws.com",
+  "tests": [{
+    "id": "391ed888-fe98-4321-8d3c-b985a204369a",
+    "name": "Graphs",
+    "commands": [{
+      "id": "9db94f27-a86e-41d1-95aa-f9202297480c",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "58efd097-527a-49e7-9c3b-e737d30cea10",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1440x853",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2ecde019-5475-437f-b2a2-5a0d78acc2a8",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Graphs",
+      "targets": [
+        ["linkText=Graphs", "linkText"],
+        ["css=.nav-item:nth-child(5) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Graphs')]", "xpath:link"],
+        ["xpath=//div[@id='nav-collapse']/ul/li[5]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[5]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Graphs')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4ecb55e0-fa11-450f-b6ce-30b93af4f06c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.am-not-active:nth-child(2)",
+      "targets": [
+        ["css=.am-not-active:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div[3]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Chart type Line')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "85e726f4-9489-4bd0-b204-bdcc00b98e95",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(4) > .am-not-active:nth-child(3)",
+      "targets": [
+        ["css=div:nth-child(4) > .am-not-active:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div[3]/button[3]", "xpath:idRelative"],
+        ["xpath=//button[3]", "xpath:position"],
+        ["xpath=//button[contains(.,'Chart type Scatter')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2d792410-85a6-4954-94d5-1b5eaaa0e6fd",
+      "comment": "",
+      "command": "click",
+      "target": "css=.am-not-active:nth-child(4)",
+      "targets": [
+        ["css=.am-not-active:nth-child(4)", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div[3]/button[4]", "xpath:idRelative"],
+        ["xpath=//button[4]", "xpath:position"],
+        ["xpath=//button[contains(.,'Render Over Voltage Comback')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c9b7845b-a03f-4436-baf0-90ab5380c978",
+      "comment": "",
+      "command": "click",
+      "target": "css=.am-not-active:nth-child(9)",
+      "targets": [
+        ["css=.am-not-active:nth-child(9)", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div[3]/button[9]", "xpath:idRelative"],
+        ["xpath=//button[9]", "xpath:position"],
+        ["xpath=//button[contains(.,'Render Location')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c2a5993b-7ee7-4236-ba9d-56659388c3ec",
+      "comment": "",
+      "command": "click",
+      "target": "css=.am-not-active:nth-child(10)",
+      "targets": [
+        ["css=.am-not-active:nth-child(10)", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div[3]/button[10]", "xpath:idRelative"],
+        ["xpath=//button[10]", "xpath:position"],
+        ["xpath=//button[contains(.,'Render MPPT Close Voltage')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "28e90a3f-4706-4911-95fa-34cfbc3c7256",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(5)",
+      "targets": [
+        ["css=div:nth-child(5)", "css:finder"],
+        ["xpath=//div[@id='app']/div[2]/div[4]", "xpath:idRelative"],
+        ["xpath=//div[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "daf74ad7-cb74-4ad8-a1c4-ae1c45620695",
+      "comment": "",
+      "command": "type",
+      "target": "css=input",
+      "targets": [
+        ["css=input", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div[2]/div[4]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "50186180-d52b-4751-a91f-57a30b7df030",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["391ed888-fe98-4321-8d3c-b985a204369a"]
+  }],
+  "urls": ["http://colite-tech-deployment-v2.s3-website-us-east-1.amazonaws.com/"],
+  "plugins": []
+}
